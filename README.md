@@ -223,7 +223,7 @@ items  | arr | 菜单列表[{name: "", color: "", fontSize: "", textAlign: ""}] 
 mask  | boolean | 是否显示遮罩蒙版 | true | 否
 touchClose  | boolean | 触摸遮罩是否关闭模态弹窗 | true | 否
 cancle | string | 取消按钮 | '' | 否
-location | string | （icon参数未配置时可配置）位置	</br>bottom:位于底部，从底部弹出显示</br>middle:位于页面中心位置 | 'bottom' | 否
+location | string | 位置	</br>bottom:位于底部，从底部弹出显示</br>middle:位于页面中心位置 | 'bottom' | 否
 theme | number | 主题样式(1: 非全屏宽度； 2: 全屏宽度) | 1 | 否
 
 > 示例:
@@ -255,7 +255,7 @@ items  | arr | 菜单列表[{name: "", icon: "", iconColor: "", img: ""}] | [] |
 mask  | boolean | 是否显示遮罩蒙版 | true | 否
 touchClose  | boolean | 触摸遮罩是否关闭模态弹窗 | true | 否
 cancle | string | 取消按钮 | '' | 否
-location | string | （icon参数未配置时可配置）位置	</br>bottom:位于底部，从底部弹出显示</br>middle:位于页面中心位置 | 'bottom' | 否
+location | string | 位置	</br>bottom:位于底部，从底部弹出显示</br>middle:位于页面中心位置 | 'bottom' | 否
 theme | number | 主题样式(1: 非全屏宽度； 2: 全屏宽度) | 1 | 否
 
 ````html
@@ -394,7 +394,7 @@ position | string | 侧滑菜单初始化位置，默认位于页面左侧 [left
 mask  | boolean | 是否显示遮罩蒙版 | true | 否
 maskTapClose  | boolean | 触摸遮罩是否关闭侧滑菜单 | true | 否
 speed | number | 打开、关闭页面速度[值越大，速度越快] | 10 | 否
-drag | object | {</br> use: true, //--可选参数，是否开启拖动打开、关闭菜单[true: 开启 | false: 关闭] </br> start: null, //--可选参数，开始拖动回调 </br> move: null, //--可选参数，拖动中回调 </br> end: null, //--可选参数，拖动结束</br>} | {} | 否
+drag | object | {</br> use: true, //--可选参数，是否开启拖动打开、关闭菜单[true: 开启 , false: 关闭] </br> start: null, //--可选参数，开始拖动回调 </br> move: null, //--可选参数，拖动中回调 </br> end: null, //--可选参数，拖动结束</br>} | {} | 否
 style | object | {</br>w: '80vw',</br>h: '100vh',</br>bg: '#333'</br>} | {w: '80vw', h: '100vh', bg: '#333'} | 否
 
 ````html
