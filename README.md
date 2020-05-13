@@ -21,7 +21,7 @@
 ````
 ## ui组件
 
-#### loading加载动画
+#### `loading加载动画`
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -44,7 +44,7 @@ aui.showload({
 aui.hideload();
 ```
 
-#### toast消息提示弹窗
+#### `toast消息提示弹窗`
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -52,10 +52,10 @@ warp  | string | 父容器元素 | 'body' | 否
 msg  | string | 提示内容 | '' | 是
 icon  | string | 图标 | '' | 否
 direction  | string | 横向("row")或纵向("col")控制 | 'col' | 否
-location  | string | （icon参数未配置时可配置）位置	</br>1、bottom:位于底部，从底部弹出显示</br>2、middle:位于页面中心位置 | 'bottom' | 否
+location  | string | （icon参数未配置时可配置）位置	</br>bottom:位于底部，从底部弹出显示</br>middle:位于页面中心位置 | 'bottom' | 否
 duration  | number | 显示时间 | 2000 | 否
 
-> 显示消息提示弹窗
+> 示例：
 ````javascript
 aui.toast({
     icon: "../../img/success.png",
@@ -65,7 +65,7 @@ aui.toast({
 
 });
 ````
-#### dialog提示窗
+#### `dialog提示窗`
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -202,7 +202,7 @@ aui.confirm({
 });
 ````
 
-#### actionsheet操作表
+#### `actionsheet操作表`
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -211,10 +211,10 @@ items  | arr | 菜单列表[{name: "", color: "", fontSize: "", textAlign: ""}] 
 mask  | boolean | 是否显示遮罩蒙版 | true | 否
 touchClose  | boolean | 触摸遮罩是否关闭模态弹窗 | true | 否
 cancle | string | 取消按钮 | '' | 否
-location | string | （icon参数未配置时可配置）位置	</br>1、bottom:位于底部，从底部弹出显示</br>2、middle:位于页面中心位置 | 'bottom' | 否
+location | string | （icon参数未配置时可配置）位置	</br>bottom:位于底部，从底部弹出显示</br>middle:位于页面中心位置 | 'bottom' | 否
 theme | number | 主题样式(1: 非全屏宽度； 2: 全屏宽度) | 1 | 否
 
-> 显示操作表
+> 示例：
 ````javascript
 aui.actionSheet({
     title: '上传图片',
@@ -231,4 +231,109 @@ aui.actionSheet({
 },function(ret){
     console.log(ret.index);				
 });
+````
+#### `actionmenu分享弹窗`
+
+参数  |  类型  |  描述  | 默认值 | 必选
+---- | ----- | ------ | ----- | ----
+warp  | string | 父容器元素 | 'body' | 否
+items  | arr | 菜单列表[{name: "", icon: "", iconColor: "", img: ""}] | [] | 否
+mask  | boolean | 是否显示遮罩蒙版 | true | 否
+touchClose  | boolean | 触摸遮罩是否关闭模态弹窗 | true | 否
+cancle | string | 取消按钮 | '' | 否
+location | string | （icon参数未配置时可配置）位置	</br>bottom:位于底部，从底部弹出显示</br>middle:位于页面中心位置 | 'bottom' | 否
+theme | number | 主题样式(1: 非全屏宽度； 2: 全屏宽度) | 1 | 否
+
+````html
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.actionmenu.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.actionmenu.js"></script>
+````
+> 示例：
+````javascript
+aui.actionMenu({
+    title: '分享至',
+    mask: true,
+    touchClose: true,
+    items: [
+        {name: "微信", img: "../../img/weixin.png"},
+        {name: "朋友圈", img: "../../img/pengyouquan.png"},
+        {name: "QQ", img: "../../img/QQ.png"},
+        {name: "微博", img: "../../img/weibo.png"}
+    ],
+    cancle: "取消",
+    theme: 1,
+    location: "bottom"
+},function(ret){
+    console.log(ret.index);				
+});
+````
+
+#### `popover菜单`
+
+参数  |  类型  |  描述  | 默认值 | 必选
+---- | ----- | ------ | ----- | ----
+warp  | string | 父容器元素 | 'body' | 否
+items  | arr | 菜单列表[{name: "", color: "", icon: "iconfont icongfont-right", iconColor: '', img: "", fontSize: "", textAlign: ""}] | [] | 否
+mask  | boolean | 是否显示遮罩蒙版 | false | 否
+touchClose  | boolean | 触摸遮罩是否关闭模态弹窗 | true | 否
+location | string | 位置	</br>top: 设置弹窗显示到触发元素“上”方;</br> bottom: 设置弹窗显示到触发元素“下”方; | 'top' | 否
+
+````html
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.popover.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.popover.js"></script>
+````
+> 示例：
+````javascript
+aui.popover.open({
+    warp: '.aui-header-right',
+    items: [
+        {name: '微信', img: '../../img/weixin.png'},
+        {name: '朋友圈', img: '../../img/pengyouquan.png'},
+        {name: 'QQ', img: '../../img/QQ.png'},
+        {name: '微博', img: '../../img/weibo.png'}
+    ],
+    mask: true,
+    location: 'bottom'
+},function(ret){
+    console.log(ret);
+    aui.toast({msg: ret.el.querySelector("span").innerHTML});
+})	
+````
+
+#### `picker多级联动`
+
+参数  |  类型  |  描述  | 默认值 | 必选
+---- | ----- | ------ | ----- | ----
+warp  | string | 父容器元素 | 'body' | 否
+title | string | 标题 | '' | 否
+layer | number | 控制几级联动 | 1 | 否
+data | arr | 数据 如：[{text: '', adcode: '', children: [{text: '', adcode: ''}]}] | [] | 否
+
+````html
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.picker.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.picker.js"></script>
+````
+> 示例：
+````javascript
+aui.picker.open({
+    title: '选择区域',
+    layer: 3,
+    data: cityData, //城市数据
+    select: function(ret){
+        console.log(ret);
+    }
+},function(ret){
+    console.log(ret);
+    if(ret.status == 1){
+        aui.picker.close(function(){
+            aui.alert({msg: ret.data.text + " " + ret.data.children.text + ' ' + ret.data.children.children.text});						
+        });						
+    }
+})
 ````
