@@ -3,11 +3,11 @@
 #### 简介
 > aui是一套基于原生javascript开发的移动端UI库，包含常用js方法、字符校验、dialog提示弹窗、项目常用模板...
 #### 特点
-> 1、标准化，产品化
-> 2、更多复用，更快效率
-> 3、多人协作，更加统一
-> 4、维护方便
-> 5、易于使用
+> 1、标准化，产品化</br>
+> 2、更多复用，更快效率</br>
+> 3、多人协作，更加统一</br>
+> 4、维护方便</br>
+> 5、易于使用</br>
 > 6、减少UI设计时间
 #### 引用
 ````html
@@ -15,7 +15,7 @@
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
 ````
 #### ui组件
-1.loading加载动画
+loading加载动画
 参数  |  类型  |  描述  | 值（默认）| 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -25,8 +25,15 @@ mask  | boolean | 是否显示遮罩蒙版 | true | 否
 direction  | string | 横向("row")或纵向("col")控制 | 'col' | 否
 theme  | number | type=3时，控制全屏或小窗展示（1：小窗 | 2：全屏） | 1 | 否
 style  | object | {bg: '背景',</br>color: '文字颜色', </br>maskBg: '遮罩层颜色', </br>zIndex: '层级'} | '' | 否
-> 示例：
+> 示例：</br>
+1、显示loading加载：
 ```javascript
-aui.showload({msg: "加载中"});
+aui.showload({
+    msg: "加载中"
+});
+```
+2、隐藏loading加载：
+```javascript
+aui.hideload();
 ```
 
