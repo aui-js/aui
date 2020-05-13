@@ -3,21 +3,29 @@
 	 * versions 1.0.0
 	 * 2939744339@qq.com
 	 * @example:
-	    aui.sidemenu.init({ //初始化
+	    aui.sidemenu.init({
 	    	warp: '.aui-container',
 	    	content: '#aui-sidemenu-wapper',
-	    	position: 'left',
-	    	moveType: 'all-move',
-	    	moves: ['header', '.aui-content'],
+	    	position: _this.position.data[_this.position.currentIndex].position,
+	    	moveType: _this.list.data[_this.list.currentIndex].moveType,
+	    	moves: ['.aui-container'],
 	    	mask: true,
 	    	maskTapClose: true,
+	    	drag: {
+	    		use: true,
+	    		//start: _this.dragcallback,
+	    		//move: _this.dragcallback,
+	    		end: function(ret){
+	    			console.log(ret)
+	    		}
+	    	},
 	    	style: {
 	    		w: '70vw',
 	    		h: '100vh',
 	    		bg: '#333'
-	    	}
+	    	},
 	    }).then(function(ret){
-	    	//console.log(ret)
+	    	console.log(ret)
 	    });
 		aui.sidemenu.setData({ //设置配置数据
 			position: 'right',

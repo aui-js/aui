@@ -379,3 +379,78 @@ aui.poster({
     image: 'https://xbjz1.oss-cn-beijing.aliyuncs.com/upload/default/share.png'
 });
 ````
+
+#### `sidemenu侧滑菜单`
+
+[预览](https://aui-js.github.io/aui/demo/sidemenu/index.html) </br> 
+
+参数  |  类型  |  描述  | 默认值 | 必选
+---- | ----- | ------ | ----- | ----
+warp  | string | 父容器元素 | 'body' | 否
+content | string | 侧滑菜单元素 | '' | 是
+moves | arr | 跟随拖动元素；[header——页面头部, .content——页面内容部分] (moveType设置为"all-move" 或 "menu-move"时，此参数必须配置 | [] | 是
+moveType | string | ['main-move': '主页面移动，侧滑菜单固定'] </br> ['menu-move': '侧滑菜单移动，主页面固定'] </br> ['all-move': '主页面+侧滑菜单都移动'] | 'main-move' | 否
+position | string | 侧滑菜单初始化位置，默认位于页面左侧 [left: '左侧', right: '右侧'] | 'left' | 否
+mask  | boolean | 是否显示遮罩蒙版 | true | 否
+maskTapClose  | boolean | 触摸遮罩是否关闭侧滑菜单 | true | 否
+speed | number | 打开、关闭页面速度[值越大，速度越快] | 10 | 否
+drag | object | {</br> use: true, //--可选参数，是否开启拖动打开、关闭菜单[true: 开启 | false: 关闭] </br> start: null, //--可选参数，开始拖动回调 </br> move: null, //--可选参数，拖动中回调 </br> end: null, //--可选参数，拖动结束</br>} | {} | 否
+style | object | {</br>w: '80vw',</br>h: '100vh',</br>bg: '#333'</br>} | {w: '80vw', h: '100vh', bg: '#333'} | 否
+
+````html
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.sidemenu.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.sidemenu.js"></script>
+````
+> 初始化：   
+````javascript
+aui.sidemenu.init({
+	warp: '.aui-container',
+	content: '#aui-sidemenu-wapper',
+	position: 'left',
+	moveType: 'main-move',
+	moves: ['.aui-container'],
+	mask: true,
+	maskTapClose: true,
+	drag: {
+		use: true,
+		//start: _this.dragcallback,
+		//move: _this.dragcallback,
+		end: function(ret){
+			console.log(ret)
+		}
+	},
+	style: {
+		w: '70vw',
+		h: '100vh',
+		bg: '#333'
+	},
+}).then(function(ret){
+	console.log(ret)
+});
+````
+> 设置配置数据：   
+````javascript
+aui.sidemenu.setData({ //设置配置数据
+	position: 'left',
+	moveType: 'main-move'
+}).then(function(ret){
+	//console.log(ret)
+});
+````
+> 打开侧滑菜单：   
+````javascript
+aui.sidemenu.open({
+	moveType: 'main-move',
+	speed: 10,
+}).then(function(ret){
+	console.log(ret)
+});
+````
+> 关闭侧滑菜单：   
+````javascript
+aui.sidemenu.close({speed: 10}).then(function(ret){
+	console.log(ret)
+});
+````
