@@ -19,6 +19,10 @@
 <link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
 ````
+
+## 演示
+[查看演示](https://aui-js.github.io/aui/html/plugs/toast.html) </br>
+
 ## ui组件
 
 #### `loading加载动画`
