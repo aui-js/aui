@@ -80,7 +80,7 @@ items  | arr | prompt--input框列表配置</br>[{label: '姓名：', type: 'tex
 duration  | number | 显示时间 | 2000 | 否
 style  | object | {</br>    w: '', //--可选参数，模态窗宽度，默认80%</br>    h: '', //--可选参数，模态窗高度，默认"auto"自适应</br>  bg: '',//--可选参数，模态窗背景色，默认白色</br>    zIndex: '', //--可选参数，模态窗层级</br> animate: '', //--可选参数，显示动画</br> title: {</br>   bg: "",</br>    color: "",</br> lineHeight: "",</br>    textAlign: "",</br> fontSize: "",</br>  padding: ""</br>}} | '' | 否
 
-> [预览](https://aui-js.github.io/aui/html/plugs/dialog.html)
+> [预览](https://aui-js.github.io/aui/html/plugs/dialog.html) </br>
 > 1、alert单按钮提醒弹窗
 ````javascript
 aui.alert({
