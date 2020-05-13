@@ -1,0 +1,33 @@
+/* wxShare 微信分享提示弹窗*/
+.aui-wxshare{
+	width: 100vw;
+	height: 100vh;
+	opacity: 0;
+	-moz-animation: aui-fade-in .2s ease-out forwards;
+	-ms-animation: aui-fade-in .2s ease-out forwards;
+	-webkit-animation: aui-fade-in .2s ease-out forwards;
+	animation: aui-fade-in .2s ease-out forwards;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+}
+.aui-wxshare .aui-wxshare-main{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;	
+	font-size: 0;
+	position: absolute;	
+	left: 0px;
+	z-index: 999;
+}
+.aui-wxshare .aui-wxshare-img{
+	width: 50%;
+	position: absolute;
+	top: 10px;
+	right: 25px;
+	z-index: 999;
+}
+.aui-wxshare .aui-wxshare-img img{
+	width: 100%;
+}

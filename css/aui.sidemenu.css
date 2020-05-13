@@ -1,0 +1,56 @@
+body{overflow-x: hidden;}
+.aui-sidemenu{
+	width: 80vw;
+	height: 100vh;	
+	display: inline-block;
+	background: #333;
+	overflow: hidden;
+	overflow-y: scroll;
+	transform: scale(1);
+	position: fixed;
+	left: -80vw;
+	top: 0;
+	z-index: 998;
+}
+.aui-sidemenu.fixed.left{
+	left: 0px !important;
+	right: auto !important;
+	z-index: 0;
+}
+.aui-sidemenu.fixed.right{
+	left: auto !important;
+	right: 0vw !important;
+	z-index: 0;
+}
+.aui-sidemenu.move.left{
+	left: -80vw;
+	right: auto !important;
+}
+.aui-sidemenu.move.right{
+	left: auto !important;
+	right: -100vw;
+}
+.aui-sidemenu.scale.left{
+	-webkit-transform-origin: -100%;
+	transform-origin: -100%;
+	transform: scale(0.8);
+}
+.aui-sidemenu.scale.right{
+	-webkit-transform-origin: 200%;
+	transform-origin: 200%;
+	transform: scale(0.8);
+}
+.aui-sidemenu.show .aui-mask{
+	display: inline-block;
+}
+.aui-sidemenu.hide .aui-mask{
+	display: none;
+}
+.aui-sidemenu-main{
+	width: 100%;
+	min-height: 100%;
+	padding: 50px 20px;
+	box-sizing: border-box;
+	position: relative;
+	z-index: 999;
+}

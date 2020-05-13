@@ -1,0 +1,115 @@
+/* ====================
+    keypad数字键盘
+ =====================*/
+.aui-keypad{
+	width: 100vw;
+	height: 100vh;
+	opacity: 0;
+	font-size: 0;
+	-ms-animation: aui-fade-in .2s ease-out forwards;
+	-webkit-animation: aui-fade-in .2s ease-out forwards;
+	animation: aui-fade-in .2s ease-out forwards;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 996;
+}
+.aui-keypad .aui-mask{
+	z-index: 995;
+}
+.aui-keypad-main{
+	width: 100%;	
+	-ms-animation: aui-slide-up-screen .2s ease-out forwards;
+	-webkit-animation: aui-slide-up-screen .2s ease-out forwards;
+	animation: aui-slide-up-screen .2s ease-out forwards;
+	background: rgba(235,235,235,1);
+	/* box-shadow: 0 -3px 10px rgba(230,230,230,.8); */
+	position: fixed;
+	bottom: -40vh;
+	left: 0;
+	z-index: 996;
+}
+.aui-keypad-top{
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	background: rgba(250,250,250,1);	
+	position: relative;
+}
+.aui-keypad-top i{
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 20px;
+	color: #CDCDCD;
+	-ms-transform: scaleX(1.6);
+	-webkit-transform: scaleX(1.6);
+	transform: scaleX(1.6);
+	font-weight: lighter;
+	display: inline-block;
+	position: relative;
+}
+.aui-keypad-middle{
+	width: 100%;
+	font-size: 0;
+}
+.aui-keypad-item{
+	width: 33.33%;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	font-size: 27px;
+	font-weight: 400;
+	color: #515151;
+	background: rgba(250,250,250,1);
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+}
+.aui-keypad-item.aui-keypad-point{
+	line-height: 45px;
+}
+.aui-keypad-item:before{
+	content: '';
+	width: 100%;
+	height: 1px;
+	-webkit-transform: scaleY(.3);
+	transform: scaleY(.3);
+	background: rgba(100,100,100,0.3);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.aui-keypad-item:nth-child(10):before,
+.aui-keypad-item:nth-child(11):before,
+.aui-keypad-item:nth-child(11):before
+{
+	display: none;
+}
+.aui-keypad-item:after{
+	content: '';
+	width: 1px;
+	height: 100%;
+	-webkit-transform: scaleX(.3);
+	transform: scaleX(.3);
+	background: rgba(100,100,100,0.3);
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.aui-keypad-item:nth-child(3n):after{
+	display: none;
+}
+.aui-keypad-clear,.aui-keypad-hide{
+	background: rgba(235,235,235,1);
+}
+.aui-keypad-clear i{
+	font-size: 40px;
+	color: #515151;	
+	position: relative;
+	top: -4px;
+}
+
+.aui-keypad-clear:before{
+	display: none;
+}

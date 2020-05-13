@@ -1,0 +1,450 @@
+/*
+========================
+	chatbox聊天页面底部UI插件
+=========================
+*/
+.aui-chatbox{
+	/*width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 998;*/
+}
+.aui-chatbox .aui-mask{
+	background: transparent;
+	z-index: 995;
+	display: none;
+}
+.aui-chatbox .aui-mask.active{
+	display: inline-block;
+}
+.aui-chatbox-main{
+	width: 100%;
+	height: auto;
+	background: #EFEFEF;
+	-ms-transition: bottom .2s;
+	-webkit-transition: bottom .2s;
+	transition: bottom .2s;
+	position: fixed;
+	bottom: 0;
+	z-index: 996;
+}
+.aui-chatbox-main-warp{
+	width: 100vw;	
+	min-height: 55px;
+	text-align: right;
+	overflow-x: hidden;
+	white-space: nowrap;
+	position: relative;
+	z-index: 996;
+}
+.aui-chatbox.show .aui-mask{
+	-ms-animation: aui-fade-in .2s ease-out forwards;
+	-webkit-animation: aui-fade-in .2s ease-out forwards;
+	animation: aui-fade-in .2s ease-out forwards;
+}
+.aui-chatbox.show .aui-chatbox-main{
+	-ms-animation: aui-fade-in .0s ease-out forwards;
+	-webkit-animation: aui-fade-in .0s ease-out forwards;
+	animation: aui-fade-in .0s ease-out forwards;
+}
+.aui-chatbox.hide .aui-mask{
+	-ms-animation: aui-fade-out .2s ease-out forwards;
+	-webkit-animation: aui-fade-out .2s ease-out forwards;
+	animation: aui-fade-out .2s ease-out forwards;
+}
+.aui-chatbox.hide .aui-chatbox-main{
+	-ms-animation: aui-fade-out .0s ease-out forwards;
+	-webkit-animation: aui-fade-out .0s ease-out forwards;
+	animation: aui-fade-out .0s ease-out forwards;
+}
+
+.aui-chatbox-left{
+	width: 50px;
+	min-height: 55px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+}
+.aui-chatbox-center{
+	width: -webkit-calc(100% - 50px - 90px);
+	width: calc(100% - 50px - 90px);
+	min-height: 55px;
+	text-align: center;
+	display: inline-block;
+	vertical-align: top;
+	-ms-transition: width .2s;
+	-webkit-transition: width .2s;
+	transition: width .2s;
+}
+.aui-chatbox-right{
+	width: 90px;
+	min-height: 55px;
+	padding: 0 5px 0 5px;
+	box-sizing: border-box;
+	float: right;
+	text-align: right;
+	display: inline-block;
+	vertical-align: top;
+	-ms-transition: width .2s;
+	-webkit-transition: width .2s;
+	transition: width .2s;
+}
+
+.aui-chatbox-center-box{
+	width: 100%;
+	min-height: 55px;
+	display: none;
+}
+.aui-chatbox-center-box.active{
+	display: inline-block !important;
+}
+.aui-chatbox-textarea{
+	width: 100%;
+	height: 40px;
+	line-height: 30px;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	border: none;
+	font-size: 16px;
+	display: inline-block;
+	color: #333;
+	resize:none;
+	border-radius: 5px;
+	margin-top: 7.2px;
+	background: #FFF;
+}
+.aui-chatbox-center-box span{
+	width: 100%;
+	height: 40px;
+	line-height: 20px;
+	padding: 10px;
+	display: inline-block;
+	box-sizing: border-box;
+	border: none;
+	font-size: 16px;
+	color: #333;
+	resize:none;
+	border-radius: 5px;
+	margin-top: 7px;
+	transition: background-color .2s;
+}
+.aui-chatbox-record-start span{
+	background: #FFF;
+}
+.aui-chatbox-record-end span{	
+	background: #CDCDCD;
+}
+
+.aui-chatbox-btn{
+	min-width: 40px;
+	min-height: 55px;
+	position: relative;
+	text-align: center;
+	display: none;
+	vertical-align: top;
+}
+.aui-chatbox-btn.active{
+	display: inline-block !important;
+}
+.aui-chatbox-btn i{
+	width: 35px;
+	font-size: 28px;
+	color: #555;
+	font-weight: 500;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.aui-chatbox-btn.aui-chatbox-submit-btn{
+	width: 55px;
+	margin: 0 5px;
+	box-sizing: border-box;
+}
+.aui-chatbox-btn.aui-chatbox-submit-btn span{
+	width: 100%;
+	height: 33px;
+	line-height: 33px;
+	color: #FFF;
+	background: #129611;
+	border-radius: 3px;
+	font-size: 16px;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	-ms-transform: translate(0, -50%);
+	-webkit-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+}
+
+/* 录音弹窗样式 */
+.aui-record-main{
+	width: auto;
+	min-width: 158px;
+	height: auto;
+	min-height: 100px;
+	text-align: center;
+	padding: 20px 15px 15px 15px;
+	box-sizing: border-box;
+	background: rgba(0,0,0,.7);
+	border-radius: 10px;
+	opacity: 0;
+	display: none;
+	transition: opacity .1s;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 997;
+}
+.aui-record-top{
+	min-width: 80px;
+	font-size: 0;
+	margin: 0 0 10px 0;
+}
+.aui-record-top-l{
+	width: 75%;
+	display: inline-block;
+	vertical-align: top;
+}
+.aui-record-top-l i{
+	font-size: 60px;
+	color: #FFF;
+	opacity: 0.9;
+	position: relative;
+	left: -10px;
+}
+.aui-record-top-r{
+	width: 25%;
+	text-align: left;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	left: -10px;
+}
+.aui-record-top-r span{
+	width: 100%;
+	height: 3px;
+	background: #FFF;
+	display: inline-block;
+	margin: 2px 0 2.5px 0;
+	opacity: .2;
+	transition: opacity .1s;
+}
+.aui-record-top-r span:last-child{
+	margin: 0;
+}
+.aui-record-tip{
+	width: 100%;
+	line-height: 20px;
+	padding: 2px 10px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	white-space: nowrap;
+	color: #FFF;
+	opacity: 0.8;
+	font-size: 12px;
+	transition: background-color .2s;
+}
+.aui-record-tip.cancel{
+	background: #FF5053;
+}
+
+/* 表情功能区域样式 */
+.aui-emotion-container{
+	width: 100%;
+	height: 260px;
+	background: #EFEFEF;	
+	touch-action: pan-y;
+	-ms-transition: bottom .2s;
+	-webkit-transition: bottom .2s;
+	transition: bottom .2s;
+	position: fixed;
+	bottom: -260px;	
+	left: 0;
+	z-index: 995;
+}
+.aui-emotion-container.show{
+	bottom: 0;
+}
+.aui-emotion-container.hide{
+	bottom: -260px;
+}
+.aui-emotion-pages{
+	height: 260px;
+	text-align: left;
+}
+.aui-emotion-page{
+	height: 260px;
+	padding: 15px 10px 20px 10px;
+	font-size: 0;
+	box-sizing: border-box;
+}
+.aui-emotion-item, .aui-emotion-page-delete{
+	width: -webkit-calc((100vw - 20px - 10px * 7) / 7);
+	width: calc((100vw - 20px - 10px * 7) / 7);
+	max-width: 60px;
+	height: -webkit-calc((100vw - 20px - 10px * 7) / 7);
+	height: calc((100vw - 20px - 10px * 7) / 7);
+	max-height: 50px;
+	margin: 5px;
+	border-radius: 5px;
+	/* background: rgba(100,100,100,.2); */
+	text-align: center;
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	vertical-align: top;	
+}
+.aui-emotion-item-img{
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	overflow: hidden;
+	display: inline-block;
+	position: relative;
+}
+.aui-emotion-item-img img{
+	width: 30px !important;
+	pointer-events: none;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+.aui-emotion-page-delete i{
+	font-size: 35px;
+	color: #666;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	position: absolute;
+	top: 49%;
+	left: 50%;
+}
+
+.aui-emotion-paginations{
+	bottom: 2vh;
+}
+.aui-emotion-paginations .aui-emotion-pagination{
+	box-shadow: none;
+	background: #CDCDCD;
+}
+.aui-emotion-paginations .aui-emotion-pagination.mui-active{
+	background: #555;
+}
+
+
+/* 附加功能区域样式 */
+.aui-extras-container{
+	width: 100%;
+	height: 260px;
+	background: #EFEFEF;	
+	touch-action: pan-y;
+	-ms-transition: bottom .2s;
+	-webkit-transition: bottom .2s;
+	transition: bottom .2s;
+	position: fixed;
+	bottom: -260px;	
+	left: 0;
+	z-index: 995;
+}
+.aui-extras-container.show{
+	bottom: 0;
+}
+.aui-extras-container.hide{
+	bottom: -260px;
+}
+.aui-extras-pages{
+	height: 260px;
+	text-align: left;
+}
+.aui-extras-page{
+	height: 260px;
+	padding: 35px 20px 15px 20px;
+	box-sizing: border-box;
+}
+.aui-extras-item{
+	width: -webkit-calc((100vw - 40px - 60px) / 4);
+	width: calc((100vw - 40px - 60px) / 4);
+	max-width: 85px;
+	height: -webkit-calc((100vw - 40px - 30px) / 4);
+	height: calc((100vw - 40px - 30px) / 4);
+	max-height: 115px;
+	margin: 0 20px 30px 0;
+	text-align: center;
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;	
+}
+.aui-extras-item:nth-child(4n){
+	margin-right: 0;
+}
+.aui-extras-item-icon{
+	width: -webkit-calc((100vw - 40px - 140px) / 4);
+	width: calc((100vw - 40px - 140px) / 4);
+	max-width: 70px;
+	height: -webkit-calc((100vw - 40px - 140px) / 4);
+	height: calc((100vw - 40px - 140px) / 4);
+	max-height: 70px;	
+	border-radius: 10px;
+	background: #FFF;
+	display: inline-block;
+	position: relative;
+}
+.aui-extras-item-icon i{
+	font-size: 30px;
+	color: #666;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+.aui-extras-item-img{
+	width: -webkit-calc((100vw - 40px - 140px) / 4);
+	width: calc((100vw - 40px - 140px) / 4);
+	max-width: 70px;
+	height: -webkit-calc((100vw - 40px - 140px) / 4);
+	height: calc((100vw - 40px - 140px) / 4);
+	max-height: 70px;	
+	border-radius: 5px;
+	overflow: hidden;
+	background: #FFF;
+	display: inline-block;
+	position: relative;
+}
+.aui-extras-item-img img{
+	width: 100%;
+	border-radius: 5px;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+.aui-extras-item p{
+	line-height: 30px;
+	font-size: 11px;
+	color: #666;
+}
+.aui-extras-paginations{
+	bottom: 2vh;
+}
+.aui-extras-paginations .aui-extras-pagination{
+	box-shadow: none;
+	background: #CDCDCD;
+}
+.aui-extras-paginations .aui-extras-pagination.mui-active{
+	background: #555;
+}

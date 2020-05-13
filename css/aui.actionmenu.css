@@ -1,0 +1,227 @@
+/* ====================
+    actionMenu底部菜单
+ =====================*/
+.aui-actionmenu{
+	width: 100vw;
+	height: 100vh;
+	opacity: 0;
+	-moz-animation: aui-fade-in .2s ease-out forwards;
+	-ms-animation: aui-fade-in .2s ease-out forwards;
+	-webkit-animation: aui-fade-in .2s ease-out forwards;
+	animation: aui-fade-in .2s ease-out forwards;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+}
+.aui-actionmenu.aui-actionmenu-style-1 .aui-actionmenu-main{
+	width: -webkit-calc(100vw - 20px);
+	width: calc(100vw - 20px);
+	max-height: 60vh;
+	overflow: hidden;
+	border-radius: 10px;
+	background: #FFF;	
+	font-size: 0;
+	position: absolute;	
+	left: 10px;
+	z-index: 999;
+}
+.aui-actionmenu.aui-actionmenu-style-2 .aui-actionmenu-main{
+	width: 100%;	
+	max-height: 60vh;
+	overflow: hidden;
+	font-size: 0;
+	background: #FFF;
+	border-radius: 10px 10px 0 0;
+	position: absolute;	
+	left: 0px;
+	z-index: 999;
+}
+.aui-actionmenu .aui-actionmenu-title{
+	width: 100%;
+	min-height: 50px;
+	line-height: 25px;
+	padding: 12px 10px;
+	text-align: center;
+	color: #646464;
+	box-sizing: border-box;
+	font-size: 16px;
+	font-weight: 500;
+	background: #FFF;
+	position: relative;
+}
+.aui-actionmenu .aui-actionmenu-title:before,.aui-actionmenu .aui-actionmenu-title:after{
+	content: '';
+	width: 40px;
+	height: 1px;
+	-moz-transform: scaleY(.3);
+	-ms-transform: scaleY(.3);
+	-webkit-transform: scaleY(.3);
+	transform: scaleY(.3);
+	background: rgba(100,100,100,.4);
+	position: absolute;
+	bottom: 50%;
+	z-index: 1;
+}
+.aui-actionmenu .aui-actionmenu-title:before{
+	left: 25%;
+}
+.aui-actionmenu .aui-actionmenu-title:after{
+	right: 25%;
+}
+.aui-actionmenu.aui-actionmenu-style-1.aui-actionmenu-bottom .aui-actionmenu-main{
+	bottom: -60px;
+	-moz-animation: aui-slide-up .2s ease-out forwards;
+	-ms-animation: aui-slide-up .2s ease-out forwards;
+	-webkit-animation: aui-slide-up .2s ease-out forwards;
+	animation: aui-slide-up .2s ease-out forwards;
+}
+.aui-actionmenu.aui-actionmenu-style-1.aui-actionmenu-middle .aui-actionmenu-main{	
+	width: -webkit-calc(100% - 30px);
+	width: calc(100% - 30px);
+	-moz-animation: aui-scale-in-tosmall .2s ease-out forwards;
+	-ms-animation: aui-scale-in-tosmall .2s ease-out forwards;
+	-webkit-animation: aui-scale-in-tosmall .2s ease-out forwards;
+	animation: aui-scale-in-tosmall .2s ease-out forwards;
+}
+.aui-actionmenu.aui-actionmenu-style-2.aui-actionmenu-middle .aui-actionmenu-main{	
+	width: -webkit-calc(100% - 30px);
+	width: calc(100% - 30px);
+	border-radius: 10px;
+	-moz-animation: aui-scale-in-tosmall .2s ease-out forwards;
+	-ms-animation: aui-scale-in-tosmall .2s ease-out forwards;
+	-webkit-animation: aui-scale-in-tosmall .2s ease-out forwards;
+	animation: aui-scale-in-tosmall .2s ease-out forwards;
+}
+.aui-actionmenu.aui-actionmenu-style-2.aui-actionmenu-bottom .aui-actionmenu-main{
+	bottom: -60px;
+	-moz-animation: aui-slide-up-screen .2s ease-out forwards;
+	-ms-animation: aui-slide-up-screen .2s ease-out forwards;
+	-webkit-animation: aui-slide-up-screen .2s ease-out forwards;
+	animation: aui-slide-up-screen .2s ease-out forwards;
+}
+.aui-actionmenu.aui-actionmenu-style-1 .aui-actionmenu-items{
+	width: 100%;
+	padding: 0 10px 10px 10px;
+	box-sizing: border-box;
+}
+.aui-actionmenu.aui-actionmenu-style-2 .aui-actionmenu-items{
+	width: 100%;
+	padding: 0 10px 10px 10px;
+	box-sizing: border-box;
+	font-size: 0;
+}
+.aui-actionmenu .aui-actionmenu-item{
+	width: 25%;
+	padding: 10px;
+	box-sizing: border-box;
+	color: #333;
+	border-radius: 3px;
+	background: #FFF;
+	text-align: center;
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+}
+.aui-actionmenu .aui-actionmenu-item img{
+	width: 70%;
+}
+.aui-actionmenu .aui-actionmenu-item i{
+	font-size: 50px;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+.aui-actionmenu .aui-actionmenu-item p{
+	width: 100%;
+	line-height: 15px;
+	font-size: 14px;
+	color: #333;
+	margin: 5px 0 0 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.aui-actionmenu .aui-actionmenu-item.no-icon{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 25px 0 15px;
+	box-sizing: border-box;
+	font-size: 15px;
+	text-align: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: inherit;
+	color: #333;
+	position: relative;
+}
+.aui-actionmenu .aui-actionmenu-item.no-icon p{
+	width: 100%;
+	line-height: 50px;
+	margin: 0;
+}
+.aui-actionmenu .aui-actionmenu-cancle{
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	color: #646464;
+	text-align: center;
+	background: #FFF;
+	position: relative;
+}
+.aui-actionmenu.aui-actionmenu-style-1.aui-actionmenu-bottom .aui-actionmenu-cancle{	
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.aui-actionmenu .aui-actionmenu-cancle:after{
+	content: '';
+	width: 100%;
+	height: 1px;
+	-moz-transform: scaleY(.3);
+	-ms-transform: scaleY(.3);
+	-webkit-transform: scaleY(.3);
+	transform: scaleY(.3);
+	background: rgba(100,100,100,.3);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+.aui-actionmenu.aui-actionmenu-middle .aui-actionmenu-cancle{
+	width: 30px;
+	height: 30px;
+	font-size: 0;
+	color: transparent;
+	position: absolute;
+	top: 10px;
+	right: 5px;
+}
+.aui-actionmenu.aui-actionmenu-middle .aui-actionmenu-cancle::before{
+	content: '';
+	width: 15px;
+	height: 1px;
+	background: #909090;
+	position: absolute;
+	top: -webkit-calc((100% - 1px) / 2);
+	top: calc((100% - 1px) / 2);
+	left: 7.5px;
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.aui-actionmenu.aui-actionmenu-middle .aui-actionmenu-cancle:after{
+	content: '';
+	width: 15px;
+	height: 1px;
+	background: #909090;
+	position: absolute;
+	top: -webkit-calc((100% - 1px) / 2);
+	top: calc((100% - 1px) / 2);
+	left: 7.5px;
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}

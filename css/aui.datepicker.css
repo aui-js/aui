@@ -1,0 +1,612 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body,
+html {
+	line-height: 1;
+	font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+	font-size: 16px;
+	font-weight: normal;
+}
+
+b {
+	font-weight: normal;
+}
+
+ol,
+ul,
+li {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+input,
+textarea {
+	outline: 0;
+	resize: none;
+	font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+}
+
+i,
+em,
+b,
+cite {
+	font-style: normal;
+	font-weight: normal;
+}
+
+body {
+	background: #f2f2f2;
+}
+
+.clearfix:after {
+	content: '.';
+	height: 0;
+	display: block;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+	text-decoration: none;
+	color: #333;
+}
+
+.html-unscrollable {
+	overflow: hidden;
+	height: 100%
+}
+
+.fl {
+	float: left;
+	display: inline;
+}
+
+.fr {
+	float: right;
+	display: inline;
+}
+
+#datescroll div {
+	float: left;
+	/*margin-top: 15px;*/
+	height: 150px;
+}
+
+#datescroll_datetime div {
+
+	/* margin-left: 10%; */
+	/* padding-right: 22px; */
+}
+
+#yearwrapper {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 60px;
+	width: 33.333%;
+}
+
+#monthwrapper {
+	position: absolute;
+	left: 33.333%;
+	top: 0;
+	bottom: 60px;
+	width: 33.33%;
+}
+
+#daywrapper {
+	position: absolute;
+	left: 66.66%;
+	top: 0;
+	bottom: 60px;
+	width: 33.33%;
+}
+
+#Hourwrapper {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 33.33%;
+	height: 100%;
+}
+
+#Minutewrapper {
+	position: absolute;
+	left: 33.33%;
+	top: 0;
+	width: 33.33%;
+	height: 100%;
+}
+
+#Secondwrapper {
+	position: absolute;
+	left: 66.66%;
+	top: 0;
+	width: 33.33%;
+	height: 100%;
+}
+
+#Hourwrapper ul li {
+	color: #333;
+	font-size: 15px;
+}
+
+#Minutewrapper ul li {
+	color: #333;
+	font-size: 15px;
+}
+
+#Secondwrapper ul li {
+	color: #333;
+	font-size: 15px;
+}
+
+#yearwrapper ul li {
+	color: #333;
+	font-size: 15px;
+	height: 50px;
+	line-height: 50px;
+}
+
+#monthwrapper ul li {
+	color: #333;
+	font-size: 15px;
+	height: 50px;
+	line-height: 50px;
+}
+
+#monthwrapper ul li.crently,
+#yearwrapper ul li.crently,
+#daywrapper ul li.crently,
+#Hourwrapper ul li.crently,
+#Minutewrapper ul li.crently,
+#Secondwrapper ul li.crently{
+	color: var(--aui-color);
+}
+
+#daywrapper ul li {
+	color: #333;
+	font-size: 15px;
+	height: 50px;
+	line-height: 50px;
+}
+
+#markhour {
+	position: relative;
+	margin-left: 62px;
+	top: -2px;
+}
+
+#markminut {
+	position: relative;
+	margin-left: 58px;
+	top: -2px;
+}
+
+#marksecond {
+	position: relative;
+	margin-left: 68px;
+	top: -2px;
+}
+
+#dateheader {
+	width: 100%;
+	height: 50px;
+	background: #79C12F;
+	text-align: center;
+	color: #fff;
+	line-height: 50px;
+	font-size: 20px;
+}
+
+#setcancle ul {
+	text-align: center;
+	margin: 1px auto;
+	font-size: 20px;
+}
+
+#setcancle ul li {
+	background: #f8f8f8;
+	list-style-type: none;
+	font-family: 'microsoft yahei';
+	font-size: 16px;
+	width: 50%;
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	border-top: 1px solid #e6e6e6;
+	position: relative;
+}
+
+#setcancle ul li:last-child:before {
+	content: "";
+	width: 1px;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+	background: #e6e6e6;
+}
+
+#datePlugin {
+	overflow: hidden;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 99999;
+	background: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+#datePlugin.show {
+	display: block;
+	transition: opacity .2s;
+	-moz-animation: aui-fade-in .1s ease-out forwards;
+	-ms-animation: aui-fade-in .1s ease-out forwards;
+	-webkit-animation: aui-fade-in .1s ease-out forwards;
+	animation: aui-fade-in .1s ease-out forwards;
+}
+
+#datePage {
+	font-size: 22px;
+	border-radius: 3px;
+	width: 85%;
+	height: auto !important;
+	background: #fff;
+	z-index: 9999999;
+	position: fixed;
+	left: 50%;
+	top: 45%;
+	z-index: 99999;
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	background: #fff;
+	border-radius: 10px;
+	/*overflow: hidden;*/
+	-webkit-box-shadow: 0 0 12px rgba(0, 0, 0, .175);
+	box-shadow: 0 0 12px rgba(0, 0, 0, .175)
+}
+
+#datetitle {
+	width: 100%;
+	height: 50px;
+	background: #FFF;
+	text-align: center;
+	color: #333;
+	line-height: 50px;
+	font-size: 20px;
+	border-radius: 10px 10px 0 0;
+	font-family: 'microsoft yahei';
+}
+
+#datetitle h1 {
+	height: 100%;
+	line-height: 70px;
+	font-weight: normal;
+}
+
+#datemark {
+	font-size: 18px;
+	width: 80%;
+	height: 48px;
+	position: absolute;
+	top: 180px;
+	left: 10%;
+	border-radius: 3px;	
+}
+#datemark:before{
+	content: '';
+	width: 2px;
+	height: 20px;
+	background: var(--aui-bg);
+	position: absolute;
+	top: 15px;
+	left: 0;
+	z-index: 2;
+}
+#datemark:after{
+	content: '';
+	width: 2px;
+	height: 20px;
+	background: var(--aui-bg);
+	position: absolute;
+	top: 15px;
+	right: 0;
+	z-index: 2;
+}
+#datemark a {
+	position: relative;
+	width: 20%;
+	margin: 0 6.666%;
+	height: 46px;
+	float: left;
+}
+
+#timemark {
+	font-size: 18px;
+	left: 10%;
+	width: 80%;
+	height: 40px;
+	position: absolute;
+	top: 330px;
+	/* background: #e6e6e6; */
+	/* border: 1px solid #e6e6e6; */
+	display: none;
+	z-index: 9999;
+}
+#timemark:before{
+	content: '';
+	width: 2px;
+	height: 20px;
+	background: var(--aui-bg);
+	position: absolute;
+	top: 10px;
+	left: 0;
+	z-index: 2;
+}
+#timemark:after{
+	content: '';
+	width: 2px;
+	height: 20px;
+	background: var(--aui-bg);
+	position: absolute;
+	top: 10px;
+	right: 0;
+	z-index: 2;
+}
+#datescroll {
+	width: 80%;
+	/*padding: 10px 0;*/
+	margin: 0 auto;
+	background: #EFEFF4;
+	height: 150px;
+	text-align: center;
+	line-height: 40px;
+	position: relative;
+	border-radius: 10px;
+}
+#datescroll .col-after:after{
+	background: rgba(100,100,100,.2);
+}
+
+#datescroll_datetime {
+	display: none;
+	/* background: #F8F8F8; */
+	    width: 80%;
+	    margin: 0 auto;
+	    background: #EFEFF4;
+	/* margin: 10px 3%; */
+	margin-top: 10px;
+	/* border: 1px solid #E0E0E0; */
+	border-radius: 10px;
+	height: 120px;
+	text-align: center;
+	line-height: 40px;
+	position: relative;
+	display: none;
+}
+
+#yearwrapper ul,
+#monthwrapper ul,
+#daywrapper ul {}
+
+#Hourwrapper ul,
+#Minutewrapper ul,
+#Secondwrapper ul {
+	width: 100%;
+	position: relative;
+	z-index: 99999;
+}
+
+#dateFooter {
+	width: 100%;
+	background: #fff;
+	padding: 25px 0;
+	position: relative;
+	border-radius: 0 0 10px 10px;
+}
+#dateFooter ul{
+	width: 100%;
+	height: 44px;
+	margin: 0;
+	padding: 0 10%;
+	box-sizing: border-box;
+}
+#dateFooter ul li{
+	border: none;
+}
+#setcancle ul li#dateconfirm{
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	border-radius: 50px;
+	background: var(--aui-jianbian);
+	color: #FFF;
+}
+#setcancle ul #datecancle{
+	width: 50px;
+	height: auto;
+	background: transparent;
+	position: absolute;
+	top: 100%;
+	left: -webkit-calc((100% - 50px) / 2);
+	left: calc((100% - 50px) / 2);
+}
+#setcancle ul li#datecancle img{
+	width: 70%;
+}
+#setcancle ul li#datecancle:before{
+	display: none !important;
+}
+
+
+#datetype{
+	width: 80%;
+	margin: 0 auto;
+	padding: 10px 3%;
+	box-sizing: border-box;
+}
+.dateTab{
+	width: 100%;
+	height: 30px;
+	position: relative;	
+}
+.dateTab span:first-child{
+	line-height: 30px;
+	display: inline-block;
+	font-size: 16px;
+	color: #aaa;
+	vertical-align: top;
+}
+.dateTab span:last-child{
+	float: right;
+	line-height: 30px;
+	font-size: 16px;
+	color: #aaa;
+}
+.dateTab.active:before{
+	content: '';
+	width: 2px;
+	height: 15px;
+	background: var(--aui-bg);
+	position: absolute;
+	top: 7.5px;
+	left: -10px;
+}
+.dateTab.active span{
+	color: #000;
+}

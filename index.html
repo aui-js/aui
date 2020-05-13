@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>aui</title>
+		<link rel="stylesheet" type="text/css" href="css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/aui.popover.css"/>
+		<script type="text/javascript" src="js/aui.min.js"></script>		
+		<script type="text/javascript" src="js/aui.popover.js"></script>
+		<style type="text/css">
+			.aui-content{padding: 0 0 55px 0;}
+			.aui-list-left img{height: 18px; margin: -0 10px 0 0; display: inline-block; vertical-align: middle; position: relative; top: -1px;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<!--<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>-->
+				<div class="aui-header-title" style="left: 15px;">aui</div>
+				<a class="aui-header-right" onclick=""><i class="iconfont iconother"></i></a>
+			</header>
+			<div class="aui-content">
+				<div class="aui-lists">
+					<div class="aui-list" onclick="aui.openWin('html/devices/devices-index.html')">
+						<div class="aui-list-left"><img src="img/index-0.png" alt="">设备</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('html/events/event-index.html')">
+						<div class="aui-list-left"><img src="img/index-1.png" alt="">事件</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('html/plugs/plugs-index.html')">
+						<div class="aui-list-left"><img src="img/index-2.png" alt="">组件</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('html/address/address-index.html')">
+						<div class="aui-list-left"><img src="img/index-3.png" alt="">位置</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('html/service/service-index.html')">
+						<div class="aui-list-left"><img src="img/index-4.png" alt="">客服</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+				</div>
+			</div>
+			<footer class="aui-footer row-before">
+				<div class="aui-footer-list active" onclick="aui.openWin('index.html')"><i class="iconfont iconjs"></i><p>API</p></div>
+				<div class="aui-footer-list" onclick="aui.openWin('demo/demo-index.html')"><i class="iconfont iconshilidaima"></i><p>DEMO</p></div>
+			</footer>
+		</div>
+	</body>
+	<script type="text/javascript">		
+		window.addEventListener("load", function(){			
+			var lists = document.querySelectorAll(".aui-list");
+			for(var i = 0; i < lists.length; i++){
+				aui.touchDom(lists[i], "#EFEFEF");
+			}			
+			//打开菜单弹窗(右上角——>按钮下方)
+			document.querySelector(".aui-header-right").addEventListener("click", function(){
+				aui.popover.open({
+					warp: '.aui-header-right',
+					items: [
+						{name: '生成二维码', icon: 'iconerweima', iconColor: '#12986D'},
+						{name: '微信', icon: 'iconweixin', iconColor: '#1AA034'},
+						{name: '分享到朋友圈', icon: 'iconpengyouquan', iconColor: '#EB3C3B'},
+						{name: '分享到QQ', icon: 'iconqq', iconColor: '#30A5DD'},
+						{name: '分享到微博', icon: 'iconweibo', iconColor: '#FF7C60'}
+					],
+					mask: true,
+					location: 'bottom'
+				},function(ret){
+					console.log(ret);
+					switch (ret.index){
+						case 0:
+							aui.openWin('demo/qrcode/QRCode.html');
+							break;
+						default:
+							aui.toast({msg: ret.el.querySelector("span").innerHTML});
+							break;
+					}
+				})
+			});				
+		});
+	</script>
+</html>
