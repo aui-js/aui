@@ -287,6 +287,7 @@ location | string | 位置	</br>top: 设置弹窗显示到触发元素“上”�
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.popover.js"></script>
 ````
 > 示例：
+</br></br>![](https://aui-js.github.io/aui/img/image/examples/popover-exp.png) 
 ````javascript
 aui.popover.open({
     warp: '.aui-header-right',
