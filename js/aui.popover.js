@@ -20,7 +20,6 @@
 				warp: 'body', //--可选参数，父容器               
                 items: [], //--必选参数，菜单列表[{name: "", color: "", icon: "iconfont icongfont-right", iconColor: '', img: "", fontSize: "", textAlign: ""}]
                 location: 'top',
-                theme: 0,
                 mask: false,
                 touchClose: true
 			}
@@ -72,7 +71,7 @@
         	var _opts = _this.opts(opt);
         	//设置菜单弹窗位置
         	switch (_opts.location){
-        		case 'top': //使用是设置弹窗显示到触发元素“上”方
+        		case 'top': //使用时设置弹窗显示到触发元素“上”方
         			if(_this.ui.warp.offsetTop >= _this.ui.main.offsetHeight + 10)
         			{ //触发元素距顶部距离大于弹窗高度 + 20，则设置位置位于触发元素“上”方
         				_this.ui.main.style.cssText += "top: "+ (_this.ui.warp.offsetTop - _this.ui.main.offsetHeight - 10 )+"px;";
@@ -84,7 +83,7 @@
         				_this.ui.triangle.style.cssText += "top: -6px;";
         			}        			
         			break;
-        		case 'bottom': //使用是设置弹窗显示到触发元素“下”方
+        		case 'bottom': //使用时设置弹窗显示到触发元素“下”方
         			if(window.screen.height - _this.ui.warp.offsetHeight - _this.ui.warp.offsetTop >= _this.ui.main.offsetHeight + 10)
         			{ //触发元素距底部距离大于弹窗高度 + 20，则设置位置位于触发元素“下”方
         				_this.ui.main.style.cssText += "top: "+ (_this.ui.warp.offsetTop + _this.ui.warp.offsetHeight + 10) +"px;";
