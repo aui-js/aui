@@ -25,7 +25,7 @@
 
 ## 组件
 
-#### `loading加载动画`
+### `loading加载动画`
 
 [预览](https://aui-js.github.io/aui/html/plugs/loading.html) </br>
 
@@ -50,7 +50,7 @@ aui.showload({
 aui.hideload();
 ```
 
-#### `toast消息提示弹窗`
+### `toast消息提示弹窗`
 
 [预览](https://aui-js.github.io/aui/html/plugs/toast.html) </br>
 
@@ -73,7 +73,7 @@ aui.toast({
 
 });
 ````
-#### `dialog提示窗`
+### `dialog提示窗`
 
 [预览](https://aui-js.github.io/aui/html/plugs/dialog.html) </br>
 
@@ -212,7 +212,7 @@ aui.confirm({
 });
 ````
 
-#### `actionsheet操作表`
+### `actionsheet操作表`
 
 [预览](https://aui-js.github.io/aui/html/plugs/actionsheet.html) </br>
 
@@ -244,7 +244,7 @@ aui.actionSheet({
     console.log(ret.index);				
 });
 ````
-#### `actionmenu分享弹窗`
+### `actionmenu分享弹窗`
 
 [预览](https://aui-js.github.io/aui/html/plugs/actionmenu.html) </br>
 
@@ -284,7 +284,7 @@ aui.actionMenu({
 });
 ````
 
-#### `popover菜单`
+### `popover菜单`
 
 [预览](https://aui-js.github.io/aui/html/plugs/popover.html) </br>
 
@@ -320,7 +320,7 @@ aui.popover.open({
 })	
 ````
 
-#### `picker多级联动`
+### `picker多级联动`
 
 [预览](https://aui-js.github.io/aui/html/plugs/picker.html) </br> 
 
@@ -356,7 +356,7 @@ aui.picker.open({
 })
 ````
 
-#### `poster广告弹窗`
+### `poster广告弹窗`
 
 [预览](https://aui-js.github.io/aui/html/plugs/poster.html) </br> 
 
