@@ -15,7 +15,7 @@
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
 ````
 #### ui组件
-loading加载动画
+## loading加载动画
 参数  |  类型  |  描述  | 值（默认）| 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -25,14 +25,13 @@ mask  | boolean | 是否显示遮罩蒙版 | true | 否
 direction  | string | 横向("row")或纵向("col")控制 | 'col' | 否
 theme  | number | type=3时，控制全屏或小窗展示（1：小窗 | 2：全屏） | 1 | 否
 style  | object | {bg: '背景',</br>color: '文字颜色', </br>maskBg: '遮罩层颜色', </br>zIndex: '层级'} | '' | 否
-> 示例：</br>
-1、显示loading加载：
+> 显示loading加载：
 ```javascript
 aui.showload({
     msg: "加载中"
 });
 ```
-2、隐藏loading加载：
+> 隐藏loading加载：
 ```javascript
 aui.hideload();
 ```
