@@ -270,6 +270,40 @@ aui.actionMenu({
 });
 ````
 
+#### `popover菜单`
+
+参数  |  类型  |  描述  | 默认值 | 必选
+---- | ----- | ------ | ----- | ----
+warp  | string | 父容器元素 | 'body' | 否
+items  | arr | 菜单列表[{name: "", color: "", icon: "iconfont icongfont-right", iconColor: '', img: "", fontSize: "", textAlign: ""}] | [] | 否
+mask  | boolean | 是否显示遮罩蒙版 | false | 否
+touchClose  | boolean | 触摸遮罩是否关闭模态弹窗 | true | 否
+location | string | 位置	</br>top: 设置弹窗显示到触发元素“上”方;</br> bottom: 设置弹窗显示到触发元素“下”方; | 'top' | 否
+
+````html
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.popover.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.popover.js"></script>
+````
+> 示例：
+````javascript
+aui.popover.open({
+    warp: '.aui-header-right',
+    items: [
+        {name: '微信', img: '../../img/weixin.png'},
+        {name: '朋友圈', img: '../../img/pengyouquan.png'},
+        {name: 'QQ', img: '../../img/QQ.png'},
+        {name: '微博', img: '../../img/weibo.png'}
+    ],
+    mask: true,
+    location: 'bottom'
+},function(ret){
+    console.log(ret);
+    aui.toast({msg: ret.el.querySelector("span").innerHTML});
+})	
+````
+
 #### `picker多级联动`
 
 参数  |  类型  |  描述  | 默认值 | 必选
