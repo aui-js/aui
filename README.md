@@ -2,7 +2,7 @@
 
 ## 简介
 
-> aui是一套基于原生javascript开发的移动端UI库，包含常用js方法、字符校验、dialog提示弹窗、侧滑菜单、时间选择器、多级联动、聊天UI、项目常用模板......
+> aui 是一套基于原生javascript开发的移动端UI库，包含常用js方法、字符校验、dialog提示弹窗、侧滑菜单、时间选择器、多级联动、聊天UI、项目常用模板......
 
 ## 特点
 
@@ -343,4 +343,27 @@ aui.picker.open({
         });						
     }
 })
+````
+
+#### `poster广告弹窗`
+
+参数  |  类型  |  描述  | 默认值 | 必选
+---- | ----- | ------ | ----- | ----
+warp  | string | 父容器元素 | 'body' | 否
+mask  | boolean | 是否显示遮罩蒙版 | true | 否
+touchClose  | boolean | 触摸遮罩是否关闭模态弹窗 | true | 否
+image | string | 广告图片地址 | '' | 是
+
+````html
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.poster.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.poster.js"></script>
+````
+[预览](https://aui-js.github.io/aui/html/plugs/poster.html) </br> 
+> 示例：   
+````javascript
+aui.poster({
+    image: 'https://xbjz1.oss-cn-beijing.aliyuncs.com/upload/default/share.png'
+});
 ````
