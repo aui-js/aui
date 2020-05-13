@@ -55,7 +55,7 @@ direction  | string | 横向("row")或纵向("col")控制 | 'col' | 否
 location  | string | （icon参数未配置时可配置）位置	</br>bottom:位于底部，从底部弹出显示</br>middle:位于页面中心位置 | 'bottom' | 否
 duration  | number | 显示时间 | 2000 | 否
 
-> 显示消息提示弹窗
+> 示例：
 ````javascript
 aui.toast({
     icon: "../../img/success.png",
@@ -214,7 +214,7 @@ cancle | string | 取消按钮 | '' | 否
 location | string | （icon参数未配置时可配置）位置	</br>bottom:位于底部，从底部弹出显示</br>middle:位于页面中心位置 | 'bottom' | 否
 theme | number | 主题样式(1: 非全屏宽度； 2: 全屏宽度) | 1 | 否
 
-> 显示操作表
+> 示例：
 ````javascript
 aui.actionSheet({
     title: '上传图片',
@@ -250,7 +250,7 @@ theme | number | 主题样式(1: 非全屏宽度； 2: 全屏宽度) | 1 | 否
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.actionmenu.js"></script>
 ````
-> 显示actionmenu分享弹窗
+> 示例：
 ````javascript
 aui.actionMenu({
     title: '分享至',
@@ -268,4 +268,38 @@ aui.actionMenu({
 },function(ret){
     console.log(ret.index);				
 });
+````
+
+#### `picker多级联动`
+
+参数  |  类型  |  描述  | 默认值 | 必选
+---- | ----- | ------ | ----- | ----
+warp  | string | 父容器元素 | 'body' | 否
+title | string | 标题 | '' | 否
+layer | number | 控制几级联动 | 1 | 否
+data | arr | 数据 如：[{text: '', adcode: '', children: [{text: '', adcode: ''}]}] | [] | 否
+
+````html
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.picker.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.picker.js"></script>
+````
+> 示例：
+````javascript
+aui.picker.open({
+    title: '选择区域',
+    layer: 3,
+    data: cityData, //城市数据
+    select: function(ret){
+        console.log(ret);
+    }
+},function(ret){
+    console.log(ret);
+    if(ret.status == 1){
+        aui.picker.close(function(){
+            aui.alert({msg: ret.data.text + " " + ret.data.children.text + ' ' + ret.data.children.children.text});						
+        });						
+    }
+})
 ````
