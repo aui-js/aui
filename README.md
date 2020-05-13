@@ -34,7 +34,7 @@ type  | number | 1: 常用风格;</br> 2: 点击按钮后在按钮内显示加�
 msg  | string | 提示内容 | '' | 否
 mask  | boolean | 是否显示遮罩蒙版 | true | 否
 direction  | string | 横向("row")或纵向("col")控制 | 'col' | 否
-theme  | number | type=3时，控制全屏或小窗展示（1：小窗 | 2：全屏） | 1 | 否
+theme  | number | type=3时，控制全屏或小窗展示（1：小窗; 2：全屏） | 1 | 否
 style  | object | {</br>    bg: '背景',</br>  color: '文字颜色', </br>    maskBg: '遮罩层颜色', </br>  zIndex: '层级'</br>} | '' | 否
 
 [预览](https://aui-js.github.io/aui/html/plugs/loading.html) </br>
