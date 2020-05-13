@@ -23,7 +23,7 @@
 ## 演示
 [查看演示](https://aui-js.github.io/aui/index.html) </br>
 
-## ui组件
+## 组件
 
 #### `loading加载动画`
 
