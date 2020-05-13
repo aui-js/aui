@@ -2,7 +2,7 @@
 
 ## 简介
 
-> aui是一套基于原生javascript开发的移动端UI库，包含常用js方法、字符校验、dialog提示弹窗、项目常用模板...
+> aui是一套基于原生javascript开发的移动端UI库，包含常用js方法、字符校验、dialog提示弹窗、侧滑菜单、时间选择器、多级联动、聊天UI、项目常用模板......
 
 ## 特点
 
@@ -72,7 +72,7 @@ aui.toast({
 warp  | string | 父容器元素 | 'body' | 否
 title | string | 标题 | '' | 否
 msg  | string | 提示内容 | '' | 是
-btns  | arr | 按钮，默认按钮为“确定” 分别可设置btns值为</br>1：['按钮1', '按钮2']</br>2：[{name: '按钮1', color: ''},{name: '按钮2', color: ''}] | ['按钮1', '按钮2'] | 否
+btns  | arr | 按钮，默认按钮为“确定” 分别可设置btns值为</br>1：['按钮1', '按钮2']</br>2：[{name: '按钮1', color: ''},{name: '按钮2', color: ''}] | ["确定"] | 否
 mask  | boolean | 是否显示遮罩蒙版 | true | 否
 touchClose  | boolean | 触摸遮罩是否关闭模态弹窗 | true | 否
 theme  | number | 主题样式，控制模态弹窗按钮显示风格(1: 大按钮; 2: 小按钮-居右分布; 3: 按钮宽度等于父级宽度100%，适用于按钮文字过多情况) | 'col' | 否
@@ -199,5 +199,36 @@ aui.confirm({
     else if(ret.index == 2){
         aui.toast({msg: "您点击了返回首页"});
     }
+});
+````
+
+#### actionsheet操作表
+
+参数  |  类型  |  描述  | 默认值 | 必选
+---- | ----- | ------ | ----- | ----
+warp  | string | 父容器元素 | 'body' | 否
+items  | arr | 菜单列表[{name: "", color: "", fontSize: "", textAlign: ""}] | [] | 否
+mask  | boolean | 是否显示遮罩蒙版 | true | 否
+touchClose  | boolean | 触摸遮罩是否关闭模态弹窗 | true | 否
+cancle | string | 取消按钮 | '' | 否
+location | string | （icon参数未配置时可配置）位置	</br>1、bottom:位于底部，从底部弹出显示</br>2、middle:位于页面中心位置 | 'bottom' | 否
+theme | number | 主题样式(1: 非全屏宽度； 2: 全屏宽度) | 1 | 否
+
+> 显示操作表
+````javascript
+aui.actionSheet({
+    title: '上传图片',
+    mask: true,
+    touchClose: true,
+    items: [{
+        name: "从相册选择",
+    },{
+        name: "拍照"
+    }],
+    cancle: "取消",
+    theme: 1,
+    location: "bottom"
+},function(ret){
+    console.log(ret.index);				
 });
 ````
