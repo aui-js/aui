@@ -27,6 +27,8 @@
 
 #### `loading加载动画`
 
+[预览](https://aui-js.github.io/aui/html/plugs/loading.html) </br>
+
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -37,7 +39,6 @@ direction  | string | 横向("row")或纵向("col")控制 | 'col' | 否
 theme  | number | type=3时，控制全屏或小窗展示（1：小窗; 2：全屏） | 1 | 否
 style  | object | {</br>    bg: '背景',</br>  color: '文字颜色', </br>    maskBg: '遮罩层颜色', </br>  zIndex: '层级'</br>} | '' | 否
 
-[预览](https://aui-js.github.io/aui/html/plugs/loading.html) </br>
 > 显示loading加载：
 ```javascript
 aui.showload({
