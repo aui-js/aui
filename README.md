@@ -52,6 +52,8 @@ aui.hideload();
 
 #### `toast消息提示弹窗`
 
+[预览](https://aui-js.github.io/aui/html/plugs/toast.html) </br>
+
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -61,7 +63,6 @@ direction  | string | 横向("row")或纵向("col")控制 | 'col' | 否
 location  | string | （icon参数未配置时可配置）位置	</br>bottom:位于底部，从底部弹出显示</br>middle:位于页面中心位置 | 'bottom' | 否
 duration  | number | 显示时间 | 2000 | 否
 
-[预览](https://aui-js.github.io/aui/html/plugs/toast.html) </br>
 > 示例：
 ````javascript
 aui.toast({
@@ -73,6 +74,8 @@ aui.toast({
 });
 ````
 #### `dialog提示窗`
+
+[预览](https://aui-js.github.io/aui/html/plugs/dialog.html) </br>
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -87,7 +90,6 @@ items  | arr | prompt--input框列表配置</br>[{label: '姓名：', type: 'tex
 duration  | number | 显示时间 | 2000 | 否
 style  | object | {</br>    w: '', //--可选参数，模态窗宽度，默认80%</br>    h: '', //--可选参数，模态窗高度，默认"auto"自适应</br>  bg: '',//--可选参数，模态窗背景色，默认白色</br>    zIndex: '', //--可选参数，模态窗层级</br> animate: '', //--可选参数，显示动画</br> title: {</br>   bg: "",</br>    color: "",</br> lineHeight: "",</br>    textAlign: "",</br> fontSize: "",</br>  padding: ""</br>}} | '' | 否
 
-[预览](https://aui-js.github.io/aui/html/plugs/dialog.html) </br>
 > 1、alert单按钮提醒弹窗
 ````javascript
 aui.alert({
@@ -212,6 +214,8 @@ aui.confirm({
 
 #### `actionsheet操作表`
 
+[预览](https://aui-js.github.io/aui/html/plugs/actionsheet.html) </br>
+
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -222,7 +226,6 @@ cancle | string | 取消按钮 | '' | 否
 location | string | （icon参数未配置时可配置）位置	</br>bottom:位于底部，从底部弹出显示</br>middle:位于页面中心位置 | 'bottom' | 否
 theme | number | 主题样式(1: 非全屏宽度； 2: 全屏宽度) | 1 | 否
 
-[预览](https://aui-js.github.io/aui/html/plugs/actionsheet.html) </br>
 > 示例:
 ````javascript
 aui.actionSheet({
@@ -243,6 +246,8 @@ aui.actionSheet({
 ````
 #### `actionmenu分享弹窗`
 
+[预览](https://aui-js.github.io/aui/html/plugs/actionmenu.html) </br>
+
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -259,7 +264,6 @@ theme | number | 主题样式(1: 非全屏宽度； 2: 全屏宽度) | 1 | 否
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.actionmenu.js"></script>
 ````
-[预览](https://aui-js.github.io/aui/html/plugs/actionmenu.html) </br>
 > 示例：   
 ````javascript
 aui.actionMenu({
@@ -282,6 +286,8 @@ aui.actionMenu({
 
 #### `popover菜单`
 
+[预览](https://aui-js.github.io/aui/html/plugs/popover.html) </br>
+
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -296,7 +302,6 @@ location | string | 位置	</br>top: 设置弹窗显示到触发元素“上”�
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.popover.js"></script>
 ````
-[预览](https://aui-js.github.io/aui/html/plugs/popover.html) </br>
 > 示例：   
 ````javascript
 aui.popover.open({
@@ -317,6 +322,8 @@ aui.popover.open({
 
 #### `picker多级联动`
 
+[预览](https://aui-js.github.io/aui/html/plugs/picker.html) </br> 
+
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -330,7 +337,6 @@ data | arr | 数据 如：[{text: '', adcode: '', children: [{text: '', adcode: 
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.picker.js"></script>
 ````
-[预览](https://aui-js.github.io/aui/html/plugs/picker.html) </br> 
 > 示例：   
 ````javascript
 aui.picker.open({
@@ -352,6 +358,8 @@ aui.picker.open({
 
 #### `poster广告弹窗`
 
+[预览](https://aui-js.github.io/aui/html/plugs/poster.html) </br> 
+
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -365,7 +373,6 @@ image | string | 广告图片地址 | '' | 是
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.poster.js"></script>
 ````
-[预览](https://aui-js.github.io/aui/html/plugs/poster.html) </br> 
 > 示例：   
 ````javascript
 aui.poster({
