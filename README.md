@@ -574,12 +574,11 @@ touchClose  | boolean | 触摸遮罩是否关闭侧滑菜单 | true | 否
 > 示例：   
 ````javascript
 aui.keypad.open({
-	type: 'point', //1、number | 2、point | 3、idcard
-	num: 2, //小数点保留几位
-	mask: false,
-	// value: document.querySelector('#text').value
+    type: 'number', //1、number | 2、point | 3、idcard
+    mask: false,
+    value: document.querySelector('#text1').value
 }, function(ret){
-	console.log(ret);
-	document.querySelector('#text').value = ret.result;
+    console.log(ret);
+    document.querySelector('#text1').value = ret.result;
 });
 ````
