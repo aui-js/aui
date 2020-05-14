@@ -554,7 +554,7 @@ aui.selectMenu.close(function(){
 
 #### `keypad数字键盘`
 
-[预览](https://aui-js.github.io/aui/html/plugs/keypad.html) </br> 
+[预览](https://aui-js.github.io/aui/html/plugs/keypad.html) </br>  
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
