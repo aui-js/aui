@@ -531,7 +531,7 @@ aui.selectMenu.open({
 > 关闭
 ````javascript
 aui.selectMenu.close(function(){
-	if(ret && ret.status == 0){
+    if(ret && ret.status == 0){
 		console.log(ret);
 		if(ret.data.length > 0){
 			is.classList.add("selected");
