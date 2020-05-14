@@ -122,7 +122,7 @@ aui.alert({
     }
 });
 ````
-> 2、confirm双按钮提醒弹窗
+> 2、confirm双按钮提醒弹窗 
 ````javascript
 aui.confirm({
     msg: "您点击了confirm双按钮模态弹窗！",
