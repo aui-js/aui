@@ -406,52 +406,51 @@ style | object | 设置样式 | {</br>w: '80vw',</br> h: '100vh',</br> bg: '#333
 > 初始化：   
 ````javascript
 aui.sidemenu.init({
-	warp: '.aui-container',
-	content: '#aui-sidemenu-wapper',
-	position: 'left',
-	moveType: 'main-move',
-	moves: ['.aui-container'],
-	mask: true,
-	maskTapClose: true,
-	drag: {
-		use: true,
-		//start: _this.dragcallback,
-		//move: _this.dragcallback,
-		end: function(ret){
-			console.log(ret)
-		}
-	},
-	style: {
-		w: '70vw',
-		h: '100vh',
-		bg: '#333'
-	},
+    warp: '.aui-container',
+    content: '#aui-sidemenu-wapper',
+    position: 'left',
+    moveType: 'main-move',
+    moves: ['.aui-container'],
+    mask: true,
+    maskTapClose: true,
+    drag: {
+        use: true,
+        //start: _this.dragcallback,
+        //move: _this.dragcallback,
+        end: function(ret){
+            console.log(ret)
+        }
+    },
+    style: {
+        w: '70vw',
+        h: '100vh',
+        bg: '#333'
+    },
 }).then(function(ret){
-  console.log(ret)
+    console.log(ret)
 });
 ````
 > 设置配置数据：   
 ````javascript
-aui.sidemenu.setData({ //设置配置数据
-	position: 'left',
-	moveType: 'main-move'
+aui.sidemenu.setData({
+    moveType: 'all-move',
 }).then(function(ret){
-	//console.log(ret)
+    //console.log(ret)
 });
 ````
 > 打开侧滑菜单：   
 ````javascript
 aui.sidemenu.open({
-	moveType: 'main-move',
-	speed: 10,
+    moveType: 'main-move',
+    speed: 10,
 }).then(function(ret){
-	console.log(ret)
+    console.log(ret)
 });
 ````
 > 关闭侧滑菜单：   
 ````javascript
 aui.sidemenu.close({speed: 10}).then(function(ret){
-	console.log(ret)
+    console.log(ret)
 });
 ````
 
@@ -480,51 +479,52 @@ style | object | 样式 | {</br>width: '',</br> height: '',</br> top: '',</br> l
 > 打开：   
 ````javascript
 aui.selectMenu.open({
-	warp: '.orderby-items',
-	layer: 3, // 1,2,3...
-	data: [
-		{value: '0', text: '昨天'},
-		{value: '1', text: '本周'},
-		{value: '2', text: '上周'},
-		{value: '3', text: '本月'},
-		{value: '4', text: '上月'},
-	],
-	checkedMore: true,
-	select: function(ret){ //点击时获取下级数据
-		//console.log(ret); //{value: '0', text: '昨天'}
-		if(ret.pindex == 0){
-			//ajax  -- 参数如ret.value
-			var data = [
-				{value: '1', text: '1点'},
-				{value: '2', text: '2点'},
-				{value: '3', text: '3点'},
-				{value: '4', text: '4点'},
-				{value: '4', text: '5点'},
-				{value: '4', text: '6点'},
-				{value: '4', text: '7点'},
-				{value: '4', text: '8点'},
-				{value: '4', text: '9点'},
-				{value: '4', text: '10点'},
-				{value: '4', text: '11点'},
-				{value: '4', text: '12点'},
-			];
-		}
-		else if(ret.pindex == 1){
-			var data = [
-				{value: '0', text: '10分'},
-				{value: '1', text: '20分'},
-				{value: '2', text: '30分'},
-				{value: '3', text: '40分'},
-				{value: '4', text: '50分'},
-				{value: '4', text: '60分'},
-			];
-		}
-		return data						
-	},
-	}, function(ret){
-	for(var i = 0; i < is.parentNode.querySelectorAll('.orderby-item').length; i++){
-		is.parentNode.querySelectorAll('.orderby-item')[i].classList.remove('active');				
-	}
+    warp: '.orderby-items',
+    layer: layer, // 1,2,3...
+    data: [
+    	{value: '0', text: '昨天'},
+    	{value: '1', text: '本周'},
+    	{value: '2', text: '上周'},
+    	{value: '3', text: '本月'},
+    	{value: '4', text: '上月'},
+    ],
+    checkedMore: true,
+    select: function(ret){ //点击时获取下级数据
+        //console.log(ret); //{value: '0', text: '昨天'}
+        if(ret.pindex == 0){
+            //ajax  -- 参数如ret.value
+            var data = [
+                {value: '1', text: '1点'},
+                {value: '2', text: '2点'},
+                {value: '3', text: '3点'},
+                {value: '4', text: '4点'},
+                {value: '4', text: '5点'},
+                {value: '4', text: '6点'},
+                {value: '4', text: '7点'},
+                {value: '4', text: '8点'},
+                {value: '4', text: '9点'},
+                {value: '4', text: '10点'},
+                {value: '4', text: '11点'},
+                {value: '4', text: '12点'},
+            ];
+        }
+        else if(ret.pindex == 1){
+            var data = [
+                {value: '0', text: '10分'},
+                {value: '1', text: '20分'},
+                {value: '2', text: '30分'},
+                {value: '3', text: '40分'},
+                {value: '4', text: '50分'},
+                {value: '4', text: '60分'},
+            ];
+        }
+        return data						
+    },
+}, function(ret){
+    isShowModal = false;
+    for(var i = 0; i < is.parentNode.querySelectorAll('.orderby-item').length; i++){
+        is.parentNode.querySelectorAll('.orderby-item')[i].classList.remove('active');				
+    }
 });
 ````
 > 关闭
