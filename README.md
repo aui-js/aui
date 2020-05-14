@@ -530,25 +530,25 @@ aui.selectMenu.open({
 > 关闭
 ````javascript
 aui.selectMenu.close(function(){
-	if(ret && ret.status == 0){
-		console.log(ret);
-		if(ret.data.length > 0){
-			is.classList.add("selected");
-			is.querySelector("span").innerText = '';
-			for(var i = 0; i < ret.data[ret.data.length-1].length; i++){
-				if(i != ret.data[ret.data.length-1].length - 1){
-					is.querySelector("span").innerText += ret.data[ret.data.length - 1][i].text + ',';																								
-				}
-				else{
-					is.querySelector("span").innerText += ret.data[ret.data.length - 1][i].text
-				}
-			}
-		}
-		else{
-			is.classList.remove("selected");
-			is.querySelector("span").innerText = '三级列表';
-		}
-	}
+    if(ret && ret.status == 0){
+        console.log(ret);
+        if(ret.data.length > 0){
+            is.classList.add("selected");
+            is.querySelector("span").innerText = '';
+            for(var i = 0; i < ret.data[ret.data.length-1].length; i++){
+                if(i != ret.data[ret.data.length-1].length - 1){
+                    is.querySelector("span").innerText += ret.data[ret.data.length - 1][i].text + ',';																								
+                }
+                else{
+                    is.querySelector("span").innerText += ret.data[ret.data.length - 1][i].text
+                }
+            }
+        }
+        else{
+            is.classList.remove("selected");
+            is.querySelector("span").innerText = '三级列表';
+        }
+    }
 });
 ````
 
