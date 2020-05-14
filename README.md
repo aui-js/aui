@@ -454,3 +454,103 @@ aui.sidemenu.close({speed: 10}).then(function(ret){
 	console.log(ret)
 });
 ````
+
+#### `selectmenu下拉列表选择菜单`
+
+[预览](https://aui-js.github.io/aui/html/plugs/selectmenu.html) </br> 
+
+参数  |  类型  |  描述  | 默认值 | 必选
+---- | ----- | ------ | ----- | ----
+warp  | string | 父容器元素 | 'body' | 否
+content | string | 侧滑菜单元素 | '' | 是
+moves | arr | 跟随拖动元素；[header——页面头部, .content——页面内容部分] (moveType设置为"all-move" 或 "menu-move"时，此参数必须配置 | [] | 是
+moveType | string | ['main-move': '主页面移动，侧滑菜单固定'] </br> ['menu-move': '侧滑菜单移动，主页面固定'] </br> ['all-move': '主页面+侧滑菜单都移动'] | 'main-move' | 否
+position | string | 侧滑菜单初始化位置，默认位于页面左侧 [left: '左侧', right: '右侧'] | 'left' | 否
+mask  | boolean | 是否显示遮罩蒙版 | true | 否
+maskTapClose  | boolean | 触摸遮罩是否关闭侧滑菜单 | true | 否
+speed | number | 打开、关闭页面速度[值越大，速度越快] | 10 | 否
+drag | object | {</br> use: true, //--可选参数，是否开启拖动打开、关闭菜单[true: 开启 , false: 关闭] </br> start: null, //--可选参数，开始拖动回调 </br> move: null, //--可选参数，拖动中回调 </br> end: null, //--可选参数，拖动结束</br>} | {} | 否
+style | object | {</br>w: '80vw',</br>h: '100vh',</br>bg: '#333'</br>} | {w: '80vw', h: '100vh', bg: '#333'} | 否
+
+````html
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.selectmenu.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.selectmenu.js"></script>
+````
+> 打开：   
+````javascript
+aui.selectMenu.open({
+	warp: '.orderby-items',
+	layer: 3, // 1,2,3...
+	data: [
+		{value: '0', text: '昨天'},
+		{value: '1', text: '本周'},
+		{value: '2', text: '上周'},
+		{value: '3', text: '本月'},
+		{value: '4', text: '上月'},
+	],
+	checkedMore: true,
+	select: function(ret){ //点击时获取下级数据
+		//console.log(ret); //{value: '0', text: '昨天'}
+		if(ret.pindex == 0){
+			//ajax  -- 参数如ret.value
+			var data = [
+				{value: '1', text: '1点'},
+				{value: '2', text: '2点'},
+				{value: '3', text: '3点'},
+				{value: '4', text: '4点'},
+				{value: '4', text: '5点'},
+				{value: '4', text: '6点'},
+				{value: '4', text: '7点'},
+				{value: '4', text: '8点'},
+				{value: '4', text: '9点'},
+				{value: '4', text: '10点'},
+				{value: '4', text: '11点'},
+				{value: '4', text: '12点'},
+			];
+		}
+		else if(ret.pindex == 1){
+			var data = [
+				{value: '0', text: '10分'},
+				{value: '1', text: '20分'},
+				{value: '2', text: '30分'},
+				{value: '3', text: '40分'},
+				{value: '4', text: '50分'},
+				{value: '4', text: '60分'},
+			];
+		}
+		return data						
+	},
+}, function(ret){
+	isShowModal = false;
+	for(var i = 0; i < is.parentNode.querySelectorAll('.orderby-item').length; i++){
+		is.parentNode.querySelectorAll('.orderby-item')[i].classList.remove('active');				
+	}	
+});
+````
+
+> 关闭
+````javascript
+aui.selectMenu.close(function(){
+	if(ret && ret.status == 0){
+		console.log(ret);
+		if(ret.data.length > 0){
+			is.classList.add("selected");
+			is.querySelector("span").innerText = '';
+			for(var i = 0; i < ret.data[ret.data.length-1].length; i++){
+				if(i != ret.data[ret.data.length-1].length - 1){
+					is.querySelector("span").innerText += ret.data[ret.data.length - 1][i].text + ',';																								
+				}
+				else{
+					is.querySelector("span").innerText += ret.data[ret.data.length - 1][i].text
+				}
+			}
+		}
+		else{
+			is.classList.remove("selected");
+			is.querySelector("span").innerText = '三级列表';
+		}
+	}
+});
+````
