@@ -1370,7 +1370,7 @@
 				touchClose: true, //--可选参数，触摸遮罩是否关闭模态弹窗，默认true-关闭，false-不可关闭
 				items: [], //--必选参数，菜单列表[{name: "", color: "", fontSize: "", textAlign: ""}]
 				cancle: "", //--可选参数，取消按钮
-				location: 'bottom', //--可选参数，（icon参数未配置时可配置）位置	<1、bottom:位于底部，从底部弹出显示>、<2、middle:位于页面中心位置>
+				location: 'bottom', //--可选参数，位置 <1、bottom:位于底部，从底部弹出显示>、<2、middle:位于页面中心位置>
 				theme: 1, //--可选参数，主题样式
 			}
 			return $.extend(opts, opt, true);
