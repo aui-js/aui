@@ -395,7 +395,7 @@ mask  | boolean | 是否显示遮罩蒙版 | true | 否
 maskTapClose  | boolean | 触摸遮罩是否关闭侧滑菜单 | true | 否
 speed | number | 打开、关闭页面速度[值越大，速度越快] | 10 | 否
 drag | object | {</br> use: true, //--可选参数，是否开启拖动打开、关闭菜单[true: 开启 , false: 关闭] </br> start: null, //--可选参数，开始拖动回调 </br> move: null, //--可选参数，拖动中回调 </br> end: null, //--可选参数，拖动结束</br>} | {} | 否
-style | object | {</br>w: '80vw',</br>h: '100vh',</br>bg: '#333'</br>} | {w: '80vw', h: '100vh', bg: '#333'} | 否
+style | object | 设置样式 | {</br>w: '80vw',</br> h: '100vh',</br> bg: '#333'</br>} | 否
 
 ````html
 <link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
@@ -462,15 +462,14 @@ aui.sidemenu.close({speed: 10}).then(function(ret){
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
-content | string | 侧滑菜单元素 | '' | 是
-moves | arr | 跟随拖动元素；[header——页面头部, .content——页面内容部分] (moveType设置为"all-move" 或 "menu-move"时，此参数必须配置 | [] | 是
-moveType | string | ['main-move': '主页面移动，侧滑菜单固定'] </br> ['menu-move': '侧滑菜单移动，主页面固定'] </br> ['all-move': '主页面+侧滑菜单都移动'] | 'main-move' | 否
-position | string | 侧滑菜单初始化位置，默认位于页面左侧 [left: '左侧', right: '右侧'] | 'left' | 否
+data | arr | 菜单列表[{value: '', text: ''}] | [] | 是
+layer | number | 控制组件为几级 | 1 | 是
 mask  | boolean | 是否显示遮罩蒙版 | true | 否
 maskTapClose  | boolean | 触摸遮罩是否关闭侧滑菜单 | true | 否
-speed | number | 打开、关闭页面速度[值越大，速度越快] | 10 | 否
-drag | object | {</br> use: true, //--可选参数，是否开启拖动打开、关闭菜单[true: 开启 , false: 关闭] </br> start: null, //--可选参数，开始拖动回调 </br> move: null, //--可选参数，拖动中回调 </br> end: null, //--可选参数，拖动结束</br>} | {} | 否
-style | object | {</br>w: '80vw',</br>h: '100vh',</br>bg: '#333'</br>} | {w: '80vw', h: '100vh', bg: '#333'} | 否
+checkedMore | boolean | 是否多选(多选限制最后一级可多选) | false | 否
+before | function | 打开弹窗前执行 | null | 否
+select | function | 一级以上点击选择后执行，获取下级数据并return | null | 否
+style | object | 样式 | {</br>width: '',</br> height: '',</br> top: '',</br> left: '',</br> padding: '',</br> background: '',</br> borderRadius: '',</br> itemStyle:{</br>textAlign: '',</br>fontSize: '',</br>color: '',</br>isLine: false, //是否显示分割线</br>}</br>} | 否
 
 ````html
 <link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
