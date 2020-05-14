@@ -403,6 +403,7 @@ style | object | 设置样式 | {</br>w: '80vw',</br> h: '100vh',</br> bg: '#333
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
 <script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.sidemenu.js"></script>
 ````
+
 > 初始化：   
 ````javascript
 aui.sidemenu.init({
@@ -527,7 +528,6 @@ aui.selectMenu.open({
 	}
 });
 ````
-
 > 关闭
 ````javascript
 aui.selectMenu.close(function(){
