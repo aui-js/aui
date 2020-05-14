@@ -465,7 +465,7 @@ warp  | string | 父容器元素 | 'body' | 否
 data | arr | 菜单列表[{value: '', text: ''}] | [] | 是
 layer | number | 控制组件为几级 | 1 | 是
 mask  | boolean | 是否显示遮罩蒙版 | true | 否
-maskTapClose  | boolean | 触摸遮罩是否关闭侧滑菜单 | true | 否
+touchClose  | boolean | 触摸遮罩是否关闭侧滑菜单 | true | 否
 checkedMore | boolean | 是否多选(多选限制最后一级可多选) | false | 否
 before | function | 打开弹窗前执行 | null | 否
 select | function | 一级以上点击选择后执行，获取下级数据并return | null | 否
@@ -530,7 +530,7 @@ aui.selectMenu.open({
 > 关闭
 ````javascript
 aui.selectMenu.close(function(){
-    if(ret && ret.status == 0){
+		if(ret && ret.status == 0){
 		console.log(ret);
 		if(ret.data.length > 0){
 			is.classList.add("selected");
@@ -549,5 +549,37 @@ aui.selectMenu.close(function(){
 			is.querySelector("span").innerText = '三级列表';
 		}
 	}
+});
+````
+
+#### `keypad数字键盘`
+
+[预览](https://aui-js.github.io/aui/html/plugs/keypad.html) </br> 
+
+参数  |  类型  |  描述  | 默认值 | 必选
+---- | ----- | ------ | ----- | ----
+warp  | string | 父容器元素 | 'body' | 否
+type | string | 类型:</br> "number"—纯数字键盘 </br> "point"—带小数点键盘 </br> "idcard"—输入身份证号键盘 | 'number' | 否
+value | string | 键盘输入值 | '' | 否
+num | number | 控制小数点后保留两位 | 2 | 否
+mask  | boolean | 是否显示遮罩蒙版 | true | 否
+touchClose  | boolean | 触摸遮罩是否关闭侧滑菜单 | true | 否
+
+````html
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.keypad.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.keypad.js"></script>
+````
+> 示例：   
+````javascript
+aui.keypad.open({
+	type: 'point', //1、number | 2、point | 3、idcard
+	num: 2, //小数点保留几位
+	mask: false,
+	// value: document.querySelector('#text').value
+}, function(ret){
+	console.log(ret);
+	document.querySelector('#text').value = ret.result;
 });
 ````
