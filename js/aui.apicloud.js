@@ -218,7 +218,7 @@
 		            }
 		        });
 		    }
-		}
+		},
 		
 	};
 })(aui, document, window);
