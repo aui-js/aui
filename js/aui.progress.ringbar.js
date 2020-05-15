@@ -1,7 +1,7 @@
 /* ===============================
 	 * progress进度条
 	 * versions 1.0.0
-	 * 2939744339@qq.com
+	 * cl15095344637@163.com
 	 * @example:
 	    aui.progress.init({
 			el: document.getElementById("canvas"), //绘制对象
