@@ -1,7 +1,7 @@
 /* ===============================
 	 * keypad数字键盘
 	 * versions 1.0.0
-	 * 2939744339@qq.com
+	 * cl15095344637@163.com
 	 * @example:
 	    aui.keypad.open({
 	    	type: 'point', //1、number | 2、point | 3、idcard

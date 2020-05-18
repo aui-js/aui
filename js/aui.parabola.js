@@ -1,7 +1,7 @@
 /* ===============================
 	 * parabola抛物线(加入购物车)
 	 * versions 1.0.0
-	 * 2939744339@qq.com
+	 * cl15095344637@163.com
 	 * @example:
 	    aui.parabola({
 			origin: '', //@param  {[object]} origin [起点元素]

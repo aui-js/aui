@@ -1,7 +1,7 @@
 /* ===============================	 
 	 * 19位或16位银行卡号码验证
 	 * versions 1.0.0
-	 * 2939744339@qq.com
+	 * cl15095344637@163.com
 	 * @param {number} bankno 银行卡号码 19位 或 16位
 	 * @example: aui.checkBankNo(bankno); //return true | false;
  * ===============================

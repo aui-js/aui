@@ -1,7 +1,7 @@
 /* ===============================
 	 * poster广告弹窗
 	 * versions 1.0.0
-	 * 2939744339@qq.com
+	 * cl15095344637@163.com
 	 * @example:
 	    aui.poster({
 			image: 'https://xbjz1.oss-cn-beijing.aliyuncs.com/upload/default/share.png'

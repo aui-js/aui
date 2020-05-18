@@ -2,7 +2,7 @@
  * =====================================================
  * Aui
  * versions 1.0.0
- * 2939744339@qq.com
+ * cl15095344637@163.com
  * =====================================================
  */
 !(function(document, window, undefined){
@@ -243,7 +243,7 @@
 			str = '#' + str[0] + str[1] + str[2];
 			return str;
 		},
-		/*** 根据输入的文本自动改变textarea框的高度   
+		/*** 根据输入的文本自动改变textarea框的高度   
 		  	@param {string} el 元素对象 如： document.querySelector(".list")
 		  	@param {number} maxHeight 最大高度
 		  	@param {number} minHeight 最小高度

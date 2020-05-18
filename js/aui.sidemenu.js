@@ -1,7 +1,7 @@
 /* ===============================
 	 * 侧滑菜单
 	 * versions 1.0.0
-	 * 2939744339@qq.com
+	 * cl15095344637@163.com
 	 * @example:
 	    aui.sidemenu.init({
 	    	warp: '.aui-container',

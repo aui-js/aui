@@ -1,7 +1,7 @@
 /* ===============================
 	 * poptopmenu底部弹出窗口
 	 * versions 1.0.0
-	 * 2939744339@qq.com
+	 * cl15095344637@163.com
 	 * @example:
 	    aui.poptopMenu({
 			mask: true,

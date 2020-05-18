@@ -1,7 +1,7 @@
 /* ===============================
 	 * 下拉列表选择框
 	 * versions 1.0.0
-	 * 2939744339@qq.com
+	 * cl15095344637@163.com
 	 * @example: 
 	 	aui.selectMenu.open({
 			warp: '.orderby-items',
