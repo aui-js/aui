@@ -79,20 +79,17 @@
 	   					    }
 	   					    else{
 	   					    	_this.score = index;
-								for(var i = 0; i < index; i++)
-								{
-									$(el).parent().find(".star-item").eq(i).addClass("bounceIn animated infinite");
-								}
-								var _timer = setTimeout(function(){
-									$(el).parent().find(".star-item").change().removeClass("bounceIn animated infinite");
-									clearTimeout(_timer);
-								},500);
 	   					    }
-	   					    $(el).parent().children().change().find("img").attr({src: '../../img/star.png'});
+	   					    $(el).parent().children().change().find("img").attr({src: '../../img/star.png'});							
 	   					    for(var i = 0; i < _this.score; i++)
 	   					    {
 	   					        $(el).parent().children().eq(i).find("img").attr({src: '../../img/star_active.png'});
+								$(el).parent().find(".star-item").eq(i).addClass("bounceIn animated infinite");
 	   					    }
+							var _timer = setTimeout(function(){
+								$(el).parent().find(".star-item").change().removeClass("bounceIn animated infinite");
+								clearTimeout(_timer);
+							},500);
 	   					},						
 						//发布
 						submitFn(){
