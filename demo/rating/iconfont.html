@@ -82,10 +82,10 @@
 								_this.score = index;
 								for(var i = 0; i < index; i++)
 								{
-									$(el).parent().find(".stars-item").eq(i).addClass("bounceIn animated infinite");
+									$(el).parent().find(".star-item").eq(i).addClass("bounceIn animated infinite");
 								}
 								var _timer = setTimeout(function(){
-									$(el).parent().find(".stars-item").change().removeClass("bounceIn animated infinite");
+									$(el).parent().find(".star-item").change().removeClass("bounceIn animated infinite");
 									clearTimeout(_timer);
 								},500);
 							}
