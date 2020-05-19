@@ -11,7 +11,7 @@
 			.star-warp{width: 100%; height: 40px; margin: 20px 0; padding: 0 25px; box-sizing: border-box; font-size: 0; display: flex; justify-content: space-around;}
 			.star-item{width: 30px; height: 100%; text-align: center; display: inline-block;}			
 			.star-item i{font-size: 30px; color: #CDCDCD;}
-			.star-item.active i{color: #FEC513;}
+			.star-item i.active{color: #FEC513;}
 			.textarea-warp{width: 100%;}
 			.textarea-warp.border:after{border-radius: 10px;}
 			.textarea-warp textarea{width: 100%; min-height: 100px; line-height: 20px; color: #333; background: transparent; border: none; padding: 10px; box-sizing: border-box; border-radius: 5px; font-size: 16px; position: relative; z-index: 2;}
@@ -27,11 +27,11 @@
 			</header>
 	    	<div class="aui-content" v-cloak  style="padding: 15px 15px 0 15px;">				
 				<div class="star-warp">
-					<span class="star-item" :class="{'active' : score > 0}" data-index="0" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
-					<span class="star-item" :class="{'active' : score > 1}" data-index="1" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
-					<span class="star-item" :class="{'active' : score > 2}" data-index="2" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
-					<span class="star-item" :class="{'active' : score > 3}" data-index="3" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
-					<span class="star-item" :class="{'active' : score > 4}" data-index="4" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
+					<span class="star-item" data-index="0" @click.stop="starClick($event)"><i class="iconfont iconxing" :class="{'active' : score > 0}"></i></span>
+					<span class="star-item" data-index="1" @click.stop="starClick($event)"><i class="iconfont iconxing" :class="{'active' : score > 1}"></i></span>
+					<span class="star-item" data-index="2" @click.stop="starClick($event)"><i class="iconfont iconxing" :class="{'active' : score > 2}"></i></span>
+					<span class="star-item" data-index="3" @click.stop="starClick($event)"><i class="iconfont iconxing" :class="{'active' : score > 3}"></i></span>
+					<span class="star-item" data-index="4" @click.stop="starClick($event)"><i class="iconfont iconxing" :class="{'active' : score > 4}"></i></span>
 				</div>
 				<div class="textarea-warp border">
 					<textarea id="textarea" name="text" rows="" cols="" v-model="desc" placeholder="我们的服务您还满意么？留下评价让我们做的更好吧"></textarea>
@@ -80,7 +80,7 @@
 							}
 							else{
 								_this.score = index;
-								for(var i = 0; i <= index; i++)
+								for(var i = 0; i < index; i++)
 								{
 									$(el).parent().find(".star-item").eq(i).addClass("bounceIn animated infinite");
 								}
