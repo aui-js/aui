@@ -25,11 +25,11 @@
 			</header>
 	    	<div class="aui-content" v-cloak  style="padding: 15px 15px 0 15px;">				
 	    		<div class="star-warp">
-	    			<span class="star-item" @click.stop="starClick($event)"><img src="../../img/star_active.png" alt="" /></span>
-	    			<span class="star-item" @click.stop="starClick($event)"><img src="../../img/star_active.png" alt="" /></span>
-	    			<span class="star-item" @click.stop="starClick($event)"><img src="../../img/star_active.png" alt="" /></span>
-	    			<span class="star-item" @click.stop="starClick($event)"><img src="../../img/star_active.png" alt="" /></span>
-	    			<span class="star-item" @click.stop="starClick($event)"><img src="../../img/star_active.png" alt="" /></span>
+	    			<span class="star-item" data-index="0" @click.stop="starClick($event)"><img src="../../img/star_active.png" alt="" /></span>
+	    			<span class="star-item" data-index="1" @click.stop="starClick($event)"><img src="../../img/star_active.png" alt="" /></span>
+	    			<span class="star-item" data-index="2" @click.stop="starClick($event)"><img src="../../img/star_active.png" alt="" /></span>
+	    			<span class="star-item" data-index="3" @click.stop="starClick($event)"><img src="../../img/star_active.png" alt="" /></span>
+	    			<span class="star-item" data-index="4" @click.stop="starClick($event)"><img src="../../img/star_active.png" alt="" /></span>
 	    		</div>				
 				<div class="textarea-warp border">
 					<textarea id="textarea" name="text" rows="" cols="" v-model="desc" placeholder="我们的服务您还满意么？留下评价让我们做的更好吧"></textarea>
@@ -72,12 +72,20 @@
 	   					starClick(e){
 	   						var _this = this,
 	   					    	el = e.currentTarget,	   					        
-	   					        index = $(el).index() + 1;
+	   					        index = $(el).data("index") + 1;
 	   					    if(index == _this.score){
 	   					    	_this.score = index - 1;
 	   					    }
 	   					    else{
-	   					    	_this.score = index;								
+	   					    	_this.score = index;
+								for(var i = 0; i < index; i++)
+								{
+									$(el).parent().find(".star-item").eq(i).addClass("bounceIn animated infinite");
+								}
+								var _timer = setTimeout(function(){
+									$(el).parent().find(".star-item").change().removeClass("bounceIn animated infinite");
+									clearTimeout(_timer);
+								},500);
 	   					    }
 	   					    $(el).parent().children().change().find("img").attr({src: '../../img/star.png'});
 	   					    for(var i = 0; i < _this.score; i++)
