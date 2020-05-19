@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link rel="stylesheet" type="text/css" href="../../css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../lib/animate/animate.css"/>
 		<title>iconfont星级评价</title>
 		<style>
 			body{background: #FFF;}
@@ -78,7 +79,15 @@
 								_this.score = index - 1;
 							}
 							else{
-								_this.score = index;								
+								_this.score = index;
+								for(var i = 0; i < index; i++)
+								{
+									$(el).parent().find(".stars-item").eq(i).addClass("bounceIn animated infinite");
+								}
+								var _timer = setTimeout(function(){
+									$(el).parent().find(".stars-item").change().removeClass("bounceIn animated infinite");
+									clearTimeout(_timer);
+								},500);
 							}
 						},
 						//发布
