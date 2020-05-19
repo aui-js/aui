@@ -27,11 +27,11 @@
 			</header>
 	    	<div class="aui-content" v-cloak  style="padding: 15px 15px 0 15px;">				
 				<div class="star-warp">
-					<span class="star-item" :class="{'active' : score > 0}" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
-					<span class="star-item" :class="{'active' : score > 1}" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
-					<span class="star-item" :class="{'active' : score > 2}" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
-					<span class="star-item" :class="{'active' : score > 3}" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
-					<span class="star-item" :class="{'active' : score > 4}" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
+					<span class="star-item" :class="{'active' : score > 0}" data-index="0" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
+					<span class="star-item" :class="{'active' : score > 1}" data-index="1" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
+					<span class="star-item" :class="{'active' : score > 2}" data-index="2" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
+					<span class="star-item" :class="{'active' : score > 3}" data-index="3" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
+					<span class="star-item" :class="{'active' : score > 4}" data-index="4" @click.stop="starClick($event)"><i class="iconfont iconxing"></i></span>
 				</div>
 				<div class="textarea-warp border">
 					<textarea id="textarea" name="text" rows="" cols="" v-model="desc" placeholder="我们的服务您还满意么？留下评价让我们做的更好吧"></textarea>
@@ -74,7 +74,7 @@
 						starClick(e){
 							var _this = this,
 						    	el = e.currentTarget,						        
-						        index = $(el).index() + 1;	
+						        index = $(el).data("index") + 1;	
 							if(index == _this.score){
 								_this.score = index - 1;
 							}
