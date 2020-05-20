@@ -106,7 +106,7 @@
 					warp: _this.query(_this.data.warp) || '',
 					container: _this.query('.aui-sidemenu') || '',
 					main: _this.query('.aui-sidemenu-main') || '',
-					mask: _this.query('.aui-mask') || ''
+					mask: _this.query('.aui-sidemenu').querySelector('.aui-mask') || ''
 				};						
 				resolve({status: 0, data: {event: 'creat'}});
 			});

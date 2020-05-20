@@ -242,7 +242,10 @@
 		        					}
 	                            	//点击选择时先清空下级原有元素，再插入新元素
 	                            	_this.ui.list[pindex+1].querySelector(".aui-selectmenu-list-warp").innerHTML = '';
-	                            	_this.ui.list[pindex+1].querySelector(".aui-selectmenu-list-warp").insertAdjacentHTML('beforeend', item);
+									if(data.length > 0)
+									{
+										_this.ui.list[pindex+1].querySelector(".aui-selectmenu-list-warp").insertAdjacentHTML('beforeend', item);										
+									}
 	                            	_this.css(_opts); // 为新添加的列表元素设置样式
 	                            	if(_this.ui.list[pindex+1].offsetLeft < window.screen.width)
 	                            	{ //关闭当前选择列表之后的所有下级列表

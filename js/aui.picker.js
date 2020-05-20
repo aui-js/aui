@@ -32,7 +32,7 @@
         creat: function(opt){
             var _this = this;
             var _opts = _this.opts(opt);
-            _html = '<div class="aui-picker">'
+            var _html = '<div class="aui-picker">'
 				+'<div class="aui-mask"></div>'
 				+'<div class="aui-picker-main">'
                     +'<div class="aui-picker-header">'
@@ -49,7 +49,7 @@
             _this.ui = {
                 picker: document.querySelector(".aui-picker"),
                 main: document.querySelector(".aui-picker-main"),
-                mask: document.querySelector('.aui-mask'),
+                mask: document.querySelector(".aui-picker").querySelector('.aui-mask'),
                 title: document.querySelector(".aui-picker-title"),
                 closeBtn: document.querySelector(".aui-picker-close"),
                 nav: document.querySelector(".aui-picker-nav"),
@@ -118,7 +118,7 @@
             _this.ui.main.style.animation = "aui-slide-down-screen .2s ease-out forwards";
             var timer = setTimeout(function(){
                 //_this.ui.picker.style.display = "none";
-                _this.ui.picker ? _this.ui.picker.parentNode.removeChild(_this.ui.picker) : '';
+                document.querySelector(".aui-picker") ? document.querySelector(".aui-picker").parentNode.removeChild(document.querySelector(".aui-picker")) : '';
             	typeof callback == "function" ?  callback({status: 0, data: _this.result}) : '';
                 clearTimeout(timer);
             },200);
