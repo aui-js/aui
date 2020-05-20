@@ -582,3 +582,81 @@ aui.keypad.open({
     document.querySelector('#text1').value = ret.result;
 });
 ````
+#### `chatbox js聊天输入框`
+
+[预览](https://aui-js.github.io/aui/html/plugs/chatbox.html) </br>  
+
+参数  |  类型  |  描述  | 默认值 | 必选
+---- | ----- | ------ | ----- | ----
+warp  | string | 父容器元素 | 'body' | 否
+mask  | boolean | 是否显示遮罩蒙版 | true | 否
+touchClose  | boolean | 触摸遮罩是否关闭侧滑菜单 | true | 否
+autoFocus  |  boolean  | 是否自动获取焦点  | false |  否
+events  | arr | 配置监听事件(录音，选择附加功能...等事件监听) | [] | 否
+record | object | 录音功能配置 | record:  </br>{ </br>use:  true, //是否开启录音功能  </br>MIN_SOUND_TIME: 800  //录音最短时间限制 </br>} | 否
+emotion | object | 表情功能配置 | emotion:  </br>{ </br>use:  true, //是否开启表情功能  </br>path: ''  //.json文件路径 </br>pageHasNum: 27, //一页显示按钮数量(7 * 4 - 1) </br>} | 否
+extras  | object  | 附加功能配置  | extras: </br>{</br> use: true, //是否开启附加功能 </br> pageHasNum: 8, //一页显示按钮数量(4 * 2) </br> btns: [  /* {title: '', icon: '', img: ''} */],</br> }
+
+````html
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.chatbox.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.chatbox.js"></script>
+````
+> 示例：   
+````javascript
+aui.chatbox.init({
+    warp: 'body',
+    autoFocus: true,
+    record: {
+        use: true,
+    },
+    emotion: {
+        use: true,
+        path: '../../img/chat/emotion/',
+        file: 'emotion.json'
+    },
+    extras: {
+        use: true,
+        btns: [
+            {title: '相册', icon: 'iconimage'},
+            {title: '拍摄', icon: 'iconcamera_fill'},
+            {title: '语音通话', icon: 'iconvideo_fill'},
+            {title: '位置', icon: 'iconaddress1'},
+            {title: '红包', icon: 'iconredpacket_fill'},
+            {title: '语音输入', icon: 'icontranslation_fill'},
+            {title: '我的收藏', icon: 'iconcollection_fill'},
+            {title: '名片', icon: 'iconcreatetask_fill'},
+            {title: '文件', icon: 'iconmail_fill'}						
+        ],
+    },				
+    events: ['recordStart', 'recordCancel', 'recordEnd', 'chooseExtrasItem', 'submit'],
+}, function(){
+
+})
+//开始录音
+aui.chatbox.addEventListener({name: 'recordStart'}, function(ret){
+    console.log(ret);
+    //aui.toast({msg: ret.msg})
+});
+//取消录音
+aui.chatbox.addEventListener({name: 'recordCancel'}, function(ret){
+    console.log(ret);
+    //aui.toast({msg: ret.msg})
+});
+//结束录音
+aui.chatbox.addEventListener({name: 'recordEnd'}, function(ret){
+    console.log(ret);
+    aui.toast({msg: ret.msg})
+});
+//选择附加功能
+aui.chatbox.addEventListener({name: 'chooseExtrasItem'}, function(ret){
+    console.log(ret);
+    aui.toast({msg: ret.data.title});
+});			
+//发送
+aui.chatbox.addEventListener({name: 'submit'}, function(ret){
+    console.log(ret);
+    aui.toast({msg: ret.data.value})
+});
+````
