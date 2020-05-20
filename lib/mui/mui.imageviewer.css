@@ -86,7 +86,7 @@
 }
 
 .mui-slider .mui-slider-group .mui-slider-item img {
-    width: auto;
+    width: 100%;
     height: auto;
     max-width: 100%;
     max-height: 100%;
