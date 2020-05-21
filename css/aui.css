@@ -847,9 +847,6 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #EFEFEF;}
 	width: 100vw;
 	height: 100vh;
 	opacity: 0;
-	-ms-animation: aui-fade-in .2s ease-out forwards;
-	-webkit-animation: aui-fade-in .2s ease-out forwards;
-	animation: aui-fade-in .2s ease-out forwards;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -860,16 +857,49 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #EFEFEF;}
 	background: #fff;
 	border-radius: 10px;
 	opacity: 0;
-	-ms-animation: aui-scale-in-tosmall-dialog .2s ease-in forwards;
-	-webkit-animation: aui-scale-in-tosmall-dialog .2s ease-in forwards;
-	animation: aui-scale-in-tosmall-dialog .2s ease-in-out forwards;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	-ms-transform: translate3d(-50%, -50%, 0) scale(1);
-	-webkit-transform: translate3d(-50%, -50%, 0) scale(1);
-	transform: translate3d(-50%, -50%, 0) scale(1);
+	-webkit-transition-property: -webkit-transform,opacity;
+	transition-property: transform,opacity;
+	-webkit-transform: translate3d(-50%,-50%,0) scale(1.185);
+	transform: translate3d(-50%,-50%,0) scale(1.185);
+	opacity: 0;
 	z-index: 999;
+}
+.aui-dialog.aui-dialog-in{
+	-webkit-transition-duration: 300ms;
+	transition-duration: 300ms;
+	opacity: 1;
+}
+.aui-dialog.aui-dialog-out{
+	-webkit-transition-duration: 300ms;
+	transition-duration: 300ms;
+	opacity: 0;
+}
+.aui-dialog.aui-dialog-in .aui-mask{
+	-webkit-transition-duration: 300ms;
+	transition-duration: 300ms;
+	opacity: 1;
+}
+.aui-dialog.aui-dialog-out .aui-mask{
+	-webkit-transition-duration: 300ms;
+	transition-duration: 300ms;
+	opacity: 0;
+}
+.aui-dialog.aui-dialog-out .aui-dialog-main{
+	-webkit-transition-duration: 300ms;
+	transition-duration: 300ms;
+	-webkit-transform: translate3d(-50%,-50%,0) scale(0.8);
+	transform: translate3d(-50%,-50%,0) scale(0.8);
+	opacity: 0
+}
+.aui-dialog.aui-dialog-in .aui-dialog-main{
+	-webkit-transition-duration: 300ms;
+	transition-duration: 300ms;
+	-webkit-transform: translate3d(-50%,-50%,0) scale(1);
+	transform: translate3d(-50%,-50%,0) scale(1);
+	opacity: 1;
 }
 .aui-dialog-title{
 	width: 100%;

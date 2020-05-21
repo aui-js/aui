@@ -1127,7 +1127,6 @@
 					h: '', //--可选参数，模态窗高度，默认"auto"自适应
 					bg: '',//--可选参数，模态窗背景色，默认白色
 					zIndex: '', //--可选参数，模态窗层级
-					animate: '', //--可选参数，显示动画
 					title: {
 						bg: "",
 						color: "",
@@ -1239,12 +1238,12 @@
 					{
 						ui.btn[i].style.width = "calc(100% / "+ _opts.btns.length +")";
 					}
-					$.isDefine(_opts.title) ? ui.msg.style.padding = "15px 20px 20px 20px" : ui.msg.style.padding = "30px 20px 25px 20px";
+					$.isDefine(_opts.title) ? ui.msg.style.padding = "16px 20px 20px 20px" : ui.msg.style.padding = "30px 20px 26px 20px";
 					break;
 				case 2: //小按钮（居右分布）
 					ui.main.classList.add('aui-dialog-main-style-2');
 					!$.isDefine(_opts.input) && !$.isDefine(_opts.title) ? ui.msg.style.paddingTop = "40px" : '';
-					$.isDefine(_opts.title) ? ui.msg.style.padding = "15px 20px 20px 20px" : ui.msg.style.padding = "40px 20px 25px 20px";
+					$.isDefine(_opts.title) ? ui.msg.style.padding = "16px 20px 20px 20px" : ui.msg.style.padding = "40px 20px 26px 20px";
 					break;
 				case 3: //按钮宽度等于父级宽度100%，适用于按钮文字过多情况
 					ui.main.classList.add('aui-dialog-main-style-1', 'aui-dialog-main-style-3');
@@ -1252,7 +1251,7 @@
 					{
 						ui.btn[i].style.width = "100%";
 					}
-					$.isDefine(_opts.title) ? ui.msg.style.padding = "15px 20px 20px 20px" : ui.msg.style.padding = "30px 20px 25px 20px";
+					$.isDefine(_opts.title) ? ui.msg.style.padding = "16px 20px 20px 20px" : ui.msg.style.padding = "30px 20px 26px 20px";
 					break;
 				default:
 					break;
@@ -1273,24 +1272,28 @@
 					$.touchDom(ui.btn[j], "#EFEFEF");
 				}(i);
 			}
-			$.isDefine(_opts.style.animate) ? ui.main.style.animation = _opts.style.animate + " .2s ease-out forwards" : '';
 			$.isDefine(_opts.msg) && _opts.msg.length > 15 ? ui.msg.style.textAlign = "left" : ui.msg.style.textAlign = "center";
 		},
 		show(opt, callback){ //显示
 			var _this = this;
 			var _opts = _this.opts(opt);
 			_this.creat(opt, callback);
+			var ui = {
+				dialog: document.querySelector(".aui-dialog"),
+				main: document.querySelector(".aui-dialog-main")
+			}
+			ui.dialog.classList.add('aui-dialog-in');
+			ui.dialog.classList.remove('aui-dialog-out');
 		},
 		hide(opt, callback){ //隐藏
 			var _this = this;
 			var _opts = _this.opts(opt);
 			var ui = {
 				dialog: document.querySelector(".aui-dialog"),
-				mask: document.querySelector(".aui-dialog .aui-mask"),
 				main: document.querySelector(".aui-dialog-main")
 			}
-			ui.main.style.animation = "aui-fade-out .2s ease-out forwards";
-			ui.mask ? ui.mask.style.animation = "aui-fade-out .2s ease-out forwards" : '';
+			ui.dialog.classList.remove('aui-dialog-in');
+			ui.dialog.classList.add('aui-dialog-out');
 			var timer = setTimeout(function() {
 				ui.dialog ? ui.dialog.parentNode.removeChild(ui.dialog) : '';
 				clearTimeout(timer);
@@ -1299,21 +1302,21 @@
 		},
 		alert(opt, callback){ //alert单按钮模态弹窗
 			var _this = this;
-			_this.creat(opt, callback);
+			_this.show(opt, callback);
 		},
 		confirm(opt, callback){ //confirm双按钮模态弹窗
 			var _this = this;
-			_this.creat(opt, callback);
+			_this.show(opt, callback);
 		},
 		delete(opt, callback){ //delete删除模态弹窗
 			var _this = this;
-			_this.creat(opt, callback);
+			_this.show(opt, callback);
 		},
 		prompt(opt, callback){ //input输入框模态弹窗
 			var _this = this;
 			var _opts = _this.opts(opt);
 			opt["input"] = true;
-			_this.creat(opt, callback);
+			_this.show(opt, callback);
 			var ui = {
 				dialog: document.querySelector(".aui-dialog"),
 				main: document.querySelector(".aui-dialog-main"),
