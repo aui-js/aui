@@ -48,7 +48,7 @@
 					//或btns: [{name: '按钮1', color: '#f00'},{name: '按钮2', color: '#00f'}], //可选
 					theme: 1, //可选
 					style: { //可选
-						w: "75%",
+						w: "80vw",
 						h: "auto",
 						bg: '#FFF',
 						zIndex: 999,
@@ -72,6 +72,7 @@
 			//confirm双按钮提醒弹窗
 			document.querySelector(".dialog-1").addEventListener("click", function(){
 				aui.confirm({
+					title: "提示", //可选
 					msg: "您点击了confirm双按钮模态弹窗！",
 					btns: ["取消", "确定"],
 				},function(ret){
@@ -84,6 +85,7 @@
 			//delete删除提醒弹窗
 			document.querySelector(".dialog-2").addEventListener("click", function(){
 				aui.delete({
+					title: "提示", //可选
 					msg: "您点击了delete删除模态弹窗！",
 					btns: ["取消", "删除"],
 				},function(ret){
@@ -96,6 +98,7 @@
 			//prompt输入弹窗
 			document.querySelector(".dialog-3").addEventListener("click", function(){
 				aui.prompt({
+					title: "提示", //可选
 					items: [{
 						label: '姓名：', 
 						type: 'text', 
@@ -113,7 +116,7 @@
 					if(ret.index == 1)
 					{
 						aui.alert({
-							title: "输入结果：",
+							title: "输入结果",
 							msg: "<div style='text-align: left;'>姓名：" + ret.data[0] + "</br>年龄：" + ret.data[1]+"</div>",
 							btns: ["确定"],
 						}, function(ret){
@@ -127,6 +130,7 @@
 			//confirm带图标双按钮提醒弹窗
 			document.querySelector(".dialog-4").addEventListener("click", function(){
 				aui.confirm({
+					title: "提示", //可选
 					msg: "<div style='text-align: center;'>"
 						+"<img src='../../img/success-green.png' style='width: 60px; margin: 0 auto;'>"
 						+"<p style='width: 100%; line-height: 25px; color: 15px;'>带图标模态弹窗</p>"
@@ -157,6 +161,7 @@
 			//confirm双按钮提醒弹窗
 			document.querySelector(".dialog-6").addEventListener("click", function(){
 				aui.confirm({
+					title: "提示", //可选
 					msg: "您点击了confirm双按钮模态弹窗！",
 					btns: ["取消", "确定"],
 					theme: 2, //可选
@@ -170,6 +175,7 @@
 			//delete删除提醒弹窗
 			document.querySelector(".dialog-7").addEventListener("click", function(){
 				aui.delete({
+					title: "提示", //可选
 					msg: "您点击了delete删除模态弹窗！",
 					btns: ["取消", "删除"],
 					theme: 2, //可选
@@ -183,6 +189,7 @@
 			//prompt输入弹窗
 			document.querySelector(".dialog-8").addEventListener("click", function(){
 				aui.prompt({
+					title: "提示", //可选
 					items: [{
 						label: '姓名：', 
 						type: 'text', 
@@ -201,7 +208,7 @@
 					if(ret.index == 1)
 					{
 						aui.alert({
-							title: "输入结果：",
+							title: "输入结果",
 							msg: "<div style='text-align: left;'>姓名：" + ret.data[0] + "</br>年龄：" + ret.data[1]+"</div>",
 							btns: ["确定"],
 							theme: 2, //可选
