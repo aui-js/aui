@@ -88,7 +88,7 @@ touchClose  | boolean | 触摸遮罩是否关闭模态弹窗 | true | 否
 theme  | number | 主题样式，控制模态弹窗按钮显示风格(1: 大按钮; 2: 小按钮-居右分布; 3: 按钮宽度等于父级宽度100%，适用于按钮文字过多情况) | 'col' | 否
 items  | arr | prompt--input框列表配置</br>[{label: '姓名：', type: 'text', value: '(可选)', placeholder: '请输入姓名'}] | [] | 否
 duration  | number | 显示时间 | 2000 | 否
-style  | object | {</br>    w: '', //--可选参数，模态窗宽度，默认80%</br>    h: '', //--可选参数，模态窗高度，默认"auto"自适应</br>  bg: '',//--可选参数，模态窗背景色，默认白色</br>    zIndex: '', //--可选参数，模态窗层级</br> animate: '', //--可选参数，显示动画</br> title: {</br>   bg: "",</br>    color: "",</br> lineHeight: "",</br>    textAlign: "",</br> fontSize: "",</br>  padding: ""</br>}} | '' | 否
+style  | object | {</br>    w: '', //--可选参数，模态窗宽度，默认80%</br>    h: '', //--可选参数，模态窗高度，默认"auto"自适应</br>  bg: '',//--可选参数，模态窗背景色，默认白色</br>    zIndex: '', //--可选参数，模态窗层级</br> title: {</br>   bg: "",</br>    color: "",</br> lineHeight: "",</br>    textAlign: "",</br> fontSize: "",</br>  padding: ""</br>}} | '' | 否
 
 > 1、alert单按钮提醒弹窗
 ````javascript
