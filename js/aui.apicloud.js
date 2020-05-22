@@ -88,7 +88,7 @@
 		},
 		/***获取上一页参数*/
 		getPageparam: function() {
-		    if (apicloud) {
+		    if (this.data.apicloud) {
 		        return api.pageParam;
 		    } else {
 		        var res = getUrlParam('param');
@@ -121,7 +121,7 @@
 		*/
 		openWin: function(name, url, pageParam, type, subType, duration, isCheckLogin) {
 			var _this = this;
-		    if (_this.apicloud) {
+		    if (_this.data.apicloud) {
 		        _this.isDefine(pageParam) ? pageParam = pageParam : pageParam = new Object();
 		        _this.isDefine(type) ? type = type : type = 'push';
 		        _this.isDefine(subType) ? subType = subType : subType = 'from_right';
@@ -140,7 +140,7 @@
 		/***关闭当前页面 */
 		closeWin: function() {
 			var _this = this;
-		    if (_this.apicloud) {
+		    if (_this.data.apicloud) {
 		        api.closeWin();
 		    }
 		},

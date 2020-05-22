@@ -1,17 +1,15 @@
 /*!
  * =====================================================
- * Aui
+ * AUI  移动端UI组件库
  * versions 1.0.0
  * cl15095344637@163.com
+ * git: https://github.com/aui-js/aui
  * =====================================================
  */
 !(function(document, window, undefined){
 	"use strict";
 	var aui = new Object();
 	aui = {
-		h5: true, //是否移动端网页
-		apicloud: false, //是否 apicloud APP应用
-		dcloud: false, //是否dcloud APP应用
 		/***对象合并(可实现多层对象深度合并)
 		   @param {Object} opts 原始参数
 		   @param {Object} opt 新参数
@@ -43,29 +41,13 @@
 		*/
 		openWin(url, opts){
 			var _this = this;
-			if(!_this.apicloud)
-			{
-				var str = '?';
-				for(var i in opts){
-					if(_this.isDefine(opts[i])){
-						str += i + '=' + opts[i] + '&';
-					}
+			var str = '?';
+			for(var i in opts){
+				if(_this.isDefine(opts[i])){
+					str += i + '=' + opts[i] + '&';
 				}
-				window.location.href = _this.isDefine(opts) ? url + str : url;				
 			}
-			else
-			{
-				_this.isDefine(opts) ? opts = opts : opts = new Object();
-				api.openWin({
-				    name: url.split("/")[url.split("/").length - 1].split(".")[0],
-				    url: url,
-				    pageParam: opts,
-				    animation: {
-				        type: 'push', ////新视图将旧视图推开
-				        subType: 'from_right', //从右边开始动画
-				    }
-				});
-			}
+			window.location.href = _this.isDefine(opts) ? url + str : url;
 		},		
 		/***关闭页面
 		   @example: aui.closeWin()
@@ -304,24 +286,12 @@
 			$(navBorder).css({
 				left: _navItem.offsetLeft + (_navItem.offsetWidth / 2) - (_navBorder.offsetWidth / 2) + "px"
 			});
-		},
-		/***银行卡加密显示： XXXX **** XXXX;
-		    @param {string} cardnum 银行卡号
-		*/
-		encodeCard: function(cardnum){
-		    var reg = /^(\d{4})(\d*)(\d{4})$/;
-		    cardnum = cardnum.replace(reg, function(a, b, c, d) {
-		        return b + c.replace(/\d/g, "*") + d;
-		    });
-		    // console.log(cardnum);
-		    return cardnum;
-		}
+		}		
 	}
 	// 将插件对象暴露给全局对象
-   	var Global = (function(){ return this || (0, eval)('this'); }());
-    if (typeof module !== "undefined" && module.exports){module.exports = aui;}
+	if(typeof module !== 'undefined' && typeof exports === 'object' && define.cmd) { module.exports = aui;}
     else if (typeof define === "function" && define.amd){define(function(){return aui;});}
-    else {!('aui' in Global) && (Global.aui = aui); }
+    else {window.aui = aui;}
 })(document, window);
 
 /* ===============================
@@ -524,6 +494,17 @@
 		var re =/^[0-9.]{1,20}$/;
 		if(re.test(ip)) return true;
 		else return false;
+	}
+	/***银行卡加密显示： XXXX **** XXXX;
+	    @param {string} cardnum 银行卡号
+	*/
+	$.encodeCard = function(cardnum){
+	    var reg = /^(\d{4})(\d*)(\d{4})$/;
+	    cardnum = cardnum.replace(reg, function(a, b, c, d) {
+	        return b + c.replace(/\d/g, "*") + d;
+	    });
+	    // console.log(cardnum);
+	    return cardnum;
 	}
 })(aui, document, window);
 
