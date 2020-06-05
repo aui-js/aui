@@ -1,4 +1,6 @@
+
 # aui
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200605162617597.png)
 
 ## 简介
 
@@ -22,13 +24,12 @@
 
 ## 演示
 [查看演示](https://aui-js.github.io/aui/index.html) </br>
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200605172356214.png)
 ## 组件
 
 #### `loading加载动画`
-
 [预览](https://aui-js.github.io/aui/html/plugs/loading.html) </br>
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200605172527930.png)
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -51,9 +52,8 @@ aui.hideload();
 ```
 
 #### `toast消息提示弹窗`
-
 [预览](https://aui-js.github.io/aui/html/plugs/toast.html) </br>
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200605172641614.png)
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -74,9 +74,8 @@ aui.toast({
 });
 ````
 #### `dialog提示窗`
-
 [预览](https://aui-js.github.io/aui/html/plugs/dialog.html) </br>
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200605172754794.png)
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -213,9 +212,8 @@ aui.confirm({
 ````
 
 #### `actionsheet操作表`
-
 [预览](https://aui-js.github.io/aui/html/plugs/actionsheet.html) </br>
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200605172849592.png)
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -245,9 +243,8 @@ aui.actionSheet({
 });
 ````
 #### `actionmenu分享弹窗`
-
 [预览](https://aui-js.github.io/aui/html/plugs/actionmenu.html) </br>
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200605173034146.png)
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -285,9 +282,8 @@ aui.actionMenu({
 ````
 
 #### `popover菜单`
-
 [预览](https://aui-js.github.io/aui/html/plugs/popover.html) </br>
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200605173142411.png)
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -321,9 +317,8 @@ aui.popover.open({
 ````
 
 #### `picker多级联动`
-
 [预览](https://aui-js.github.io/aui/html/plugs/picker.html) </br> 
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200605173234542.png)
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -356,10 +351,9 @@ aui.picker.open({
 })
 ````
 
-#### `poster广告弹窗`
-
+####  `poster广告弹窗`
 [预览](https://aui-js.github.io/aui/html/plugs/poster.html) </br> 
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200605173323834.png)
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -381,8 +375,9 @@ aui.poster({
 ````
 
 #### `sidemenu侧滑菜单`
-
 [预览](https://aui-js.github.io/aui/demo/sidemenu/index.html) </br> 
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020060517345594.png)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020060517345591.png)
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -455,9 +450,8 @@ aui.sidemenu.close({speed: 10}).then(function(ret){
 ````
 
 #### `selectmenu下拉列表选择菜单`
-
 [预览](https://aui-js.github.io/aui/html/plugs/selectmenu.html) </br> 
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020060517361543.png)
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -553,9 +547,8 @@ aui.selectMenu.close(function(){
 ````
 
 #### `keypad数字键盘`
-
-[预览](https://aui-js.github.io/aui/html/plugs/keypad.html) </br>  
-
+[预览](https://aui-js.github.io/aui/html/plugs/keypad.html) </br> 
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200605173659548.png)
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
@@ -583,9 +576,8 @@ aui.keypad.open({
 });
 ````
 #### `chatbox js聊天输入框`
-
 [预览](https://aui-js.github.io/aui/html/plugs/chatbox.html) </br>  
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200605173755965.png)
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
 warp  | string | 父容器元素 | 'body' | 否
