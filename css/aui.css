@@ -1026,6 +1026,35 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #EFEFEF;}
 .aui-dialog-main-style-3 .aui-dialog-down-btn:last-child:before{display: none;}
 .aui-dialog-main-style-3 .aui-dialog-down-btn:first-child:after{display: none;}
 
+.aui-dialog-main-style-4 .aui-dialog-down{
+	height: 60px;
+	padding: 0 20px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+}
+.aui-dialog-main-style-4 .aui-dialog-down-btn{
+	height: 40px;
+	line-height: 40px;
+	justify-content: center;
+	margin: 0 10px;
+	display: flex;
+	flex: 1;
+	padding: 0 15px;
+	box-sizing: border-box;
+	border-radius: 30px;
+	background: var(--aui-bg);
+	color: #FFF;
+}
+.aui-dialog-main-style-4 .aui-dialog-down-btn.aui-dialog-down-cancel-btn{
+	background: #F4F4F4;
+	color: #646464;
+}
+.aui-dialog-main-style-4 .aui-dialog-down-btn.aui-dialog-down-delete-btn{
+	background: #FF5555;
+	color: #FFFFFF;
+}
+
 /*input  输入弹窗样式设置*/
 .aui-dialog-input-list{
 	width: 100%;

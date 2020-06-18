@@ -1234,6 +1234,10 @@
 					}
 					$.isDefine(_opts.title) ? ui.msg.style.padding = "16px 20px 20px 20px" : ui.msg.style.padding = "30px 20px 26px 20px";
 					break;
+				case 4: //带背景色按钮
+					ui.main.classList.add('aui-dialog-main-style-4');
+					_opts.btns.length == 1 ? ui.down.style.padding = "0 40px" : ui.down.style.padding = "0 20px";
+					break;
 				default:
 					break;
 			}
@@ -1250,7 +1254,7 @@
 				_opts.btns[i].name == "取消" || _opts.btns[i] == "取消" ? ui.btn[i].className = "aui-dialog-down-btn aui-dialog-down-cancel-btn" : '';
 				_opts.btns[i].name == "删除" || _opts.btns[i] == "删除" ? ui.btn[i].className = "aui-dialog-down-btn aui-dialog-down-delete-btn" : '';
 				!function(j){
-					$.touchDom(ui.btn[j], "#EFEFEF");
+					$.touchDom(ui.btn[j], Number(_opts.theme) == 4 ? "#CDCDCD" : "#EFEFEF");
 				}(i);
 			}
 			$.isDefine(_opts.msg) && _opts.msg.length > 15 ? ui.msg.style.textAlign = "left" : ui.msg.style.textAlign = "center";

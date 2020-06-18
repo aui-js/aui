@@ -27,6 +27,10 @@
 				<button class="aui-btn aui-btn-blue dialog-8">prompt输入弹窗</button>
 				<lable class="aui-list-title">3、两个以上按钮</lable>
 				<button class="aui-btn aui-btn-blue dialog-9">多按钮弹窗</button>
+				<lable class="aui-list-title">3、带背景色按钮</lable>
+				<button class="aui-btn aui-btn-blue dialog-10">alert单按钮提醒弹窗</button>
+				<button class="aui-btn aui-btn-blue dialog-11">confirm双按钮提醒弹窗</button>
+				<button class="aui-btn aui-btn-blue dialog-12">delete删除提醒弹窗</button>
 			</div>
 		</div>
 	</body>
@@ -216,9 +220,10 @@
 					}
 				});
 			});
-			//多按钮弹窗
+			//C、多按钮弹窗
 			document.querySelector(".dialog-9").addEventListener("click", function(){
 				aui.confirm({
+					title: "提示", //可选
 					msg: "您点击了多按钮弹窗！",
 					btns: [{name: '残忍拒绝', color: ''},{name: '再逛逛', color: ''}, {name: "返回首页", color: "#909090"}], //可选
 					theme: 3, //可选
@@ -232,6 +237,53 @@
 					}
 					else if(ret.index == 2){
 						aui.toast({msg: "您点击了返回首页"});
+					}
+				});
+			});
+			
+			//D、带背景色按钮
+			//alert单按钮提醒弹窗
+			document.querySelector(".dialog-10").addEventListener("click", function(){
+				aui.alert({
+					title: "提示", //可选
+					msg: "您点击了多按钮弹窗！",
+					btns: ["确定"], //可选
+					theme: 4, //可选
+				},function(ret){
+					console.log(ret.index);	
+					if(ret.index == 0){
+						aui.toast({msg: "您点击了确定"});
+					}
+				});
+			});
+			//confirm双按钮提醒弹窗
+			document.querySelector(".dialog-11").addEventListener("click", function(){
+				aui.confirm({
+					title: "提示", //可选
+					msg: "您点击了多按钮弹窗！",
+					btns: ["取消", "确定"], //可选
+					theme: 4, //可选
+				},function(ret){
+					console.log(ret.index);	
+					if(ret.index == 0){
+						aui.toast({msg: "您点击了取消"});
+					}
+					else if(ret.index == 1){
+						aui.toast({msg: "您点击了确定"});
+					}
+				});
+			});
+			//delete删除提醒弹窗
+			document.querySelector(".dialog-12").addEventListener("click", function(){
+				aui.delete({
+					title: "提示", //可选
+					msg: "您点击了delete删除模态弹窗！",
+					btns: ["取消", "删除"],
+					theme: 4, //可选
+				},function(ret){
+					console.log(ret.index);	
+					if(ret.index == 1){
+						aui.toast({msg: "您点击了删除"});
 					}
 				});
 			});
