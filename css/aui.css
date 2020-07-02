@@ -749,7 +749,7 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #EFEFEF;}
 :root .aui-loading .aui-loading-msg .dotting { margin-left: 2px; padding-left: 2px; } /* IE9+ */
 
 /* 圆点放大缩小动画(全屏首次加载过度动画) */
-.aui-loading.aui-loading-dots{background-color: #FFF; height: 100%; width: 100%; position: fixed; z-index: 996; margin-top: 0px; top: 0px;}
+.aui-loading.aui-loading-dots{background-color: #FFF; height: 100%; width: 100%; position: fixed; z-index: 999; margin-top: 0px; top: 0px;}
 .aui-loading.aui-loading-dots .aui-loading-main{width: 100%;height: 100%;position: relative;}
 .aui-loading.aui-loading-dots .aui-loading-dot-items {position: absolute;left: 50%;top: 50%;height: 120px;width: 120px; text-align: center; margin-top: -60px;margin-left: -60px;}
 .aui-loading.aui-loading-dots .aui-loading-dot-item{width: 10px;height: 10px; background-color: #ec2b45; display: inline-block; margin-right: 6px; margin-top: 20px; border-radius: 2px; transform: scale(1) skewX(-30deg);}
@@ -776,7 +776,7 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #EFEFEF;}
 }
 
 /* 圆点背景过度动画-微信小程序效果(全屏首次加载过度动画) */
-.aui-loading.aui-loading-dots-opacity{background-color: #FFF; height: 100%; width: 100%; position: fixed; z-index: 996; margin-top: 0px; top: 0px;}
+.aui-loading.aui-loading-dots-opacity{background-color: #FFF; height: 100%; width: 100%; position: fixed; z-index: 999; margin-top: 0px; top: 0px;}
 .aui-loading.aui-loading-dots-opacity .aui-loading-main{width: 100%;height: 100%;position: relative;}
 .aui-loading.aui-loading-dots-opacity .aui-loading-dot-items {position: absolute;left: 50%;top: 50%;height: 80px;width: 80px; text-align: center; margin-top: -40px;margin-left: -40px;}
 .aui-loading.aui-loading-dots-opacity .aui-loading-dot-item{width: 10px;height: 10px; opacity: 1; background-color: #ec2b45; display: inline-block; margin-right: 10px;margin-top: 30px;-moz-border-radius: 50% 50% 50% 50%;-webkit-border-radius: 50% 50% 50% 50%;border-radius: 50% 50% 50% 50%;}
