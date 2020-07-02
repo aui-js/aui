@@ -9,13 +9,13 @@
 		<link rel="stylesheet" type="text/css" href="../../lib/mui/mui.reset.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/aui.min.css"/>
 		<style type="text/css">					
-			.sc_fabu input,.sc_fabu textarea{margin-bottom: 0;}
-			.sc_fabu{margin-top: 12px; font-size: 0px; overflow: hidden;position: relative;box-shadow: 0 6px 10px rgba(0,0,0,.03);}
-			.sc_fabu i {font-size: 18px; color: #CCC; position: absolute;bottom: 15px;right: 15px;z-index: 1;}
-			.sc_fabu p{padding: 6px 15px 12px 15px;color: #666666;font-size: 14px;}
-			.sc_fabu input,.sc_fabu button,.sc_fabu .choose-btn,.sc_fabu textarea{width: 100%;border: none;height: 50px; display: inline-block; line-height: 50px;padding: 0 15px;color: #333333;text-align: left;font-size: 14px;background-color: #FFFFFF;}
-			.sc_fabu textarea{line-height:20px; height: 100px;padding-top: 15px; padding-bottom: 0;}
-			.sc_fabu input{padding: 15px; box-sizing: border-box; color: #333; border: none;    outline: none;    line-height: 20px;}
+			.list input,.list textarea{margin-bottom: 0;}
+			.list{margin-top: 12px; font-size: 0px; overflow: hidden;position: relative;}
+			.list i {font-size: 18px; color: #CCC; position: absolute;bottom: 15px;right: 15px;z-index: 1;}
+			.list p{padding: 6px 15px 12px 15px;color: #666666;font-size: 14px;}
+			.list input,.list button,.list .choose-btn,.list textarea{width: 100%;border: none;height: 50px; display: inline-block; line-height: 50px;padding: 0 15px;color: #333333;text-align: left;font-size: 14px;background-color: #FFFFFF;}
+			.list textarea{line-height:20px; height: 100px;padding-top: 15px; padding-bottom: 0;}
+			.list input{padding: 15px; box-sizing: border-box; color: #333; border: none;    outline: none;    line-height: 20px;}
 		</style>
 	</head>
 	<body>
@@ -26,12 +26,12 @@
 			</header>
 			<div class="aui-content" v-cloak>
 				<ul>
-					<li class="sc_fabu">
+					<li class="list">
 						<p>所在地区</p>
 						<span class="choose-btn" id="choose-address" :style="city=='请选择' ? 'color: #666' : 'color: #333'">{{city}}</span>
 						<i class="mui-icon mui-icon-arrowright"></i>
 					</li>
-					<li class="sc_fabu">
+					<li class="list">
 						<p>当前日期</p>
 						<span class="choose-btn" id="date-picker" data-options='{"type":"date"}' :style="date=='请选择' ? 'color: #666' : 'color: #333'">{{date}}</span>
 						<i class="mui-icon mui-icon-arrowright"></i>
