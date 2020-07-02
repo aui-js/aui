@@ -113,6 +113,7 @@
 					},
 					// 搜索历史点击搜索
 					tapHistorySearch(e){
+						this.keywords = e.currentTarget.dataset.keywords;
 						this.searchCallback(e.currentTarget.dataset.keywords);
 					},
 					// 存储搜索历史
