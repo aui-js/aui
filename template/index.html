@@ -16,8 +16,7 @@
 	<body>
 		<div class="container">
 			<header class="aui-header">				
-				<div class="aui-header-title" style="left: 15px;">模板</div>		
-				<a class="aui-header-right" onclick=""><i class="iconfont iconother"></i></a>
+				<div class="aui-header-title" style="left: 15px;">模板</div>
 			</header>
 			<div class="aui-content">
 				<div class="aui-lists">
@@ -96,8 +95,10 @@
 				</div>
 			</div>
 			<footer class="aui-footer row-before">
-				<div class="aui-footer-list" onclick="aui.openWin('../index.html')"><i class="iconfont iconjs"></i><p>API</p></div>
-				<div class="aui-footer-list active" onclick="aui.openWin('demo-index.html')"><i class="iconfont iconshilidaima"></i><p>DEMO</p></div>
+				<div class="aui-footer-list" onclick="aui.openWin('../index.html')"><i class="iconfont iconapi"></i><p>接口</p></div>
+				<div class="aui-footer-list" onclick="aui.openWin('../ui/index.html')"><i class="iconfont iconui"></i><p>组件</p></div>
+				<div class="aui-footer-list active" onclick="aui.openWin('index.html')"><i class="iconfont icontamplate"></i><p>模板</p></div>
+				<div class="aui-footer-list" target="view_window" onclick="aui.openWin('https://www.kancloud.cn/chen-wanchun/aui-js/1785087')"><i class="iconfont icondoc"></i><p>文档</p></div>
 			</footer>
 		</div>
 	</body>
@@ -106,32 +107,7 @@
 			var lists = document.querySelectorAll(".aui-list");
 			for(var i = 0; i < lists.length; i++){
 				aui.touchDom(lists[i], "#EFEFEF");
-			}	
-			//打开菜单弹窗(右上角——>按钮下方)
-			document.querySelector(".aui-header-right").addEventListener("click", function(){
-				aui.popover.open({
-					warp: '.aui-header-right',
-					items: [
-						{name: '生成二维码', icon: 'iconerweima', iconColor: '#12986D'},
-						{name: '微信', icon: 'iconweixin', iconColor: '#1AA034'},
-						{name: '分享到朋友圈', icon: 'iconpengyouquan', iconColor: '#EB3C3B'},
-						{name: '分享到QQ', icon: 'iconqq', iconColor: '#30A5DD'},
-						{name: '分享到微博', icon: 'iconweibo', iconColor: '#FF7C60'}
-					],
-					mask: true,
-					location: 'bottom'
-				},function(ret){
-					console.log(ret);
-					switch (ret.index){
-						case 0:
-							aui.openWin('./qrcode/QRCode.html');
-							break;
-						default:
-							aui.toast({msg: ret.el.querySelector("span").innerHTML});
-							break;
-					}
-				})
-			});
+			}				
 		});
 	</script>
 </html>
