@@ -27,7 +27,7 @@
 
 #### `loading加载动画`
 
-[预览](https://aui-js.github.io/aui/page/api/plugs/loading.html) </br>
+[预览](https://aui-js.github.io/aui/pages/api/plugs/loading.html) </br>
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -52,7 +52,7 @@ aui.hideload();
 
 #### `toast消息提示弹窗`
 
-[预览](https://aui-js.github.io/aui/page/api/plugs/toast.html) </br>
+[预览](https://aui-js.github.io/aui/pages/api/plugs/toast.html) </br>
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -75,7 +75,7 @@ aui.toast({
 ````
 #### `dialog提示窗`
 
-[预览](https://aui-js.github.io/aui/page/api/plugs/dialog.html) </br>
+[预览](https://aui-js.github.io/aui/pages/api/plugs/dialog.html) </br>
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -214,7 +214,7 @@ aui.confirm({
 
 #### `actionsheet操作表`
 
-[预览](https://aui-js.github.io/aui/page/api/plugs/actionsheet.html) </br>
+[预览](https://aui-js.github.io/aui/pages/api/plugs/actionsheet.html) </br>
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -246,7 +246,7 @@ aui.actionSheet({
 ````
 #### `actionmenu分享弹窗`
 
-[预览](https://aui-js.github.io/aui/page/api/plugs/actionmenu.html) </br>
+[预览](https://aui-js.github.io/aui/pages/api/plugs/actionmenu.html) </br>
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -286,7 +286,7 @@ aui.actionMenu({
 
 #### `popover菜单`
 
-[预览](https://aui-js.github.io/aui/page/api/plugs/popover.html) </br>
+[预览](https://aui-js.github.io/aui/pages/api/plugs/popover.html) </br>
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -322,7 +322,7 @@ aui.popover.open({
 
 #### `picker多级联动`
 
-[预览](https://aui-js.github.io/aui/page/api/plugs/picker.html) </br> 
+[预览](https://aui-js.github.io/aui/pages/api/plugs/picker.html) </br> 
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -358,7 +358,7 @@ aui.picker.open({
 
 #### `poster广告弹窗`
 
-[预览](https://aui-js.github.io/aui/page/api/plugs/poster.html) </br> 
+[预览](https://aui-js.github.io/aui/pages/api/plugs/poster.html) </br> 
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -456,7 +456,7 @@ aui.sidemenu.close({speed: 10}).then(function(ret){
 
 #### `selectmenu下拉列表选择菜单`
 
-[预览](https://aui-js.github.io/aui/page/api/plugs/selectmenu.html) </br> 
+[预览](https://aui-js.github.io/aui/pages/api/plugs/selectmenu.html) </br> 
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -554,7 +554,7 @@ aui.selectMenu.close(function(){
 
 #### `keypad数字键盘`
 
-[预览](https://aui-js.github.io/aui/page/api/plugs/keypad.html) </br>  
+[预览](https://aui-js.github.io/aui/pages/api/plugs/keypad.html) </br>  
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -584,7 +584,7 @@ aui.keypad.open({
 ````
 #### `chatbox js聊天输入框`
 
-[预览](https://aui-js.github.io/aui/page/api/plugs/chatbox.html) </br>  
+[预览](https://aui-js.github.io/aui/pages/api/plugs/chatbox.html) </br>  
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
