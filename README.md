@@ -16,8 +16,8 @@
 ## 引用
 
 ````html
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.min.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.min.js"></script>
 ````
 
 ## 演示
@@ -27,7 +27,7 @@
 
 #### `loading加载动画`
 
-[预览](https://aui-js.github.io/aui/api/plugs/loading.html) </br>
+[预览](https://aui-js.github.io/aui/page/api/plugs/loading.html) </br>
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -52,7 +52,7 @@ aui.hideload();
 
 #### `toast消息提示弹窗`
 
-[预览](https://aui-js.github.io/aui/api/plugs/toast.html) </br>
+[预览](https://aui-js.github.io/aui/page/api/plugs/toast.html) </br>
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -75,7 +75,7 @@ aui.toast({
 ````
 #### `dialog提示窗`
 
-[预览](https://aui-js.github.io/aui/api/plugs/dialog.html) </br>
+[预览](https://aui-js.github.io/aui/page/api/plugs/dialog.html) </br>
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -214,7 +214,7 @@ aui.confirm({
 
 #### `actionsheet操作表`
 
-[预览](https://aui-js.github.io/aui/api/plugs/actionsheet.html) </br>
+[预览](https://aui-js.github.io/aui/page/api/plugs/actionsheet.html) </br>
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -246,7 +246,7 @@ aui.actionSheet({
 ````
 #### `actionmenu分享弹窗`
 
-[预览](https://aui-js.github.io/aui/api/plugs/actionmenu.html) </br>
+[预览](https://aui-js.github.io/aui/page/api/plugs/actionmenu.html) </br>
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -259,10 +259,10 @@ location | string | 位置	</br>bottom:位于底部，从底部弹出显示</br>
 theme | number | 主题样式(1: 非全屏宽度； 2: 全屏宽度) | 1 | 否
 
 ````html
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.actionmenu.css"/>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.actionmenu.js"></script>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.actionmenu.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.actionmenu.js"></script>
 ````
 > 示例：   
 ````javascript
@@ -286,7 +286,7 @@ aui.actionMenu({
 
 #### `popover菜单`
 
-[预览](https://aui-js.github.io/aui/api/plugs/popover.html) </br>
+[预览](https://aui-js.github.io/aui/page/api/plugs/popover.html) </br>
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -297,10 +297,10 @@ touchClose  | boolean | 触摸遮罩是否关闭模态弹窗 | true | 否
 location | string | 位置	</br>top: 设置弹窗显示到触发元素“上”方;</br> bottom: 设置弹窗显示到触发元素“下”方; | 'top' | 否
 
 ````html
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.popover.css"/>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.popover.js"></script>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.popover.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.popover.js"></script>
 ````
 > 示例：   
 ````javascript
@@ -322,7 +322,7 @@ aui.popover.open({
 
 #### `picker多级联动`
 
-[预览](https://aui-js.github.io/aui/api/plugs/picker.html) </br> 
+[预览](https://aui-js.github.io/aui/page/api/plugs/picker.html) </br> 
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -332,10 +332,10 @@ layer | number | 控制几级联动 | 1 | 否
 data | arr | 数据 如：[{text: '', adcode: '', children: [{text: '', adcode: ''}]}] | [] | 否
 
 ````html
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.picker.css"/>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.picker.js"></script>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.picker.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.picker.js"></script>
 ````
 > 示例：   
 ````javascript
@@ -358,7 +358,7 @@ aui.picker.open({
 
 #### `poster广告弹窗`
 
-[预览](https://aui-js.github.io/aui/api/plugs/poster.html) </br> 
+[预览](https://aui-js.github.io/aui/page/api/plugs/poster.html) </br> 
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -368,10 +368,10 @@ touchClose  | boolean | 触摸遮罩是否关闭模态弹窗 | true | 否
 image | string | 广告图片地址 | '' | 是
 
 ````html
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.poster.css"/>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.poster.js"></script>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.poster.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.poster.js"></script>
 ````
 > 示例：   
 ````javascript
@@ -398,10 +398,10 @@ drag | object | {</br> use: true, //--可选参数，是否开启拖动打开、
 style | object | 设置样式 | {</br>w: '80vw',</br> h: '100vh',</br> bg: '#333'</br>} | 否
 
 ````html
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.sidemenu.css"/>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.sidemenu.js"></script>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.sidemenu.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.sidemenu.js"></script>
 ````
 > 初始化：   
 ````javascript
@@ -456,7 +456,7 @@ aui.sidemenu.close({speed: 10}).then(function(ret){
 
 #### `selectmenu下拉列表选择菜单`
 
-[预览](https://aui-js.github.io/aui/api/plugs/selectmenu.html) </br> 
+[预览](https://aui-js.github.io/aui/page/api/plugs/selectmenu.html) </br> 
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -471,10 +471,10 @@ select | function | 一级以上点击选择后执行，获取下级数据并ret
 style | object | 样式 | {</br>width: '',</br> height: '',</br> top: '',</br> left: '',</br> padding: '',</br> background: '',</br> borderRadius: '',</br> itemStyle:{</br>textAlign: '',</br>fontSize: '',</br>color: '',</br>isLine: false, //是否显示分割线</br>}</br>} | 否
 
 ````html
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.selectmenu.css"/>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.selectmenu.js"></script>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.selectmenu.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.selectmenu.js"></script>
 ````
 > 打开：   
 ````javascript
@@ -554,7 +554,7 @@ aui.selectMenu.close(function(){
 
 #### `keypad数字键盘`
 
-[预览](https://aui-js.github.io/aui/api/plugs/keypad.html) </br>  
+[预览](https://aui-js.github.io/aui/page/api/plugs/keypad.html) </br>  
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -566,10 +566,10 @@ mask  | boolean | 是否显示遮罩蒙版 | true | 否
 touchClose  | boolean | 触摸遮罩是否关闭侧滑菜单 | true | 否
 
 ````html
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.keypad.css"/>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.keypad.js"></script>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.keypad.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.keypad.js"></script>
 ````
 > 示例：   
 ````javascript
@@ -584,7 +584,7 @@ aui.keypad.open({
 ````
 #### `chatbox js聊天输入框`
 
-[预览](https://aui-js.github.io/aui/api/plugs/chatbox.html) </br>  
+[预览](https://aui-js.github.io/aui/page/api/plugs/chatbox.html) </br>  
 
 参数  |  类型  |  描述  | 默认值 | 必选
 ---- | ----- | ------ | ----- | ----
@@ -598,10 +598,10 @@ emotion | object | 表情功能配置 | emotion:  </br>{ </br>use:  true, //是�
 extras  | object  | 附加功能配置  | extras: </br>{</br> use: true, //是否开启附加功能 </br> pageHasNum: 8, //一页显示按钮数量(4 * 2) </br> btns: [  /* {title: '', icon: '', img: ''} */],</br> }
 
 ````html
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/css/aui.chatbox.css"/>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.min.js"></script>
-<script type="text/javascript" src="https://aui-js.github.io/aui/js/aui.chatbox.js"></script>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.chatbox.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.min.js"></script>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.chatbox.js"></script>
 ````
 > 示例：   
 ````javascript
