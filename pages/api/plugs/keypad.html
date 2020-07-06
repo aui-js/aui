@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>keypad数字键盘</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.keypad.css"/>
+		<style type="text/css">
+			body{background: #FFF;}
+			.keypad-btn{width: 100%; height: 50px; margin-bottom: 15px; background: #F4F4F4; border-radius: 5px;}
+			.keypad-btn:after{border-radius: 10px;}
+			.keypad-btn input{width: 100%; height: 100%; padding: 0 15px; box-sizing: border-box; background: transparent; font-size: 16px; color: #646464; border: none;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">keypad数字键盘</div>
+			</header>
+			<div class="aui-content" style="padding: 15px 15px 0 15px;">				
+				<div class="keypad-btn btn-1 border">
+					<input type="text" name="" id="text1" onfocus="this.blur()" placeholder="输入数量" value="" />
+				</div>
+				<div class="keypad-btn btn-2 border">
+					<input type="text" name="" id="text2" onfocus="this.blur()" placeholder="输入价格" value="" />
+				</div>
+				<div class="keypad-btn btn-3 border">
+					<input type="text" name="" id="text3" onfocus="this.blur()" placeholder="输入身份证号" value="" />
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	<script type="text/javascript" src="../../../static/js/aui.keypad.js"></script>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var btns = document.querySelectorAll(".aui-btn");
+			for(var i = 0; i < btns.length; i++){
+				aui.touchDom(btns[i], "#FFF", "var(--aui-blue)", "1px solid var(--aui-blue)");					
+			}
+			//keypad数字键盘
+			//输入数量
+			document.querySelector(".btn-1").addEventListener("click", function(){
+				aui.keypad.open({
+					type: 'number', //1、number | 2、point | 3、idcard
+					mask: false,
+					value: document.querySelector('#text1').value
+				}, function(ret){
+					console.log(ret);
+					document.querySelector('#text1').value = ret.result;
+				});
+			});
+			//输入价格
+			document.querySelector(".btn-2").addEventListener("click", function(){
+				aui.keypad.open({
+					type: 'point', //1、number | 2、point | 3、idcard
+					mask: false,
+					num: 2,
+					value: document.querySelector('#text2').value
+				}, function(ret){
+					console.log(ret);
+					document.querySelector('#text2').value = ret.result;
+				});
+			});
+			//输入数量
+			document.querySelector(".btn-3").addEventListener("click", function(){
+				aui.keypad.open({
+					type: 'idcard', //1、number | 2、point | 3、idcard
+					mask: false,
+					value: document.querySelector('#text3').value
+				}, function(ret){
+					console.log(ret);
+					document.querySelector('#text3').value = ret.result;
+				});
+			});
+		});
+	</script>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>loading加载动画</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">loading加载动画</div>
+			</header>
+			<div class="aui-content">
+				<lable class="aui-list-title">1、常用loading加载弹窗</lable>
+				<button class="aui-btn aui-btn-blue load-0">全屏默认配置加载动画</button>
+				<button class="aui-btn aui-btn-blue load-1">全屏水平布局加载动画</button>
+				<button class="aui-btn aui-btn-blue load-2">全屏垂直布局加载动画</button>
+				<lable class="aui-list-title">2、按钮内显示loading加载动画</lable>
+				<button class="aui-btn aui-btn-blue load-3">按钮加载动画</button>
+				<lable class="aui-list-title">3、特殊风格loading加载弹窗 -> 四方块旋转</lable>
+				<button class="aui-btn aui-btn-blue load-5">全屏小窗加载动画（默认配置dark风格）</button>
+				<button class="aui-btn aui-btn-blue load-6">全屏小窗加载动画（light风格）</button>
+				<button class="aui-btn aui-btn-blue load-7">全屏加载动画</button>
+				<lable class="aui-list-title">4、三圆点放大缩小动画(全屏首次加载过度动画)</lable>
+				<button class="aui-btn aui-btn-blue load-8">全屏加载动画</button>
+				<lable class="aui-list-title">5、三圆点背景过度动画(全屏首次加载过度动画)</lable>
+				<button class="aui-btn aui-btn-blue load-9">全屏加载动画</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			//全屏默认配置加载动画(dark风格)
+			document.querySelector(".load-0").addEventListener("click", function(){
+				aui.showload({msg: "加载中"});
+				setTimeout(function(){
+					aui.hideload();
+				},3000);
+			});
+			//全屏水平布局加载动画
+			document.querySelector(".load-1").addEventListener("click", function(){
+				aui.showload({
+					msg: "加载中",
+					direction: "row",				
+				},function(ret){
+					setTimeout(function(){
+						aui.hideload();
+					},3000);
+				});
+			});
+			//全屏垂直布局加载动画（light风格）
+			document.querySelector(".load-2").addEventListener("click", function(){
+				aui.showload({
+					msg: "加载中",
+					mask: true,
+					style: {
+						bg: "rgba(255,255,255,1)",	
+						color: "#197DE0",
+						maskBg: "rgba(0,0,0,0.3)",
+						zIndex: 999
+					}
+				},function(ret){
+					setTimeout(function(){
+						aui.hideload();
+					},3000);
+				});
+			});
+			//按钮加载动画
+			document.querySelector(".load-3").addEventListener("click", function(){
+				aui.showload({
+					warp: ".load-3",
+					type: 2,
+					msg: "加载中...",
+				},function(ret){
+					setTimeout(function(){
+						aui.hideload();
+					},3000);
+				});
+			});
+			//四个方块旋转全屏小窗口加载动画(默认配置dark风格)
+			document.querySelector(".load-5").addEventListener("click", function(){
+				aui.showload({
+					type: 3,
+					msg: "加载中",
+				},function(ret){
+					setTimeout(function(){
+						aui.hideload();
+					},3000);
+				});
+			});
+			//四个方块旋转全屏小窗口加载动画(light风格)
+			document.querySelector(".load-6").addEventListener("click", function(){
+				aui.showload({
+					type: 3,
+					theme: 1,
+					msg: "加载中",
+					mask: true,
+					style: {
+						bg: "#FFF",	
+						color: "#909090",
+					}
+				},function(ret){
+					setTimeout(function(){
+						aui.hideload();
+					},3000);
+				});
+			});
+			//四个方块旋转全屏加载动画
+			document.querySelector(".load-7").addEventListener("click", function(){
+				aui.showload({
+					type: 3,
+					theme: 2,
+				},function(ret){
+					setTimeout(function(){
+						aui.hideload();
+					},3000);
+				});
+			});
+			//圆点放大缩小动画(全屏首次加载过度动画)
+			document.querySelector(".load-8").addEventListener("click", function(){
+				aui.showload({
+					type: 4
+				},function(ret){
+					setTimeout(function(){
+						aui.hideload();
+					},3000);
+				});
+			});
+			//圆点背景过度动画(全屏首次加载过度动画)
+			document.querySelector(".load-9").addEventListener("click", function(){
+				aui.showload({
+					type: 5
+				},function(ret){
+					setTimeout(function(){
+						aui.hideload();
+					},3000);
+				});
+			});
+		});
+		
+	</script>
+</html>

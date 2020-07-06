@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>picker多级联动</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.picker.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.picker.js"></script>
+		<script type="text/javascript" src="../../../lib/city.data.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">picker多级联动</div>
+			</header>
+			<div class="aui-content" style="padding: 15px 0 0 0;">
+				<button class="aui-btn aui-btn-blue picker-0">picker一级联动</button>
+				<button class="aui-btn aui-btn-blue picker-1">picker二级联动</button>
+				<button class="aui-btn aui-btn-blue picker-2">picker三级联动</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var btns = document.querySelectorAll(".aui-btn");
+			for(var i = 0; i < btns.length; i++){
+				aui.touchDom(btns[i], "#FFF", "var(--aui-blue)", "1px solid var(--aui-blue)");					
+			}
+			//一级联动
+			document.querySelector(".picker-0").addEventListener("click", function(){
+				aui.picker.open({
+					title: '选择区域',
+					layer: 1,
+					data: cityData, //城市数据
+				},function(ret){
+					console.log(ret);
+					if(ret.status == 1){
+						aui.picker.close(function(){
+							aui.alert({msg: ret.data.text});						
+						});						
+					}
+				})				
+			});
+			//二级联动
+			document.querySelector(".picker-1").addEventListener("click", function(){
+				aui.picker.open({
+					title: '选择区域',
+					layer: 2,
+					data: cityData, //城市数据
+				},function(ret){
+					console.log(ret);
+					if(ret.status == 1){
+						aui.picker.close(function(){
+							aui.alert({msg: ret.data.text + " " + ret.data.children.text});						
+						});						
+					}
+				})
+			});
+			//三级联动
+			document.querySelector(".picker-2").addEventListener("click", function(){
+				aui.picker.open({
+					title: '选择区域',
+					layer: 3,
+					data: cityData, //城市数据
+					select: function(ret){
+						console.log(ret);
+					}
+				},function(ret){
+					console.log(ret);
+					if(ret.status == 1){
+						aui.picker.close(function(){
+							aui.alert({msg: ret.data.text + " " + ret.data.children.text + ' ' + ret.data.children.children.text});						
+						});						
+					}
+				})
+			});
+		});
+	</script>
+</html>

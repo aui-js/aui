@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>dialog模态弹窗</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">dialog模态弹窗</div>
+			</header>
+			<div class="aui-content">
+				<lable class="aui-list-title">1、大按钮风格</lable>
+				<button class="aui-btn aui-btn-blue dialog-0">alert单按钮提醒弹窗</button>
+				<button class="aui-btn aui-btn-blue dialog-1">confirm双按钮提醒弹窗</button>
+				<button class="aui-btn aui-btn-blue dialog-2">delete删除提醒弹窗</button>
+				<button class="aui-btn aui-btn-blue dialog-3">prompt输入弹窗</button>
+				<button class="aui-btn aui-btn-blue dialog-4">自定义带图标提示弹窗</button>
+				<lable class="aui-list-title">2、小按钮风格</lable>
+				<button class="aui-btn aui-btn-blue dialog-5">alert单按钮提醒弹窗</button>
+				<button class="aui-btn aui-btn-blue dialog-6">confirm双按钮提醒弹窗</button>
+				<button class="aui-btn aui-btn-blue dialog-7">delete删除提醒弹窗</button>
+				<button class="aui-btn aui-btn-blue dialog-8">prompt输入弹窗</button>
+				<lable class="aui-list-title">3、两个以上按钮</lable>
+				<button class="aui-btn aui-btn-blue dialog-9">多按钮弹窗</button>
+				<lable class="aui-list-title">3、带背景色按钮</lable>
+				<button class="aui-btn aui-btn-blue dialog-10">alert单按钮提醒弹窗</button>
+				<button class="aui-btn aui-btn-blue dialog-11">confirm双按钮提醒弹窗</button>
+				<button class="aui-btn aui-btn-blue dialog-12">delete删除提醒弹窗</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			//A、大按钮风格弹窗
+			//alert单按钮提醒弹窗
+			document.querySelector(".dialog-0").addEventListener("click", function(){
+				aui.alert({
+					title: "提示", //可选
+					msg: "您点击了alert单按钮模态弹窗！",
+					mask: true,
+					touchClose: true, //可选
+					btns: ["确定"], //可选
+					//或btns: [{name: '按钮1', color: '#f00'},{name: '按钮2', color: '#00f'}], //可选
+					theme: 1, //可选
+					style: { //可选
+						w: "80vw",
+						h: "auto",
+						bg: '#FFF',
+						zIndex: 999,
+						animate: "aui-scale-in-tosmall-dialog",
+						title: {
+							bg: "#FFF",
+							color: "#333",
+							lineHeight:"55px",
+							fontSize: "17px",
+							textAlign: "center",
+							padding: "0px"
+						}
+					}
+				},function(ret){
+					console.log(ret.index);
+					if(ret.index == 0){
+						aui.toast({msg: "您点击了确定"});
+					}
+				});
+			});
+			//confirm双按钮提醒弹窗
+			document.querySelector(".dialog-1").addEventListener("click", function(){
+				aui.confirm({
+					title: "提示", //可选
+					msg: "您点击了confirm双按钮模态弹窗！",
+					btns: ["取消", "确定"],
+				},function(ret){
+					console.log(ret.index);	
+					if(ret.index == 1){
+						aui.toast({msg: "您点击了确定"});
+					}
+				});
+			});
+			//delete删除提醒弹窗
+			document.querySelector(".dialog-2").addEventListener("click", function(){
+				aui.delete({
+					title: "提示", //可选
+					msg: "您点击了delete删除模态弹窗！",
+					btns: ["取消", "删除"],
+				},function(ret){
+					console.log(ret.index);	
+					if(ret.index == 1){
+						aui.toast({msg: "您点击了删除"});
+					}
+				});
+			});
+			//prompt输入弹窗
+			document.querySelector(".dialog-3").addEventListener("click", function(){
+				aui.prompt({
+					title: "提示", //可选
+					items: [{
+						label: '姓名：', 
+						type: 'text', 
+						value: '', 
+						placeholder: '请输入姓名'
+					},{
+						label: '年龄：', 
+						type: 'number', 
+						value: '', 
+						placeholder: '请输入年龄'
+					}],
+					btns: ["取消", "确定"],
+				},function(ret){
+					console.log(ret.data);	
+					if(ret.index == 1)
+					{
+						aui.alert({
+							title: "输入结果",
+							msg: "<div style='text-align: left;'>姓名：" + ret.data[0] + "</br>年龄：" + ret.data[1]+"</div>",
+							btns: ["确定"],
+						}, function(ret){
+							if(ret.index == 0){
+								aui.toast({msg: "您点击了确定"});
+							}
+						});
+					}
+				});
+			});
+			//confirm带图标双按钮提醒弹窗
+			document.querySelector(".dialog-4").addEventListener("click", function(){
+				aui.confirm({
+					title: "提示", //可选
+					msg: "<div style='text-align: center;'>"
+						+"<img src='../../../static/img/success-green.png' style='width: 60px; margin: 0 auto;'>"
+						+"<p style='width: 100%; line-height: 25px; color: 15px;'>带图标模态弹窗</p>"
+					+"</div>",
+					btns: ["取消", "确定"],
+				},function(ret){
+					console.log(ret.index);	
+					if(ret.index == 1){
+						aui.toast({msg: "您点击了确定"});
+					}
+				});
+			});
+			//B、小按钮风格弹窗
+			//alert单按钮提醒弹窗
+			document.querySelector(".dialog-5").addEventListener("click", function(){
+				aui.alert({
+					title: "提示", //可选
+					msg: "您点击了alert单按钮模态弹窗！",
+					btns: ["确定"], //可选
+					theme: 2, //可选
+				},function(ret){
+					console.log(ret.index);	
+					if(ret.index == 1){
+						aui.toast({msg: "您点击了确定"});
+					}
+				});
+			});
+			//confirm双按钮提醒弹窗
+			document.querySelector(".dialog-6").addEventListener("click", function(){
+				aui.confirm({
+					title: "提示", //可选
+					msg: "您点击了confirm双按钮模态弹窗！",
+					btns: ["取消", "确定"],
+					theme: 2, //可选
+				},function(ret){
+					console.log(ret.index);	
+					if(ret.index == 1){
+						aui.toast({msg: "您点击了确定"});
+					}
+				});
+			});
+			//delete删除提醒弹窗
+			document.querySelector(".dialog-7").addEventListener("click", function(){
+				aui.delete({
+					title: "提示", //可选
+					msg: "您点击了delete删除模态弹窗！",
+					btns: ["取消", "删除"],
+					theme: 2, //可选
+				},function(ret){
+					console.log(ret.index);	
+					if(ret.index == 1){
+						aui.toast({msg: "您点击了删除"});
+					}
+				});
+			});
+			//prompt输入弹窗
+			document.querySelector(".dialog-8").addEventListener("click", function(){
+				aui.prompt({
+					title: "提示", //可选
+					items: [{
+						label: '姓名：', 
+						type: 'text', 
+						value: '', 
+						placeholder: '请输入姓名'
+					},{
+						label: '年龄：', 
+						type: 'number', 
+						value: '', 
+						placeholder: '请输入年龄'
+					}],
+					btns: ["取消", "确定"],
+					theme: 2, //可选
+				},function(ret){
+					console.log(ret.data);	
+					if(ret.index == 1)
+					{
+						aui.alert({
+							title: "输入结果",
+							msg: "<div style='text-align: left;'>姓名：" + ret.data[0] + "</br>年龄：" + ret.data[1]+"</div>",
+							btns: ["确定"],
+							theme: 2, //可选
+						}, function(ret){
+							if(ret.index == 0){
+								aui.toast({msg: "您点击了确定"});
+							}
+						});
+					}
+				});
+			});
+			//C、多按钮弹窗
+			document.querySelector(".dialog-9").addEventListener("click", function(){
+				aui.confirm({
+					title: "提示", //可选
+					msg: "您点击了多按钮弹窗！",
+					btns: [{name: '残忍拒绝', color: ''},{name: '再逛逛', color: ''}, {name: "返回首页", color: "#909090"}], //可选
+					theme: 3, //可选
+				},function(ret){
+					console.log(ret.index);	
+					if(ret.index == 0){
+						aui.toast({msg: "您点击了残忍拒绝"});
+					}
+					else if(ret.index == 1){
+						aui.toast({msg: "您点击了再逛逛"});
+					}
+					else if(ret.index == 2){
+						aui.toast({msg: "您点击了返回首页"});
+					}
+				});
+			});
+			
+			//D、带背景色按钮
+			//alert单按钮提醒弹窗
+			document.querySelector(".dialog-10").addEventListener("click", function(){
+				aui.alert({
+					title: "提示", //可选
+					msg: "您点击了多按钮弹窗！",
+					btns: ["确定"], //可选
+					theme: 4, //可选
+				},function(ret){
+					console.log(ret.index);	
+					if(ret.index == 0){
+						aui.toast({msg: "您点击了确定"});
+					}
+				});
+			});
+			//confirm双按钮提醒弹窗
+			document.querySelector(".dialog-11").addEventListener("click", function(){
+				aui.confirm({
+					title: "提示", //可选
+					msg: "您点击了多按钮弹窗！",
+					btns: ["取消", "确定"], //可选
+					theme: 4, //可选
+				},function(ret){
+					console.log(ret.index);	
+					if(ret.index == 0){
+						aui.toast({msg: "您点击了取消"});
+					}
+					else if(ret.index == 1){
+						aui.toast({msg: "您点击了确定"});
+					}
+				});
+			});
+			//delete删除提醒弹窗
+			document.querySelector(".dialog-12").addEventListener("click", function(){
+				aui.delete({
+					title: "提示", //可选
+					msg: "您点击了delete删除模态弹窗！",
+					btns: ["取消", "删除"],
+					theme: 4, //可选
+				},function(ret){
+					console.log(ret.index);	
+					if(ret.index == 1){
+						aui.toast({msg: "您点击了删除"});
+					}
+				});
+			});
+		});
+	</script>
+</html>

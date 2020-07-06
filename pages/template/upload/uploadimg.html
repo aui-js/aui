@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<title>上传图片</title>
+		<style>
+			.content{width: 100%; padding: 15px; box-sizing: border-box;}
+			.lists{width: 100%; background: #FFF; border-radius: 5px; padding: 0 15px; box-sizing: border-box;}
+			.list{width: 100%; font-size: 0; padding: 5px 0;}
+			.list label{height: 50px; line-height: 50px; font-size: 15px; color: #333; display: inline-block; vertical-align: top;}
+			.list label i{font-size: 16px; color: #FF0000;}
+			.list label .tip{line-height: 50px; display: inline-block; margin: 0 0 0 10px; font-size: 12px; color: #aaa; vertical-align: top;}
+			.list input{width: auto; min-width: 100px; height: 50px; line-height: 50px; padding: 0; font-size: 14px; color: #646464; border: none; text-align: right; margin: 0;  float: right;}
+			.list textarea{width: 100%; min-height: 80px; line-height: 20px; padding: 0 0 5px 0; font-size: 14px; color: #646464; border: none;}
+			.img-items{width: 100%; font-size: 0;}
+			.img-item{width: -webkit-calc((100% - 30px) / 3); width: calc((100% - 30px) / 3); height: -webkit-calc((100vw - 30px - 30px - 30px) / 3); display: inline-block; vertical-align: top; margin: 0 0 15px 0; border-radius: 5px; position: relative;}
+			.img-item:nth-child(3n-1){margin: 0 15px 15px 15px;}
+			.add-item{line-height: -webkit-calc((100vw - 30px - 30px - 30px) / 3); line-height: calc((100vw - 30px - 30px - 30px) / 3); text-align: center;}
+			.add-item i{font-size: 30px; color: #aaa;}
+			.add-item:after{border-radius: 5px;}
+			.img-item .img{height: 100%; height: 100%; background: #F4F4F4; overflow: hidden; border-radius: 5px; position: relative;}
+			.img-item .img img{width: 100%; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
+			.img-item .delete-btn{width: 25px; height: 25px; text-align: center; border: 2px solid #FFF; border-radius: 50%; background: var(--aui-blue); position: absolute; top: -10px; right: -10px;}
+			.img-item .delete-btn i{font-size: 15px; color: #FFF; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
+			.submit-btn{width: 100%; background: var(--aui-blue); margin: 30px 0; color: #FFF; font-size: 15px;}
+		</style>
+	</head>
+	<body>		
+	    <div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">上传图片</div>
+			</header>
+	    	<div class="content" v-cloak  style="padding: 15px 15px 0 15px;">
+	    		<ul class="lists">					
+					<li class="list">
+						<label for="">上传照片<i class="red">*</i><span class="tip">(最多3张单张照片不大于10MB)</span></label>
+						<dl class="img-items">
+							<dd class="img-item" v-if="images.length>0" v-for="(item, index) in images" @click.stop="document.querySelector('.editimg-'+index).click()">
+								<div class="img"><img :src="item" alt=""></div>
+								<input type="file" @change="editImg(item, index)" hidden="hidden" name="" :class="'editimg editimg-' + index" value="" accept="image/*" ref="uploadFile" />
+								<span class="delete-btn" @click.stop="deleteImg(item, index)"><i class="iconfont iconclose"></i></span>
+							</dd>							
+							<dd class="img-item add-item border" v-if="images.length < 3" @click.stop="document.querySelector('#addimg').click()">
+								<input type="file" @change="addImg()" hidden="hidden" name="" id="addimg" value="" accept="image/*" ref="uploadFile" />
+								<i class="iconfont iconadd2"></i>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+				<div class="submit-btn aui-btn" @click.stop="submitFn">提交</div>
+	    	</div>
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			var vm = new Vue({
+	   				el: "#app",
+	   				data: {						
+	   					images: [],
+	   					imgname: [],
+	   				},
+	   				created: function(){
+	   					var _this = this;
+	   				},
+	   				mounted: function() {
+	   					var _this = this;	
+	   							
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {						
+	   					//添加图片
+	   					addImg(){
+	   						var _this = this;
+	   						var file    = document.querySelector('#addimg').files[0];
+	   						if(_this.images.length >= 3){aui.toast({msg: '最多可上传3张'}); return;}
+	   						if(file.size >= 1024 * 1024 * 10){aui.toast({msg: '照片大于10MB,请重新上传'}); return;}
+	   						
+	   						var reader  = new FileReader();							
+	   						reader.onloadend = function () {
+	   							_this.images.push(reader.result); //添加
+	   						}							
+	   						if (file) {
+	   						    reader.readAsDataURL(file);
+	   						}
+	   						
+	   						/* //创建FormData对象
+	   						var data = new FormData();							
+	   						//为FormData对象添加数据
+	   						data.append('file', file);							
+	   						data.append('path', "uploads/images/feedback");
+	   						data.append('thumb', "0");	
+	   						_this.uploadFile(data, function(ret){
+	   							_this.images.push(ret.src); //添加
+	   							_this.imgname.push(ret.name);
+	   						}); */
+	   					},
+	   					//编辑图片
+	   					editImg(url, index){
+	   						var _this = this;							
+	   						var file    = document.querySelectorAll('.editimg')[index].files[0];
+	   						if(file.size >= 1024 * 1024 * 10){aui.toast({msg: '照片大于10MB,请重新上传'}); return;}
+	   						
+	   						var reader  = new FileReader();							
+	   						reader.onloadend = function () {								
+	   							_this.images.splice(index, 1, reader.result); //替换 
+	   						}							
+	   						if (file) {
+	   						    reader.readAsDataURL(file);
+	   						}
+	   						
+	   						/* //创建FormData对象
+	   						var data = new FormData();
+	   						//为FormData对象添加数据
+	   						data.append('file', file);							
+	   						data.append('path', "uploads/images/feedback");
+	   						data.append('thumb', "0");	
+	   						_this.uploadFile(data, function(ret){
+	   							_this.images.splice(index, 1, ret.src); //替换 
+	   							_this.imgname.splice(index, 1, ret.name); //替换 
+	   						}); */
+	   					},
+	   					//删除图片
+	   					deleteImg(url, index){
+	   						var _this = this;							
+	   						_this.images.splice(index, 1); //删除
+	   						_this.imgname.splice(index, 1); //删除
+	   					},
+	   					//上传图片
+	   					uploadFile(file, callback){
+	   						var _this = this;
+	   						aui.showload({},function(){
+	   							$.ajax({
+	   								url: app.url + 'upload',
+	   								type: 'post',
+	   								contentType: false, 
+	   								processData: false,
+	   								data: file,
+	   								success: function(ret){
+	   									if(ret.status == 0){
+	   										typeof callback == 'function' ? callback(ret.data) : '';
+	   									}
+	   								},
+	   							});
+	   						});
+	   					},						
+	   					//提交
+	   					submitFn(){
+	   						var _this = this;							
+	   						var obj = {};
+	   						if(_this.images.length > 0){
+	   							for(const [index, item] of _this.images.entries()){
+	   								obj[''+index] = item;
+	   							}
+	   						}
+	   						else{ aui.toast({msg: "请上传现场照片"}); return; }
+	   						aui.showload({warp: '.submit-btn', type: 2, msg: '提交中...'}, function(){
+	   							aui.hideload();					
+	   						});
+	   					},
+	   	            }
+	   			});
+	   		}
+	   	</script>
+	</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>picker选择器</title>
+		<link rel="stylesheet" type="text/css" href="../../../lib/mui/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../lib/mui/mui.picker.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../lib/mui/mui.reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<style type="text/css">					
+			.list input,.list textarea{margin-bottom: 0;}
+			.list{margin-top: 12px; font-size: 0px; overflow: hidden;position: relative;}
+			.list i {font-size: 18px; color: #CCC; position: absolute;bottom: 15px;right: 15px;z-index: 1;}
+			.list p{padding: 6px 15px 12px 15px;color: #666666;font-size: 14px;}
+			.list input,.list button,.list .choose-btn,.list textarea{width: 100%;border: none;height: 50px; display: inline-block; line-height: 50px;padding: 0 15px;color: #333333;text-align: left;font-size: 14px;background-color: #FFFFFF;}
+			.list textarea{line-height:20px; height: 100px;padding-top: 15px; padding-bottom: 0;}
+			.list input{padding: 15px; box-sizing: border-box; color: #333; border: none;    outline: none;    line-height: 20px;}
+		</style>
+	</head>
+	<body>
+		<div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">picker选择器</div>
+			</header>
+			<div class="aui-content" v-cloak>
+				<ul>
+					<li class="list">
+						<p>所在地区</p>
+						<span class="choose-btn" id="choose-address" :style="city=='请选择' ? 'color: #666' : 'color: #333'">{{city}}</span>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</li>
+					<li class="list">
+						<p>当前日期</p>
+						<span class="choose-btn" id="date-picker" data-options='{"type":"date"}' :style="date=='请选择' ? 'color: #666' : 'color: #333'">{{date}}</span>
+						<i class="mui-icon mui-icon-arrowright"></i>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="../../../lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../../lib/mui/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../../lib/mui/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../../lib/mui/mui.poppicker.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			apiready();
+		}
+		apiready = function() {
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					city: '请选择',
+					cityList: [],
+					date: '请选择'
+				},
+				created: function(){
+					var _this = this;
+					//aui.showload({type: 4});
+				},
+				mounted: function() {
+					var _this = this;
+					for(var i = 0; i < 10; i++){
+						var data = {value: i, text: '门店'+i};
+						_this.cityList.push(data);
+					}
+					_this.initPicker();
+		        },
+		        updated: function () {
+		            var _this = this;
+		            _this.$nextTick(function () {
+		
+		            })
+		        },
+		        methods: {
+					initPicker: function(){
+						var _this = this;
+						(function($, doc) {
+							$.init();
+							$.ready(function() {
+								/**
+								 * 获取对象属性的值
+								 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+								 * @param {Object} obj 对象
+								 * @param {String} param 属性名
+								 */
+								var _getParam = function(obj, param) {
+									return obj[param] || '';
+								};
+								//选择地址
+								var cityPicker = new $.PopPicker({
+									layer: 1
+								});
+								var cityData = _this.cityList || [];
+								cityPicker.setData(cityData);
+								var showCityPickerButton = doc.getElementById('choose-address');
+								showCityPickerButton.addEventListener('click', function(event) {
+									cityPicker.show(function(items) {
+										_this.city =  items[0].text;
+										_this.city_id = items[0].value;
+										//返回 false 可以阻止选择框的关闭
+										//return false;
+									});
+								}, false);
+								
+								var btn = document.querySelector('#date-picker');
+								btn.addEventListener('tap', function() {
+									var _self = this;
+									if(_self.picker) {
+										_self.picker.show(function (rs) {
+											// result.innerText = '选择结果: ' + rs.text;
+											console.log("1:"+rs.text);
+											_this.date = rs.y.value+'-'+rs.m.value+'-'+rs.d.value;
+											_self.picker.dispose();
+											_self.picker = null;
+										});
+									} else {
+										var optionsJson = this.getAttribute('data-options') || '{}';
+										var options = JSON.parse(optionsJson);
+										var id = this.getAttribute('id');
+										/*
+										 * 首次显示时实例化组件
+										 * 示例为了简洁，将 options 放在了按钮的 dom 上
+										 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+										 */
+										_self.picker = new $.DtPicker(options);										
+										_self.picker.show(function(rs) {
+											/*
+											 * rs.value 拼合后的 value
+											 * rs.text 拼合后的 text
+											 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+											 * rs.m 月，用法同年
+											 * rs.d 日，用法同年
+											 * rs.h 时，用法同年
+											 * rs.i 分（minutes 的第二个字母），用法同年
+											 */
+											// result.innerText = '选择结果: ' + rs.text;
+											// console.log("2:"+rs.text);
+											var timer = setTimeout(function(){
+												clearTimeout(timer);
+												_this.date = rs.y.value+'-'+rs.m.value+'-'+rs.d.value;												
+											},300);
+											/*
+											 * 返回 false 可以阻止选择框的关闭
+											 * return false;
+											 */
+											/*
+											 * 释放组件资源，释放后将将不能再操作组件
+											 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+											 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+											 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+											 */
+											_self.picker.dispose();
+											_self.picker = null;
+										});
+									}
+								}, false);
+								
+							});
+						})(mui, document);
+					},
+		        }
+			});
+		}
+		
+	</script>
+</html>

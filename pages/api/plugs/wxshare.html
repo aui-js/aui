@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>wxShare 微信分享提示弹窗</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.wx.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.wx.js"></script>
+		<script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">wxShare 微信分享提示弹窗</div>
+			</header>
+			<div class="aui-content" style="padding: 15px 0 0 0;">
+				<button class="aui-btn aui-btn-blue btn-0">显示wxShare 微信分享提示弹窗</button>
+				<button class="aui-btn aui-btn-blue btn-1">显示右上角分享功能</button>
+				<button class="aui-btn aui-btn-blue btn-2">隐藏右上角分享功能</button>
+				<button class="aui-btn aui-btn-blue btn-3">分享配置</button>
+				<button class="aui-btn aui-btn-blue btn-4">分享</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var btns = document.querySelectorAll(".aui-btn");
+			for(var i = 0; i < btns.length; i++){
+				aui.touchDom(btns[i], "#FFF", "var(--aui-blue)", "1px solid var(--aui-blue)");					
+			}
+			//显示wxShare 微信分享提示弹窗
+			document.querySelector(".btn-0").addEventListener("click", function(){
+				aui.wxShareModal({
+					mask: true,
+					touchClose: true
+				},function(ret){
+					console.log("请点击右上角进行分享");
+				});
+			});	
+			//显示右上角分享功能
+			document.querySelector(".btn-1").addEventListener("click", function(){
+				aui.wxShowOptionMenu();
+			});	
+			//隐藏右上角分享功能
+			document.querySelector(".btn-2").addEventListener("click", function(){
+				aui.wxHideOptionMenu();
+			});
+			//分享配置
+			document.querySelector(".btn-2").addEventListener("click", function(){
+				var data = {
+					appId: '',
+					timestamp: '',
+					nonceStr: '',
+					signature: '',
+				}
+				aui.wxConfig(data);
+			});
+			//分享
+			document.querySelector(".btn-2").addEventListener("click", function(){
+				aui.wxShare({
+					imgUrl: '', // 分享显示的缩略图地址
+			        link:  '',    // 分享地址
+			        title: '',   // 分享标题
+			        desc: '',     // 分享描述
+				});
+			});
+		});
+	</script>
+</html>

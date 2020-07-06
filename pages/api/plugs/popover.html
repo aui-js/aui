@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>popover菜单</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.popover.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.popover.js"></script>
+		<style type="text/css">
+			.btn-1{margin-top: 66vh;}
+			.footer-item{width: 60px; height: 50px; line-height: 50px; text-align: center; font-size: 15px; color: var(--aui-blue); margin: 0; position: fixed; bottom: 0; z-index: 997;}
+			.footer-item-1{left: 0px;}
+			.footer-item-2{right: 0px;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">popover菜单</div>
+				<a class="aui-header-right" ><i class="iconfont iconother"></i></a>
+			</header>
+			<div class="aui-content" style="padding: 15px 0 0 0;">
+				<button class="aui-btn aui-btn-blue btn-0">打开菜单弹窗</button>
+			</div>
+		</div>
+		<div class="aui-footer">
+			<div class="footer-item footer-item-1">菜单</div>
+			<div class="footer-item footer-item-2">菜单</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var btns = document.querySelectorAll(".aui-btn");
+			for(var i = 0; i < btns.length; i++){
+				aui.touchDom(btns[i], "#FFF", "var(--aui-blue)", "1px solid var(--aui-blue)");					
+			}
+			//打开菜单弹窗(右上角——>按钮下方)
+			document.querySelector(".aui-header-right").addEventListener("click", function(){
+				aui.popover.open({
+					warp: '.aui-header-right',
+					items: [
+						{name: '微信', img: '../../../static/img/weixin.png'},
+						{name: '朋友圈', img: '../../../static/img/pengyouquan.png'},
+						{name: 'QQ', img: '../../../static/img/QQ.png'},
+						{name: '微博', img: '../../../static/img/weibo.png'}
+					],
+					mask: true,
+					location: 'bottom'
+				},function(ret){
+					console.log(ret);
+					aui.toast({msg: ret.el.querySelector("span").innerHTML});
+				})				
+			});
+			//打开菜单弹窗(页面靠近顶部位置——>按钮下方)
+			document.querySelector(".btn-0").addEventListener("click", function(){
+				aui.popover.open({
+					warp: '.btn-0',
+					items: [
+						{name: '首页'},
+						{name: '消息'},
+						{name: '设置'}
+					],
+					mask: true,
+					location: 'bottom'
+				},function(ret){
+					console.log(ret);
+					aui.toast({msg: ret.el.querySelector("span").innerHTML});
+				})				
+			});
+			//打开菜单弹窗(左下角——>按钮下方)
+			document.querySelector(".footer-item-1").addEventListener("click", function(){
+				aui.popover.open({
+					warp: '.footer-item-1',
+					items: [
+						{name: '微信', color: '#1AA034', icon: 'iconweixin', iconColor: '#1AA034'},
+						{name: '朋友圈', icon: 'iconpengyouquan', iconColor: '#EB3C3B'},
+						{name: 'QQ', icon: 'iconqq', iconColor: '#30A5DD'},
+						{name: '微博', icon: 'iconweibo', iconColor: '#FF7C60'}
+					],
+					mask: true,
+					location: 'top'
+				},function(ret){
+					console.log(ret);	
+					aui.toast({msg: ret.el.querySelector("span").innerHTML});
+				})				
+			});
+			//打开菜单弹窗(右下角——>按钮下方)
+			document.querySelector(".footer-item-2").addEventListener("click", function(){
+				aui.popover.open({
+					warp: '.footer-item-2',
+					items: [
+						{name: '微信', icon: 'iconweixin', iconColor: '#1AA034'},
+						{name: '朋友圈', icon: 'iconpengyouquan', iconColor: '#EB3C3B'},
+						{name: 'QQ', icon: 'iconqq', iconColor: '#30A5DD'},
+						{name: '微博', icon: 'iconweibo', iconColor: '#FF7C60'}
+					],
+					mask: true,
+					location: 'top'
+				},function(ret){
+					console.log(ret);	
+					aui.toast({msg: ret.el.querySelector("span").innerHTML});
+				})				
+			});
+		});
+	</script>
+</html>

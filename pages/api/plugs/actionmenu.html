@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>actionMenu底部菜单</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.actionmenu.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.actionmenu.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">actionMenu底部菜单</div>
+			</header>
+			<div class="aui-content">
+				<lable class="aui-list-title">以分享弹窗为例：</lable>
+				<button class="aui-btn aui-btn-blue actionmenu-0">底部非全屏弹出菜单</button>
+				<button class="aui-btn aui-btn-blue actionmenu-1">页面中心非全屏弹出菜单</button>
+				<button class="aui-btn aui-btn-blue actionmenu-2">底部全屏弹出菜单</button>
+				<button class="aui-btn aui-btn-blue actionmenu-3">底部全屏弹出菜单（无图标）</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var btns = document.querySelectorAll(".aui-btn");
+			for(var i = 0; i < btns.length; i++){
+				aui.touchDom(btns[i], "#FFF", "var(--aui-blue)", "1px solid var(--aui-blue)");					
+			}
+			//底部非全屏弹出菜单
+			document.querySelector(".actionmenu-0").addEventListener("click", function(){
+				aui.actionMenu({
+					title: '分享至',
+					mask: true,
+					touchClose: true,
+					items: [
+						{name: "微信", img: "../../../static/img/weixin.png"},
+						{name: "朋友圈", img: "../../../static/img/pengyouquan.png"},
+						{name: "QQ", img: "../../../static/img/QQ.png"},
+						{name: "微博", img: "../../../static/img/weibo.png"}
+					],
+					cancle: "取消",
+					theme: 1,
+					location: "bottom"
+				},function(ret){
+					console.log(ret.index);				
+				});
+			});
+			//页面中心非全屏弹出菜单
+			document.querySelector(".actionmenu-1").addEventListener("click", function(){
+				aui.actionMenu({
+					title: '分享至',
+					mask: true,
+					touchClose: true,
+					items: [
+						{name: '微信', icon: 'iconweixin', iconColor: '#1AA034'},
+						{name: '朋友圈', icon: 'iconpengyouquan', iconColor: '#EB3C3B'},
+						{name: 'QQ', icon: 'iconqq', iconColor: '#30A5DD'},
+						{name: '微博', icon: 'iconweibo', iconColor: '#FF7C60'}
+					],
+					cancle: "取消",
+					theme: 1,
+					location: "middle"
+				},function(ret){
+					console.log(ret.index);				
+				});
+			});
+			//底部全屏弹出菜单
+			document.querySelector(".actionmenu-2").addEventListener("click", function(){
+				aui.actionMenu({
+					title: '分享至',
+					mask: true,
+					touchClose: true,
+					items: [
+						{name: '微信', icon: 'iconweixin', iconColor: '#1AA034'},
+						{name: '朋友圈', icon: 'iconpengyouquan', iconColor: '#EB3C3B'},
+						{name: 'QQ', icon: 'iconqq', iconColor: '#30A5DD'},
+						{name: '微博', icon: 'iconweibo', iconColor: '#FF7C60'}
+					],
+					cancle: "取消",
+					theme: 2,
+					location: "bottom"
+				},function(ret){
+					console.log(ret.index);				
+				});
+			});
+			//底部全屏弹出菜单（无图标）
+			document.querySelector(".actionmenu-3").addEventListener("click", function(){
+				aui.actionMenu({
+					title: '分享至',
+					mask: true,
+					touchClose: true,
+					items: [
+						{name: '微信'},
+						{name: '朋友圈'},
+						{name: 'QQ'},
+						{name: '微博'}
+					],
+					cancle: "取消",
+					theme: 2,
+					location: "bottom"
+				},function(ret){
+					console.log(ret.index);				
+				});
+			});
+		});
+	</script>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../lib/cropper/cropper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<title>图片裁剪</title>
+		<style>
+			.lists{width: 100%; background: #FFF; border-radius: 5px; padding: 0 15px; box-sizing: border-box;}
+			.list{width: 100%; font-size: 0; padding: 5px 0;}
+			.list label{height: 50px; line-height: 50px; font-size: 15px; color: #333; display: inline-block; vertical-align: top;}
+			.list label i{font-size: 16px; color: #FF0000;}
+			.list label .tip{line-height: 50px; display: inline-block; margin: 0 0 0 10px; font-size: 12px; color: #aaa; vertical-align: top;}
+			.list input{width: auto; min-width: 100px; height: 50px; line-height: 50px; padding: 0; font-size: 14px; color: #646464; border: none; text-align: right; margin: 0;  float: right;}
+			.list textarea{width: 100%; min-height: 80px; line-height: 20px; padding: 0 0 5px 0; font-size: 14px; color: #646464; border: none;}
+			.img-items{width: 100%; font-size: 0;}
+			.img-item{width: -webkit-calc((100% - 30px) / 3); width: calc((100% - 30px) / 3); height: -webkit-calc((100vw - 30px - 30px - 30px) / 3); display: inline-block; vertical-align: top; margin: 0 0 15px 0; border-radius: 5px; position: relative;}
+			.img-item:nth-child(3n-1){margin: 0 15px 15px 15px;}
+			.add-item{line-height: -webkit-calc((100vw - 30px - 30px - 30px) / 3); line-height: calc((100vw - 30px - 30px - 30px) / 3); text-align: center;}
+			.add-item i{font-size: 30px; color: #aaa;}
+			.add-item:after{border-radius: 5px;}
+			.img-item .img{height: 100%; height: 100%; background: #F4F4F4; overflow: hidden; border-radius: 5px; position: relative;}
+			.img-item .img img{width: 100%; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
+			.img-item .delete-btn{width: 25px; height: 25px; text-align: center; border: 2px solid #FFF; border-radius: 50%; background: var(--aui-blue); position: absolute; top: -10px; right: -10px;}
+			.img-item .delete-btn i{font-size: 15px; color: #FFF; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
+			.submit-btn{width: 100%; background: var(--aui-blue); margin: 30px 0; color: #FFF; font-size: 15px;}
+		</style>
+	</head>
+	<body>		
+	    <div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">图片裁剪</div>
+			</header>
+	    	<div class="aui-content" v-cloak style="padding: 15px 15px 0 15px;">
+	    		<ul class="lists">					
+					<li class="list">
+						<label for="">上传照片<i class="red">*</i><span class="tip">(最多3张单张照片不大于10MB)</span></label>
+						<dl class="img-items">
+							<dd class="img-item" v-if="images.length>0" v-for="(item, index) in images" @click.stop="document.querySelector('.editimg-'+index).click()">
+								<div class="img"><img :src="item" alt=""></div>
+								<input type="file" @change="editImg(item, index)" hidden="hidden" name="" :class="'editimg editimg-' + index" value="" accept="image/*" ref="uploadFile" />
+								<span class="delete-btn" @click.stop="deleteImg(item, index)"><i class="iconfont iconclose"></i></span>
+							</dd>							
+							<dd class="img-item add-item border" v-if="images.length < 3" @click.stop="document.querySelector('#addimg').click()">
+								<input type="file" @change="addImg()" hidden="hidden" name="" id="addimg" value="" accept="image/*" ref="uploadFile" />
+								<i class="iconfont iconadd2"></i>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+				<div class="submit-btn aui-btn" @click.stop="submitFn">提交</div>
+	    	</div>
+			<!--图片裁剪框 start-->
+			<div style="display: none" class="tailoring-container">
+			    <div class="black-cloth" @click.stop="closeTailor()"></div>
+			    <div class="tailoring-content">
+			           <!-- <div class="tailoring-content-one row-after">			               
+			                <div class="close-tailoring"  @click.stop="closeTailor()">×</div>
+			            </div> -->
+			            <div class="tailoring-content-two">
+			                <div class="tailoring-box-parcel">
+			                    <img id="tailoringImg">
+			                </div>
+			                <div class="preview-box-parcel">
+			                    <p>图片预览：</p>
+			                    <div class="square previewImg"></div>
+			                    <div class="circular previewImg"></div>
+			                </div>
+			            </div>
+			            <div class="tailoring-content-three row-before">
+			                <button class="l-btn cropper-reset-btn" @click.stop="resetTailor()">复位</button>
+			                <button class="l-btn cropper-rotate-btn" @click.stop="rotateTailor()">旋转</button>
+			                <button class="l-btn cropper-scaleX-btn" @click.stop="reversalTailor()">换向</button>
+							<button class="l-btn cropper-scaleX-btn gray" @click.stop="closeTailor()">取消</button>
+			                <button class="l-btn sureCut" id="sureCut" @click.stop="confirmTailor()">确定</button>
+			            </div>
+			        </div>
+			</div>
+			<!--图片裁剪框 end-->
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+		<script type="text/javascript" src="../../../lib/cropper/cropper.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			var vm = new Vue({
+	   				el: "#app",
+	   				data: {						
+	   					images: [],
+	   					imgname: [],
+						flagX: true //corpper图片裁剪图形换向开关
+	   				},
+	   				created: function(){
+	   					var _this = this;
+	   				},
+	   				mounted: function() {
+	   					var _this = this;	
+	   					_this.initCropper(); //初始化cropper图片裁剪
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {						
+	   					//添加图片
+	   					addImg(){
+	   						var _this = this;
+	   						var file    = document.querySelector('#addimg').files[0];
+	   						if(_this.images.length >= 3){aui.toast({msg: '最多可上传3张'}); return;}
+	   						if(file.size >= 1024 * 1024 * 10){aui.toast({msg: '照片大于10MB,请重新上传'}); return;}
+	   						
+	   						var reader  = new FileReader();							
+	   						reader.onloadend = function () {
+	   							// _this.images.push(reader.result); //添加
+								_this.openTailor(); //打开图片裁剪弹窗
+								//更换cropper的图片
+								$('#tailoringImg').cropper('replace', reader.result, false);//默认false，适应高度，不失真
+	   						}							
+	   						if (file) {
+	   						    reader.readAsDataURL(file);
+	   						}
+	   						
+	   						/* //创建FormData对象
+	   						var data = new FormData();							
+	   						//为FormData对象添加数据
+	   						data.append('file', file);							
+	   						data.append('path', "uploads/images/feedback");
+	   						data.append('thumb', "0");	
+	   						_this.uploadFile(data, function(ret){
+	   							_this.images.push(ret.src); //添加
+	   							_this.imgname.push(ret.name);
+	   						}); */
+	   					},
+	   					//编辑图片
+	   					editImg(url, index){
+	   						var _this = this;							
+	   						var file    = document.querySelectorAll('.editimg')[index].files[0];
+	   						if(file.size >= 1024 * 1024 * 10){aui.toast({msg: '照片大于10MB,请重新上传'}); return;}
+	   						
+	   						// var reader  = new FileReader();							
+	   						// reader.onloadend = function () {								
+	   						// 	_this.images.splice(index, 1, reader.result); //替换 
+	   						// }							
+	   						// if (file) {
+	   						//     reader.readAsDataURL(file);
+	   						// }
+	   						
+	   						/* //创建FormData对象
+	   						var data = new FormData();
+	   						//为FormData对象添加数据
+	   						data.append('file', file);							
+	   						data.append('path', "uploads/images/feedback");
+	   						data.append('thumb', "0");	
+	   						_this.uploadFile(data, function(ret){
+	   							_this.images.splice(index, 1, ret.src); //替换 
+	   							_this.imgname.splice(index, 1, ret.name); //替换 
+	   						}); */
+	   					},
+	   					//删除图片
+	   					deleteImg(url, index){
+	   						var _this = this;							
+	   						_this.images.splice(index, 1); //删除
+	   						_this.imgname.splice(index, 1); //删除
+	   					},
+	   					//上传图片
+	   					uploadFile(file, callback){
+	   						var _this = this;
+	   						aui.showload({},function(){
+	   							$.ajax({
+	   								url: app.url + 'upload',
+	   								type: 'post',
+	   								contentType: false, 
+	   								processData: false,
+	   								data: file,
+	   								success: function(ret){
+	   									if(ret.status == 0){
+	   										typeof callback == 'function' ? callback(ret.data) : '';
+	   									}
+	   								},
+	   							});
+	   						});
+	   					},
+						//初始化cropper图片裁剪
+						initCropper(){
+							var _this = this;
+							//cropper图片裁剪
+							$('#tailoringImg').cropper({
+								aspectRatio: 1/1,//默认比例
+								preview: '.previewImg',//预览视图
+								guides: true,  //裁剪框的虚线(九宫格)
+								autoCropArea: 1,  //0-1之间的数值，定义自动剪裁区域的大小，默认0.8
+								movable: true, //是否允许移动图片
+								dragCrop: true,  //是否允许移除当前的剪裁框，并通过拖动来新建一个剪裁框区域
+								movable: true,  //是否允许移动剪裁框
+								resizable: true,  //是否允许改变裁剪框的大小
+								zoomable: true,  //是否允许缩放图片大小
+								mouseWheelZoom: false,  //是否允许通过鼠标滚轮来缩放图片
+								touchDragZoom: true,  //是否允许通过触摸移动来缩放图片
+								rotatable: true,  //是否允许旋转图片
+								crop: function(e) {
+									// 输出结果数据裁剪图像。								
+								}
+							});		
+						},
+						//打开裁剪框
+						openTailor() {
+							var _this = this;
+							$(".tailoring-container").show();
+						},
+						//关闭裁剪框
+						closeTailor() {
+							var _this = this;
+							$(".tailoring-container").hide();
+						},
+						//复位裁剪框
+						resetTailor(){
+							var _this = this;
+							$('#tailoringImg').cropper("reset");
+						},
+						//换向裁剪框
+						reversalTailor(){
+							var _this = this;
+							if(_this.flagX){
+								$('#tailoringImg').cropper("scaleX", -1);
+								_this.flagX = false;
+							}else{
+								$('#tailoringImg').cropper("scaleX", 1);
+								_this.flagX = true;
+							}
+							_this.flagX != _this.flagX;
+						},
+						//旋转裁剪框
+						rotateTailor(){
+							var _this = this;
+							$('#tailoringImg').cropper("rotate", 45);
+						},
+						//裁剪完成确定操作
+						confirmTailor(){
+							var _this = this;
+							if ($("#tailoringImg").attr("src") == null ){
+								return false;
+							}else{
+								var cas = $('#tailoringImg').cropper('getCroppedCanvas');//获取被裁剪后的canvas
+								var base64url = cas.toDataURL('image/png'); //转换为base64地址形式
+								$("#finalImg").prop("src",base64url);//显示为图片的形式	
+								_this.images.push(base64url); //添加
+								//关闭裁剪框
+								_this.closeTailor();
+							}
+						},
+	   					//提交
+	   					submitFn(){
+	   						var _this = this;							
+	   						var obj = {};
+	   						if(_this.images.length > 0){
+	   							for(const [index, item] of _this.images.entries()){
+	   								obj[''+index] = item;
+	   							}
+	   						}
+	   						else{ aui.toast({msg: "请上传现场照片"}); return; }
+	   						aui.showload({warp: '.submit-btn', type: 2, msg: '提交中...'}, function(){
+	   							aui.hideload();					
+	   						});
+	   					},
+	   	            }
+	   			});
+	   		}
+	   	</script>
+	</body>
+</html>

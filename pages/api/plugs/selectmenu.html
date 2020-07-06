@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>selectmenu下拉列表选择框</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.selectmenu.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.selectmenu.js"></script>
+		<style type="text/css">
+			/*页面顶部筛选*/
+			.orderby-items{width: 100%; height: 44px; background: #FFF; white-space: nowrap; display: flex; justify-content: space-around; position: relative; z-index: 997;}
+			.orderby-item{max-width: 33.33%; height: 100%; padding: 0; box-sizing: border-box; display: inline-block; position: relative;}
+			.orderby-item span{width: 100%; height: 100%; line-height: 44px; padding-right: 20px; box-sizing: border-box; display: inline-block; font-size: 15px; color: #333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: top;}
+			.orderby-item i{height: 100%; line-height: 44px; transition: transform .2s; color: #333; display: inline-block; font-size: 15px; position: absolute; right: 0px;}
+			.orderby-item.active span,.orderby-item.active i{color: #1d95d4;}
+			.orderby-item.active i{transform: rotate(180deg);}
+			.orderby-item.selected span,.orderby-item.selected i{color: #1d95d4;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">selectmenu下拉列表选择框</div>
+			</header>
+			<div class="aui-content">
+				<!--顶部筛选-->	
+	    		<div class="orderby-items row-after">
+	    		 	<div class="orderby-item" onclick="changeOrderby(this, 1)"><span>一级列表</span><i class="iconfont icondown1"></i></div>
+	    		 	<div class="orderby-item" onclick="changeOrderby(this, 2)"><span>二级列表</span><i class="iconfont icondown1"></i></div>
+	    		 	<div class="orderby-item" onclick="changeOrderby(this, 3)"><span>三级列表</span><i class="iconfont icondown1"></i></div>
+	    		</div> 				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			
+		});
+		var isShowModal = false, currentLayer = null;
+		function changeOrderby(is, layer){
+			if(isShowModal){
+				isShowModal = false;
+				for(var i = 0; i < is.parentNode.querySelectorAll('.orderby-item').length; i++){
+					is.parentNode.querySelectorAll('.orderby-item')[i].classList.remove('active');				
+				}					
+				aui.selectMenu.close();
+			}
+			else{
+				if(currentLayer != layer){
+					aui.selectMenu.remove();
+					currentLayer = layer;
+				}
+				for(var i = 0; i < is.parentNode.querySelectorAll('.orderby-item').length; i++){
+					is.parentNode.querySelectorAll('.orderby-item')[i].classList.remove('active');				
+				}
+				is.classList.add('active');	
+				isShowModal = true;
+				var data = [
+					{value: '0', text: '昨天'},
+					{value: '1', text: '本周'},
+					{value: '2', text: '上周'},
+					{value: '3', text: '本月'},
+					{value: '4', text: '上月'},
+				];
+				
+				switch (layer){
+					case 1:
+						openOneSelectMenu(is, layer, data);									
+						break;
+					case 2:
+						openTwoSelectMenu(is, layer, data);
+						break;
+					case 3:
+						openThreeSelectMenu(is, layer, data);
+						break;
+					default:
+						break;
+				}
+			}
+		}
+		//一级列表
+		function openOneSelectMenu(is, layer, data){
+			aui.selectMenu.open({
+				warp: '.orderby-items',
+				layer: layer, // 1,2,3...
+				style: {
+					itemStyle: {						
+						textAlign: 'center',						
+					}
+				},
+				data: data,
+			}, function(ret){
+				isShowModal = false;
+				for(var i = 0; i < is.parentNode.querySelectorAll('.orderby-item').length; i++){
+					is.parentNode.querySelectorAll('.orderby-item')[i].classList.remove('active');				
+				}
+				aui.selectMenu.close(function(){
+					if(ret && ret.status == 0){
+						console.log(ret);
+						if(ret.data.length > 0){
+							is.classList.add("selected");
+							is.querySelector("span").innerText = '';
+							for(var i = 0; i < ret.data[ret.data.length-1].length; i++){
+								if(i != ret.data[ret.data.length-1].length - 1){
+									is.querySelector("span").innerText += ret.data[ret.data.length - 1][i].text + ',';																								
+								}
+								else{
+									is.querySelector("span").innerText += ret.data[ret.data.length - 1][i].text
+								}
+							}						
+						}
+						else{
+							is.classList.remove("selected");
+							is.querySelector("span").innerText = '一级列表';
+						}
+					}
+				});
+			});			
+		}
+		//二级列表
+		function openTwoSelectMenu(is, layer, data){
+			aui.selectMenu.open({
+				warp: '.orderby-items',
+				layer: layer, // 1,2,3...
+				data: data,
+				select: function(ret){ //点击时获取下级数据
+					console.log(ret); //{value: '0', text: '昨天'}
+					if(ret.pindex == 0){
+						//ajax  -- 参数如ret.value
+						var data = [
+							{value: '1', text: '1点'},
+							{value: '2', text: '2点'},
+							{value: '3', text: '3点'},
+							{value: '4', text: '4点'},
+							{value: '4', text: '5点'},
+							{value: '4', text: '6点'},
+							{value: '4', text: '7点'},
+							{value: '4', text: '8点'},
+							{value: '4', text: '9点'},
+							{value: '4', text: '10点'},
+							{value: '4', text: '11点'},
+							{value: '4', text: '12点'},
+						];
+					}
+					return data;
+				},
+			}, function(ret){
+				isShowModal = false;
+				for(var i = 0; i < is.parentNode.querySelectorAll('.orderby-item').length; i++){
+					is.parentNode.querySelectorAll('.orderby-item')[i].classList.remove('active');				
+				}
+				aui.selectMenu.close(function(){
+					if(ret && ret.status == 0){
+						console.log(ret);
+						if(ret.data.length > 0){
+							is.classList.add("selected");
+							is.querySelector("span").innerText = '';
+							for(var i = 0; i < ret.data[ret.data.length-1].length; i++){
+								if(i != ret.data[ret.data.length-1].length - 1){
+									is.querySelector("span").innerText += ret.data[ret.data.length - 1][i].text + ',';																								
+								}
+								else{
+									is.querySelector("span").innerText += ret.data[ret.data.length - 1][i].text
+								}
+							}							
+						}
+						else{
+							is.classList.remove("selected");
+							is.querySelector("span").innerText = '二级列表';
+						}
+					}
+				});
+			});			
+		}
+		//三级列表
+		function openThreeSelectMenu(is, layer, data){
+			aui.selectMenu.open({
+				warp: '.orderby-items',
+				layer: layer, // 1,2,3...
+				data: data,
+				checkedMore: true,
+				select: function(ret){ //点击时获取下级数据
+					//console.log(ret); //{value: '0', text: '昨天'}
+					if(ret.pindex == 0){
+						//ajax  -- 参数如ret.value
+						var data = [
+							{value: '1', text: '1点'},
+							{value: '2', text: '2点'},
+							{value: '3', text: '3点'},
+							{value: '4', text: '4点'},
+							{value: '4', text: '5点'},
+							{value: '4', text: '6点'},
+							{value: '4', text: '7点'},
+							{value: '4', text: '8点'},
+							{value: '4', text: '9点'},
+							{value: '4', text: '10点'},
+							{value: '4', text: '11点'},
+							{value: '4', text: '12点'},
+						];
+					}
+					else if(ret.pindex == 1){
+						var data = [
+							{value: '0', text: '10分'},
+							{value: '1', text: '20分'},
+							{value: '2', text: '30分'},
+							{value: '3', text: '40分'},
+							{value: '4', text: '50分'},
+							{value: '4', text: '60分'},
+						];
+					}
+					return data						
+				},
+			}, function(ret){
+				isShowModal = false;
+				for(var i = 0; i < is.parentNode.querySelectorAll('.orderby-item').length; i++){
+					is.parentNode.querySelectorAll('.orderby-item')[i].classList.remove('active');				
+				}
+				aui.selectMenu.close(function(){
+					if(ret && ret.status == 0){
+						console.log(ret);
+						if(ret.data.length > 0){
+							is.classList.add("selected");
+							is.querySelector("span").innerText = '';
+							for(var i = 0; i < ret.data[ret.data.length-1].length; i++){
+								if(i != ret.data[ret.data.length-1].length - 1){
+									is.querySelector("span").innerText += ret.data[ret.data.length - 1][i].text + ',';																								
+								}
+								else{
+									is.querySelector("span").innerText += ret.data[ret.data.length - 1][i].text
+								}
+							}
+						}
+						else{
+							is.classList.remove("selected");
+							is.querySelector("span").innerText = '三级列表';
+						}
+					}
+				});
+			});			
+		}
+	</script>
+</html>

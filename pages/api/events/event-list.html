@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>事件</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.event.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">事件</div>
+			</header>
+			<div class="aui-content">
+				<p style="width: 100%; line-height: 25px; padding: 0 20px; box-sizing: border-box; text-align: left; margin-top: 40vh; font-size: 12px; color: #aaa;">集成——元素点击、长按、上滑、下滑、左滑、右滑等事件</br>(滑动或点击查看)</p>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			aui.on(document.querySelector(".aui-content"), 'click', function(){
+				aui.alert({msg: 'click点击事件'});
+			});
+			aui.on(document.querySelector(".aui-content"), 'longpress', function(){
+				aui.alert({msg: 'longpress长按事件'});
+			});
+			aui.on(document.querySelector(".aui-content"), 'slidedown', function(){
+				aui.alert({msg: 'slidedown向下滑动事件'});
+			});
+			aui.on(document.querySelector(".aui-content"), 'slideup', function(){
+				aui.alert({msg: 'slideup向上滑动事件'});
+			});
+			aui.on(document.querySelector(".aui-content"), 'swipeleft', function(){
+				aui.alert({msg: 'swipeleft向左滑动事件'});
+			});
+			aui.on(document.querySelector(".aui-content"), 'swiperight', function(){
+				aui.alert({msg: 'swiperight向右滑动事件'});
+			});
+		});
+	</script>
+</html>

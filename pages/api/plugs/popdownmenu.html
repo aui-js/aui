@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>popdownmenu底部弹出窗口</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.popdownmenu.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.popdownmenu.js"></script>
+		<style type="text/css">
+			.aui-list{font-size: 15px; height: 50px; line-height: 50px;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">popdownmenu底部弹出窗口</div>
+			</header>
+			<div class="aui-content" style="padding: 15px 0 0 0;">
+				<button class="aui-btn aui-btn-blue btn-0">显示弹窗</button>
+			</div>
+		</div>
+		<div class="poptopmenu-container" style="display: none;">
+			<ul class="aui-lists">
+				<li class="aui-list" onclick="listClick(this)">列表1</li>
+				<li class="aui-list" onclick="listClick(this)">列表2</li>
+				<li class="aui-list" onclick="listClick(this)">列表3</li>
+				<li class="aui-list" onclick="listClick(this)">列表4</li>
+				<li class="aui-list" onclick="listClick(this)">列表5</li>
+				<li class="aui-list" onclick="listClick(this)">列表6</li>
+				<li class="aui-list" onclick="listClick(this)">列表7</li>
+				<li class="aui-list" onclick="listClick(this)">列表8</li>
+				<li class="aui-list" onclick="listClick(this)">列表9</li>
+				<li class="aui-list" onclick="listClick(this)">列表10</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var btns = document.querySelectorAll(".aui-btn");
+			for(var i = 0; i < btns.length; i++){
+				aui.touchDom(btns[i], "#FFF", "var(--aui-blue)", "1px solid var(--aui-blue)");
+			}
+			//显示弹窗
+			document.querySelector(".btn-0").addEventListener("click", function(){
+				aui.popdownMenu.open({
+					html: document.querySelector(".poptopmenu-container").innerHTML,
+					mask: true,
+					touchClose: true
+				},function(ret){
+					console.log(ret);
+					if(ret.type == 'open'){	
+						
+					}
+
+				})
+			});
+		});
+		//选择
+		function listClick(is){
+			console.log(is.innerText);
+			aui.popdownMenu.close();
+		}
+	</script>
+</html>

@@ -1,0 +1,51 @@
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>bmap百度地图</title>
+		<link rel="stylesheet" type="text/css" href="../../../../static/css/aui.min.css"/>
+		<script type="text/javascript" src="../../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../../static/js/aui.bmap.js"></script>
+		<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=Go8TPnKDL44WFZbOATH4AsbA7qTwNosi"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">bmap百度地图</div>
+			</header>
+			<div class="aui-content">
+				<div class="aui-lists">
+					<div class="aui-list" onclick="getLocation()">
+						<div class="aui-list-left">获取当前位置</div>
+						<!--<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>-->
+					</div>
+					<div class="aui-list" onclick="aui.openWin('choose.html')">
+						<div class="aui-list-left">打开地图选择当前位置</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+				<div>
+				<div class="map" id="map"></div>
+			</div>
+		<div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var lists = document.querySelectorAll(".aui-list");
+			for(var i = 0; i < lists.length; i++){
+				aui.touchDom(lists[i], "#EFEFEF");					
+			}			
+		});
+		function getLocation(){
+			//获取当前位置
+			aui.getLocation("map", function(ret){ //第一个参数必须是显示地图的dom元素ID
+				console.log(JSON.stringify(ret));
+				aui.alert({
+					title: '地址选择',
+					msg: "您当前所在位置是：" + ret.address,
+					mask: true,
+					touchClose: true
+				});
+			});	
+		}
+	</script>
+</html>

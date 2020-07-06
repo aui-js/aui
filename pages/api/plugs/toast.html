@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>toast消息提示弹窗</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">toast消息提示弹窗</div>
+			</header>
+			<div class="aui-content" style="padding: 15px 0 0 0;">
+				<button class="aui-btn aui-btn-blue toast-0">显示底部toast消息提示</button>
+				<button class="aui-btn aui-btn-blue toast-1">显示页面中心位置的toast消息提示</button>
+				<button class="aui-btn aui-btn-blue toast-2">显示带图标垂直布局消息提示</button>
+				<button class="aui-btn aui-btn-blue toast-3">显示带图标水平布局消息提示</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var btns = document.querySelectorAll(".aui-btn");
+			for(var i = 0; i < btns.length; i++){
+				aui.touchDom(btns[i], "#FFF", "var(--aui-blue)", "1px solid var(--aui-blue)");					
+			}
+			//显示底部toast消息提示
+			document.querySelector(".toast-0").addEventListener("click", function(){
+				aui.toast({
+					msg: "网络连接错误，请稍后再试",
+					
+				},function(ret){
+					
+				});
+			});
+			//显示页面中心位置的toast消息提示
+			document.querySelector(".toast-1").addEventListener("click", function(){
+				aui.toast({
+					msg: "网络连接错误，请稍后再试",
+					location: "middle"
+				},function(ret){
+					
+				});
+			});
+			//显示带图标垂直布局消息提示
+			document.querySelector(".toast-2").addEventListener("click", function(){
+				aui.toast({
+					icon: "../../../static/img/success.png",
+					msg: "支付成功！",
+					direction: "col"
+				},function(ret){
+					
+				});
+			});
+			//显示带图标水平布局消息提示
+			document.querySelector(".toast-3").addEventListener("click", function(){
+				aui.toast({
+					icon: "../../../static/img/success.png",
+					msg: "支付成功！",
+					direction: "row",
+					duration: 2500
+				},function(ret){
+					
+				});
+			});
+		});
+	</script>
+</html>

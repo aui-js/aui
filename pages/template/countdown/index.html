@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<title>倒计时</title>
+		<style>
+			body{background: #FFF;}
+			.content{width: 100%; padding: 15px; box-sizing: border-box; text-align: center;}
+			.countdown-warp{width: auto; text-align: center; font-size: 14px; padding: 30px 0; display: inline-block; margin: 0 auto;}
+			.countdown-warp span{min-width: 20px; height: 20px; line-height: 20px; font-size: 12px; color: #FFF; border-radius: 3px; padding: 0px 5px; box-sizing: border-box; display: inline-block; background: var(--aui-bg);}
+		</style>
+	</head>
+	<body>		
+	    <div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">倒计时</div>
+			</header>
+	    	<div class="content" v-cloak  style="padding: 15px 15px 0 15px;">	
+				<div class="countdown-warp">
+					距{{endtime}}还有： </br></br>
+					<span class="day">{{day}}天</span>
+					<span class="hour">{{hour}}小时</span>
+					<span class="minute">{{minute}}分</span>
+					<span class="second">{{second}}秒</span>					
+				</div>
+	    	</div>
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.getdate.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			var vm = new Vue({
+	   				el: "#app",
+	   				data: {	
+						endtime: '2020-12-31 23:59:59',
+						day: '00',
+						hour: '00',
+						minute: '00',
+						second: '00'
+	   				},
+	   				created: function(){
+	   					var _this = this;
+						
+	   				},
+	   				mounted: function() {
+	   					var _this = this;
+						var nowtimestamp = new Date().getTime();
+						var endtimestamp = new Date(_this.endtime).getTime();
+	   					aui.countdown(nowtimestamp, endtimestamp, function(ret){
+							//console.log(ret);
+							_this.day = ret.day;
+							_this.hour = ret.hour;
+							_this.minute = ret.minute;
+							_this.second = ret.second;
+						});
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {							   								
+						
+	   	            }
+	   			});
+	   		}
+	   	</script>
+	</body>
+</html>

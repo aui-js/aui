@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>tabbar选项卡</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">tabbar选项卡</div>
+			</header>
+			<div class="aui-content">
+				<div class="aui-lists">
+					<div class="aui-list" onclick="aui.openWin('tabbar-with-top.html')">
+						<div class="aui-list-left">顶部选项卡-点击切换</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>		
+					<div class="aui-list" onclick="aui.openWin('tabbar-with-top-mescroll.html')">
+						<div class="aui-list-left">顶部选项卡-左右滑动切换+上下拉加载刷新</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('tabbar-with-footer.html')">
+						<div class="aui-list-left">底部选项卡</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('tabbar-with-footer-submenu.html')">
+						<div class="aui-list-left">底部选项卡-二级菜单</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('tabbar-with-left.html')">
+						<div class="aui-list-left">侧边选项卡-左右联动</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('tabbar-with-left-mescroll.html')">
+						<div class="aui-list-left">侧边选项卡-点击切换+上下拉加载刷新</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var lists = document.querySelectorAll(".aui-list");
+			for(var i = 0; i < lists.length; i++){
+				aui.touchDom(lists[i], "#EFEFEF");					
+			}
+		});
+	</script>
+</html>

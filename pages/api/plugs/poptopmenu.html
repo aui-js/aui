@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>poptopmenu顶部弹出窗口</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.poptopmenu.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.poptopmenu.js"></script>
+		<style type="text/css">
+			.aui-list{font-size: 15px; height: 50px; line-height: 50px;}
+			/*页面顶部筛选*/
+			.orderby-items{width: 100%; height: 44px; background: #FFF; white-space: nowrap; display: flex; justify-content: space-around; position: relative; z-index: 997;}
+			.orderby-item{width: 100%; height: 100%; padding: 0 10px; box-sizing: border-box; display: inline-block; position: relative;}
+			.orderby-item span{width: 100%; height: 100%; line-height: 44px; padding-right: 20px; box-sizing: border-box; display: inline-block; font-size: 15px; color: #333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: top;}
+			.orderby-item i{height: 100%; line-height: 44px; transition: transform .2s; color: #333; display: inline-block; font-size: 15px; position: absolute; right: 10px;}
+			.orderby-item.active span,.orderby-item.active i{color: #1d95d4;}
+			.orderby-item.active i{transform: rotate(180deg);}
+			.orderby-item.selected span,.orderby-item.selected i{color: #1d95d4;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">poptopmenu顶部弹出窗口</div>
+			</header>
+			<div class="aui-content">
+				<!--顶部筛选-->	
+	    		<div class="orderby-items row-after">
+	    		 	<div class="orderby-item" onclick="changeOrderby(this, 1)"><span>显示弹窗</span><i class="iconfont icondown1"></i></div>
+	    		</div> 				
+			</div>
+		</div>
+		<div class="poptopmenu-container" style="display: none;">
+			<ul class="aui-lists">
+				<li class="aui-list" onclick="listClick(this)">列表1</li>
+				<li class="aui-list" onclick="listClick(this)">列表2</li>
+				<li class="aui-list" onclick="listClick(this)">列表3</li>
+				<li class="aui-list" onclick="listClick(this)">列表4</li>
+				<li class="aui-list" onclick="listClick(this)">列表5</li>
+				<li class="aui-list" onclick="listClick(this)">列表6</li>				
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var btns = document.querySelectorAll(".aui-btn");
+			for(var i = 0; i < btns.length; i++){
+				aui.touchDom(btns[i], "#FFF", "var(--aui-blue)", "1px solid var(--aui-blue)");
+			}			
+		});
+		var isShowModal = false, currentLayer = null;
+		function changeOrderby(is, layer){
+			if(isShowModal){
+				isShowModal = false;
+				document.querySelector('.orderby-item').classList.remove('active');						
+				aui.poptopMenu.close();
+			}
+			else{				
+				document.querySelector('.orderby-item').classList.remove('active');		
+				is.classList.add('active');	
+				isShowModal = true;				
+				switch (layer){
+					case 1:
+						openPoptopMenu(is);									
+						break;					
+					default:
+						break;
+				}
+			}
+		}
+		//显示弹窗
+		function openPoptopMenu(is){
+			aui.poptopMenu.open({
+				html: document.querySelector(".poptopmenu-container").innerHTML,
+				style: {
+					top: this.offsetHeight + this.offsetTop
+				}
+			},function(ret){
+				console.log(ret);
+				if(ret.type == 'close'){	
+					isShowModal = false;
+					document.querySelector('.orderby-item').classList.remove('active');		
+				}
+
+			})			
+		}
+		//选择
+		function listClick(is){
+			console.log(is.innerText);
+			isShowModal = false;
+			document.querySelector('.orderby-item').classList.remove('active');				
+			document.querySelector('.orderby-item').classList.add("selected");
+			aui.poptopMenu.close();
+		}
+	</script>
+</html>

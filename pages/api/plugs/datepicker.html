@@ -1,0 +1,89 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport"/>
+<title>datepicker时间选择</title>
+
+<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+<link rel="stylesheet" type="text/css" href="../../../static/css/aui.datepicker.css">
+
+<script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+<script type="text/javascript" src="../../../static/js/aui.isscroll.js"></script>
+<script type="text/javascript" src="../../../static/js/aui.datepicker.js"></script>
+<style type="text/css">
+	.aui-btn::-webkit-input-placeholder{color: #FFF;}
+</style>
+</head>
+
+<body>
+	<div class="container">
+		<header class="aui-header">
+			<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+			<div class="aui-header-title">datepicker时间选择</div>
+		</header>
+		<div class="aui-content">
+		    <!-- 日期容器 -->
+			<div id="openDateBtn"></div>	
+			<lable class="aui-list-title">1、开始时间+结束时间</lable>
+			<button class="aui-btn aui-btn-blue date-0">显示日期选择弹窗</button>	
+			<lable class="aui-list-title">2、开始时间+结束时间（精确到时分秒）</lable>
+			<button class="aui-btn aui-btn-blue date-1">显示时间选择弹窗</button>
+			<lable class="aui-list-title">3、普通日期选择</lable>
+			<button class="aui-btn aui-btn-blue date-2">显示日期选择弹窗</button>
+			<lable class="aui-list-title">4、普通日期时间选择</lable>
+			<button class="aui-btn aui-btn-blue date-3">显示时间选择弹窗</button>
+		</div>
+	</div>
+	<script>
+	    window.addEventListener("load", function(){		
+			document.querySelector(".date-0").addEventListener("click", function(){
+				//初始化日期插件
+				$('#openDateBtn').date({
+					title: '选择日期',
+					theme: 1
+				}, function(date){
+					aui.alert({msg: '开始时间：' + date[0] + '</br>结束时间：' + date[1]});
+				});
+				$('#openDateBtn').click();
+			});
+			
+			document.querySelector(".date-1").addEventListener("click", function(){
+				//初始化日期插件
+				$('#openDateBtn').date({
+					title: '选择日期时间',
+					theme: 2
+				}, function(date){
+					aui.alert({msg: '开始时间：' + date[0] + '</br>结束时间：' + date[1]});
+				});
+				$('#openDateBtn').click();
+			});
+	        document.querySelector(".date-2").addEventListener("click", function(){
+	        	//初始化日期插件
+	        	$('#openDateBtn').date({
+					title: '选择日期',
+	        		theme: 1,
+					type: 1
+	        	}, function(date){
+	        		aui.alert({msg: date[0]});
+	        	});
+	        	$('#openDateBtn').click();
+	        });
+	        
+	        document.querySelector(".date-3").addEventListener("click", function(){
+	        	//初始化日期插件
+	        	$('#openDateBtn').date({
+					title: '选择日期时间',
+	        		theme: 2,
+					type: 1,
+	        	}, function(date){
+	        		aui.alert({msg: date[0]});
+	        	});
+	        	$('#openDateBtn').click();
+	        });
+	    });
+    </script>
+</body>
+</html>

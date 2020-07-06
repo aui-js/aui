@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>设备</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">设备</div>
+			</header>
+			<div class="aui-content" style="padding: 15px 0 0 0;">
+				<button class="aui-btn aui-btn-blue btn-0">判断是否为微信浏览器</button>
+				<button class="aui-btn aui-btn-blue btn-1">判断是否为IOS系统</button>
+				<button class="aui-btn aui-btn-blue btn-2">判断是否为android系统</button>
+				<button class="aui-btn aui-btn-blue btn-3">判断是否为IE浏览器</button>
+				<button class="aui-btn aui-btn-blue btn-4">判断是否为PC</button>
+				<button class="aui-btn aui-btn-blue btn-5">获取设备是否连接网络</button>
+				<button class="aui-btn aui-btn-blue btn-6">获取设备网络类型</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var btns = document.querySelectorAll(".aui-btn");
+			for(var i = 0; i < btns.length; i++){
+				aui.touchDom(btns[i], "#FFF", "var(--aui-blue)", "1px solid var(--aui-blue)");					
+			}
+			//判断是否为微信浏览器
+			document.querySelector(".btn-0").addEventListener("click", function(){
+				if(aui.isWx())
+				{
+					aui.alert({msg: "是"});
+				}else{
+					aui.alert({msg: "否"});
+				}
+			});
+			//判断是否为IOS系统
+			document.querySelector(".btn-1").addEventListener("click", function(){
+				if(aui.isIos())
+				{
+					aui.alert({msg: "是"});
+				}else{
+					aui.alert({msg: "否"});
+				}
+			});
+			//判断是否为android系统
+			document.querySelector(".btn-2").addEventListener("click", function(){
+				if(aui.isAndroid())
+				{
+					aui.alert({msg: "是"});
+				}else{
+					aui.alert({msg: "否"});
+				}
+			});
+			//判断是否为IE浏览器
+			document.querySelector(".btn-3").addEventListener("click", function(){
+				if(aui.isIe())
+				{
+					aui.alert({msg: "是"});
+				}else{
+					aui.alert({msg: "否"});
+				}
+			});
+			//判断是否为PC
+			document.querySelector(".btn-4").addEventListener("click", function(){
+				if(aui.isPC())
+				{
+					aui.alert({msg: "是"});
+				}else{
+					aui.alert({msg: "否"});
+				}
+			});
+			//获取设备是否连接网络
+			document.querySelector(".btn-5").addEventListener("click", function(){
+				if(aui.getLine())
+				{
+					aui.alert({msg: "是"});
+				}else{
+					aui.alert({msg: "否"});
+				}
+			});
+			//获取设备网络类型
+			document.querySelector(".btn-6").addEventListener("click", function(){
+				aui.alert({msg: aui.getNetworkType()});
+			});
+		});
+	</script>
+</html>

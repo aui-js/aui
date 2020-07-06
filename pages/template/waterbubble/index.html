@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<title>水球图</title>
+		<style>
+			body{background: #FFF;}
+			.waterbubble-warp{width: 100%; min-height: 265px; text-align: center;}
+			#dowebok{margin: 30px auto;}
+			.aui-lists{z-index: 1;}
+			.aui-list{width: 50%; display: inline-block; vertical-align: top;}
+			.aui-list:last-child::after{display: inline-block;}
+			.aui-list.col-before::before{height: 60%; top: 20%;}
+			.aui-list-right .aui-btn-right{font-size: 20px;}
+			.aui-list.active .aui-list-right .aui-btn-right{color: var(--aui-color);}
+		</style>
+	</head>
+	<body>		
+	    <div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">水球图</div>
+			</header>
+	    	<div class="aui-content" v-cloak>				
+	    		<div class="waterbubble-warp">
+					<canvas id="dowebok"></canvas>
+				</div>
+				<div class="aui-lists row-before">
+					<div class="aui-list" v-for="(item, index) in list.data" :class="{'active': list.currentIndex==item.id, 'col-before': index%2>0}" @click.stop="chooseList(item.id)">
+						<div class="aui-list-left">{{item.text}}</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right" :class="{'iconradio': list.currentIndex==item.id, 'iconradio1': list.currentIndex!=item.id}"></i></div>
+					</div>
+				</div>
+	    	</div>
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../lib/waterbubble/waterbubble.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			var vm = new Vue({
+	   				el: "#app",
+	   				data: {						
+	   					list: {
+	   						currentIndex: 0,
+	   						data: [
+	   							{id: 0, text: '默认效果'},
+	   							{id: 1, text: '水球半径'},
+	   							{id: 2, text: '边框宽度'},
+	   							{id: 3, text: '数据多少'},
+								{id: 4, text: '水球颜色'},
+								{id: 5, text: '显示文本'},
+								{id: 6, text: '文本颜色'},
+								{id: 7, text: '设置字体'},
+								{id: 8, text: '是否显示波纹'},
+								{id: 9, text: '是否显示动画'}
+	   						]
+	   					}
+	   				},
+	   				created: function(){
+	   					var _this = this;
+	   				},
+	   				mounted: function() {
+	   					var _this = this;	
+	   					$('#dowebok').waterbubble(); //默认效果
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {
+						chooseList(id){
+							var _this = this;
+							_this.list.currentIndex = id;
+							$('.waterbubble-warp').html('<canvas id="dowebok"></canvas>');
+							switch (id){
+								case 0: //默认效果
+									$('#dowebok').waterbubble(); 
+									break;
+								case 1: //水球半径
+									$('#dowebok').waterbubble({
+										radius: 50
+									});
+									break;
+								case 2: //边框宽度
+									$('#dowebok').waterbubble({
+										lineWidth: 1
+									});
+									break;
+								case 3: //数据多少
+									$('#dowebok').waterbubble({
+										data: 0.8
+									});
+									break;
+								case 4: //水球颜色
+									$('#dowebok').waterbubble({
+										waterColor: '#FF5555'
+									});
+									break;
+								case 5: //显示文本
+									$('#dowebok').waterbubble({
+										data: 0.8,
+										txt: '80%'
+									});
+									break;
+								case 6: //文本颜色
+									$('#dowebok').waterbubble({
+										data: 0.8,
+										txt: '80%',
+										textColor: '#FFF'
+									});
+									break;
+								case 7: //设置字体
+									$('#dowebok').waterbubble({
+										txt: 'dowebok',
+										font: 'bold 25px arial'
+									});
+									break;
+								case 8: //是否显示波纹
+									$('#dowebok').waterbubble({
+										wave: false
+									});
+									break;
+								case 9: //是否显示动画
+									$('#dowebok').waterbubble({
+										animation: false
+									});
+									break;
+								default:
+									break;
+							}
+						}
+	   	            }
+	   			});
+	   		}
+	   	</script>
+	</body>
+</html>

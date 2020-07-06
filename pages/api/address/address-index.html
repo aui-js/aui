@@ -1,0 +1,39 @@
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>位置</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.bmap.js"></script>
+		<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=Go8TPnKDL44WFZbOATH4AsbA7qTwNosi"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">位置</div>
+			</header>
+			<div class="aui-content">
+				<div class="aui-lists">
+					<div class="aui-list" onclick="aui.openWin('amap/amap-index.html')">
+						<div class="aui-list-left">amap高德地图</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>	
+					<div class="aui-list" onclick="aui.openWin('bmap/bmap-index.html')">
+						<div class="aui-list-left">bmap百度地图</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+				<div>
+				<div class="map" id="map"></div>
+			</div>
+		<div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var lists = document.querySelectorAll(".aui-list");
+			for(var i = 0; i < lists.length; i++){
+				aui.touchDom(lists[i], "#EFEFEF");					
+			}			
+		});		
+	</script>
+</html>

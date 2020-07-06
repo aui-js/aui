@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../lib/mui/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../lib/mui/mui.imageviewer.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<title>图片预览</title>
+		<style>
+			.lists{width: 100%; padding: 15px; box-sizing: border-box;}
+			.list{width: 100%; border-radius: 10px; background: #FFF; margin-bottom: 10px; padding: 10px; box-sizing: border-box;}
+			.list img{width: 100%;}
+			.mui-preview-header{top: 60px; text-align: right;}
+		</style>
+	</head>
+	<body>		
+	    <div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">图片预览</div>
+			</header>
+	    	<div class="content" v-cloak>				
+				<ul class="lists">
+					<li class="list" v-for="item in items">
+						<div class="imgs">
+							<span class="img"><img :src="item.img" alt="" data-preview-src="" data-preview-group="1"></span>							
+						</div>
+					</li>
+				</ul>
+	    	</div>			
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+		<script type="text/javascript" src="../../../lib/mui/mui.min.js"></script>
+		<script type="text/javascript" src="../../../lib/mui/mui.zoom.js"></script>
+		<script type="text/javascript" src="../../../lib/mui/mui.previewimage.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			var vm = new Vue({
+	   				el: "#app",
+	   				data: {							   					
+						currentNavIndex: 0,
+						items: [
+							{img: 'http://pic.sc.chinaz.com/files/pic/pic9/201911/zzpic20850.jpg'},
+							{img: 'http://pic2.sc.chinaz.com/files/pic/pic9/201910/bpic14122.jpg'},
+							{img: 'http://pic.sc.chinaz.com/files/pic/pic9/201911/zzpic21466.jpg'},
+						]
+	   				},
+	   				created: function(){
+	   					var _this = this;
+						aui.showload({type: 4});
+	   				},
+	   				mounted: function() {
+	   					var _this = this;
+						mui.previewImage();
+						$("img").eq($(".list").length - 1).on("load", function(){
+							aui.hideload();
+						});
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {
+										
+	   	            }
+	   			});
+	   		}
+	   	</script>
+	</body>
+</html>

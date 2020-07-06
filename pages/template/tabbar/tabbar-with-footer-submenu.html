@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.popover.css"/>
+		<title>底部选项卡-二级菜单</title>
+		<style>
+			.content{width: 100%; padding: 15px; box-sizing: border-box;}
+			.aui-footer-list{position: fixed !important; bottom: 0; z-index: 997;}
+		</style>
+	</head>
+	<body>		
+	    <div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">底部选项卡-二级菜单</div>
+			</header>
+	    	<div class="content" v-cloak  style="padding: 15px 15px 0 15px;">				
+				
+	    	</div>
+			<footer class="aui-footer row-before">
+				<div class="aui-footer-list" style="left: 15%;" index="0" @click.stop="changeTabbar($event)"><i class="iconfont iconjs"></i><p>API</p></div>
+				<div class="aui-footer-list" style="right: 15%;" index="1" @click.stop="changeTabbar($event)"><i class="iconfont iconshilidaima"></i><p>DEMO</p></div>
+			</footer>
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.popover.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			var vm = new Vue({
+	   				el: "#app",
+	   				data: {							   					
+						
+	   				},
+	   				created: function(){
+	   					var _this = this;
+						
+	   				},
+	   				mounted: function() {
+	   					var _this = this;	
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {							   					
+						changeTabbar(e){
+							var _this = this,
+								el = e.currentTarget,
+								index = $(el).index();
+							$(".aui-footer .aui-footer-list").change().removeClass('active');
+							$(".aui-footer .aui-footer-list").eq(index).addClass('active');
+							aui.popover.open({
+								warp: '.aui-footer .aui-footer-list:nth-child('+ (index + 1) +')',
+								items: [
+									{name: '分享到微信', icon: 'iconweixin', iconColor: '#1AA034'},
+									{name: '分享到朋友圈', icon: 'iconpengyouquan', iconColor: '#EB3C3B'},
+									{name: '分享到QQ', icon: 'iconqq', iconColor: '#30A5DD'},
+									{name: '分享到微博', icon: 'iconweibo', iconColor: '#FF7C60'}
+								],
+								mask: true,
+								touchClose: false,
+								location: 'bottom'
+							},function(ret){
+								console.log(ret);
+								$(".aui-footer .aui-footer-list").change().removeClass('active');
+								aui.toast({msg: ret.el.querySelector("span").innerHTML});
+							})
+						},						
+	   	            }
+	   			});
+	   		}
+	   	</script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>drag元素拖动</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<style type="text/css">
+			.drag-container{width: 90px; max-height: 90px; min-height: 74px; display: inline-block; font-size: 0; padding: 0 10px; box-sizing: border-box; position: fixed; bottom: -webkit-calc(15vh + 55px + 30px); bottom: calc(15vh + 55px + 30px); right: 0px; z-index: 995;}
+			.drag-main{width: 100%; display: inline-block;}
+			.drag-main img{width: 100%;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">drag元素拖动</div>
+			</header>
+			<div class="aui-content" style="padding: 15px 0 0 0;">
+				<div class="drag-container">
+					<div class="drag-main">
+						<img src="../../../static/img/image/logo.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){			
+			aui.drag({
+				warp: document.querySelector('.drag-container')
+			});
+		});
+	</script>
+</html>

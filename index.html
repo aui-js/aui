@@ -4,10 +4,10 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>接口</title>
-		<link rel="stylesheet" type="text/css" href="css/aui.min.css"/>
-		<link rel="stylesheet" type="text/css" href="css/aui.popover.css"/>
-		<script type="text/javascript" src="js/aui.min.js"></script>		
-		<script type="text/javascript" src="js/aui.popover.js"></script>
+		<link rel="stylesheet" type="text/css" href="static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="static/css/aui.popover.css"/>
+		<script type="text/javascript" src="static/js/aui.min.js"></script>		
+		<script type="text/javascript" src="static/js/aui.popover.js"></script>
 		<style type="text/css">
 			.aui-content{padding: 0 0 55px 0;}
 			.aui-list-left img{height: 18px; margin: -0 10px 0 0; display: inline-block; vertical-align: middle; position: relative; top: -1px;}
@@ -22,32 +22,32 @@
 			</header>
 			<div class="aui-content">
 				<div class="aui-lists">
-					<div class="aui-list" onclick="aui.openWin('api/devices/devices-index.html')">
-						<div class="aui-list-left"><img src="img/index-0.png" alt="">设备</div>
+					<div class="aui-list" onclick="aui.openWin('pages/api/devices/devices-index.html')">
+						<div class="aui-list-left"><img src="static/img/index-0.png" alt="">设备</div>
 						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
 					</div>
-					<div class="aui-list" onclick="aui.openWin('api/events/event-index.html')">
-						<div class="aui-list-left"><img src="img/index-1.png" alt="">事件</div>
+					<div class="aui-list" onclick="aui.openWin('pages/api/events/event-index.html')">
+						<div class="aui-list-left"><img src="static/img/index-1.png" alt="">事件</div>
 						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
 					</div>
-					<div class="aui-list" onclick="aui.openWin('api/plugs/plugs-index.html')">
-						<div class="aui-list-left"><img src="img/index-2.png" alt="">插件</div>
+					<div class="aui-list" onclick="aui.openWin('pages/api/plugs/plugs-index.html')">
+						<div class="aui-list-left"><img src="static/img/index-2.png" alt="">插件</div>
 						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
 					</div>
-					<div class="aui-list" onclick="aui.openWin('api/address/address-index.html')">
-						<div class="aui-list-left"><img src="img/index-3.png" alt="">位置</div>
+					<div class="aui-list" onclick="aui.openWin('pages/api/address/address-index.html')">
+						<div class="aui-list-left"><img src="static/img/index-3.png" alt="">位置</div>
 						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
 					</div>
-					<div class="aui-list" onclick="aui.openWin('api/service/service-index.html')">
-						<div class="aui-list-left"><img src="img/index-4.png" alt="">客服</div>
+					<div class="aui-list" onclick="aui.openWin('pages/api/service/service-index.html')">
+						<div class="aui-list-left"><img src="static/img/index-4.png" alt="">客服</div>
 						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
 					</div>
 				</div>
 			</div>
 			<footer class="aui-footer row-before">
 				<div class="aui-footer-list active" onclick="aui.openWin('index.html')"><i class="iconfont iconapi"></i><p>接口</p></div>
-				<div class="aui-footer-list" onclick="aui.openWin('ui/index.html')"><i class="iconfont iconui"></i><p>组件</p></div>
-				<div class="aui-footer-list" onclick="aui.openWin('template/index.html')"><i class="iconfont icontamplate"></i><p>模板</p></div>
+				<div class="aui-footer-list" onclick="aui.openWin('pages/ui/index.html')"><i class="iconfont iconui"></i><p>组件</p></div>
+				<div class="aui-footer-list" onclick="aui.openWin('pages/template/index.html')"><i class="iconfont icontamplate"></i><p>模板</p></div>
 				<a class="aui-footer-list" target="_blank" href="https://www.kancloud.cn/chen-wanchun/aui-js/1800799"><i class="iconfont icondoc"></i><p>文档</p></a>
 			</footer>
 		</div>
@@ -83,7 +83,7 @@
 							aui.openWin('https://me.csdn.net/weixin_43838488');
 							break;
 						case 3:
-							aui.openWin('template/qrcode/QRCode.html');
+							aui.openWin('pages/template/qrcode/QRCode.html');
 							break;
 						default:
 							aui.toast({msg: ret.el.querySelector("span").innerHTML});

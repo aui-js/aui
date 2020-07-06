@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>识别二维码</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<style type="text/css">
+			.box{text-align: center;}
+			.box h3 {
+				font-weight: 300;
+				margin: 0;
+				font-size: 20px;
+				height: 60px;
+				line-height: 60px;
+				color: #000;
+			}
+			.url-box {
+				height: 30px;
+				line-height: 30px;
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">解析二维码</div>
+			</header>
+			<div class="aui-content">
+				<div class="box" id="analytic" style="position: relative;">
+					<h3>长按二维码解析</h3>
+					<img id="showImg" src="../../../static/img/image/code.png" />
+					<p class="url-box" id="urlBox"></p>
+				</div>
+			</div>			
+		</div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+		<script type="text/javascript" src="../../../lib/vue.min.js"></script>
+		<script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+		<script type="text/javascript" src="../../../lib/qrcode/analyticCode.js"></script>
+		<script type="text/javascript" src="../../../lib/qrcode/llqrcode.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.event.js"></script>
+		<script type="text/javascript">		
+			window.onload = function(){
+				apiready();
+			}
+			apiready = function() {
+				var vm = new Vue({
+					el: "#app",
+					data: {	
+						text: '',
+						qrcode: ''
+					},
+					created: function(){
+						var _this = this;
+						
+					},
+					mounted: function() {
+						var _this = this;						
+						aui.longPress({warp: document.querySelector('#showImg'), time: 400}, function(el){
+							_this.readQrCode();
+						});	
+			        },
+			        updated: function () {
+			            var _this = this;
+			            _this.$nextTick(function () {
+			
+			            })
+			        },
+			        methods: {							   								
+						//识别二维码
+						readQrCode(){
+							var _this = this;
+							aui.actionSheet({
+								mask: true,
+								touchClose: true,
+								items: [
+									{name: "识别二维码"},
+									{name: "弹出地址"},
+									{name: "当前窗口打开地址"},
+									{name: "新窗口打开地址"},
+								],
+								cancle: "取消",
+								theme: 1,
+								location: "bottom"
+							},function(ret){
+								switch (ret.index){
+									case 1:
+										_this.getUrl(document.getElementById('showImg'), 'img-url');
+										break;
+									case 2:
+										analyticCode.getUrl('img-url', document.getElementById('showImg'), function(url) {
+											alert(url);
+										});
+										break;
+									case 3:
+										analyticCode.getUrl('img-url', document.getElementById('showImg'), function(url) {
+											window.location.href = url;
+										});
+										break;
+									case 4:
+										analyticCode.getUrl('img-url', document.getElementById('showImg'), function(url) {
+											window.open(url);
+										});
+										break;
+									default:
+										break;
+								}
+							});
+						},
+						getUrl(e, param) {
+							var _this = this;
+							analyticCode.getUrl(param, e, function(url1, url2) {
+								e.nextElementSibling.innerHTML = url1;
+								e.previousElementSibling.src = url2;
+							});
+						},
+						
+			        }
+				});
+			}			
+		</script>
+	</body>
+</html>

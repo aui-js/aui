@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>插件</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">插件</div>
+			</header>
+			<div class="aui-content">
+				<div class="aui-lists">
+					<div class="aui-list" onclick="aui.openWin('actionmenu.html')">
+						<div class="aui-list-left">actionMenu 底部菜单</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('actionsheet.html')">
+						<div class="aui-list-left">actionSheet 操作表</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('chatbox.html')">
+						<div class="aui-list-left">chatbox聊天页面底部UI插件</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('datepicker.html')">
+						<div class="aui-list-left">datepicker时间选择器</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('dialog.html')">
+						<div class="aui-list-left">dialog 模态弹窗</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('keypad.html')">
+						<div class="aui-list-left">keypad 数字键盘</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('loading.html')">
+						<div class="aui-list-left">loading 加载动画</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('picker.html')">
+						<div class="aui-list-left">picker 多级联动</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('popdownmenu.html')">
+						<div class="aui-list-left">popdownmenu底部弹出窗口</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('popover.html')">
+						<div class="aui-list-left">popover 弹出菜单</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('poptopmenu.html')">
+						<div class="aui-list-left">poptopmenu顶部弹出窗口</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>	
+					<div class="aui-list" onclick="aui.openWin('poster.html')">
+						<div class="aui-list-left">poster 广告弹窗</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('selectmenu.html')">
+						<div class="aui-list-left">selectmenu下拉列表选择框</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('sidemenu.html')">
+						<div class="aui-list-left">sidemenu 侧滑菜单</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('toast.html')">
+						<div class="aui-list-left">toast 消息提示</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+					<div class="aui-list" onclick="aui.openWin('wxshare.html')">
+						<div class="aui-list-left">wxShare 微信分享提示弹窗</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var lists = document.querySelectorAll(".aui-list");
+			for(var i = 0; i < lists.length; i++){
+				aui.touchDom(lists[i], "#EFEFEF");					
+			}
+		});
+	</script>
+</html>

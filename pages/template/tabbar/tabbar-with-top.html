@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<title>顶部选项卡-点击切换</title>
+		<style>
+			.aui-nav{width: 100%; height: 50px; overflow-x: scroll; padding: 0; box-sizing: border-box; background: #FFF; display: inline-block; position: relative; z-index: 1;}						
+			.aui-nav::-webkit-scrollbar {height: 0px;}
+			.aui-nav-items{width: auto; display: inline-block; white-space: nowrap; background: #FFF; padding: 0 15px;}
+			.aui-nav-item{height: 100%; line-height: 50px; font-size: 16px; padding: 0 15px; color: #333; box-sizing: border-box; display: inline-block; vertical-align: top;}
+			.aui-nav-item.active{color: var(--aui-blue); font-size: 17px;}
+			.aui-nav-border{width: 35px; height: 4px; -webkit-transition: all .3s; transition: all .3s; background: var(--aui-blue); border-radius: 10px; display: inline-block; position: absolute; bottom: 0; left: 8%;}
+			
+			.page-lists{width: 100%;}
+			.page-list{width: 100%; height: -webkit-calc(100vh - 102px); height: calc(100vh - 102px); display: none; overflow-y: scroll;}
+			.page-list.active{display: inline-block;}
+			.page-list p{width: 100%; line-height: 50vh; text-align: center;}
+		</style>
+	</head>
+	<body>		
+	    <div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">顶部选项卡-点击切换</div>
+			</header>
+	    	<div class="aui-content" v-cloak  >				
+				<nav class="aui-nav row-after">
+					<div class="aui-nav-items">
+						<div class="aui-nav-item" :class="{'active' : currentNavIndex==0}" index="0" @click.stop="changeNav($event)">全部</div>
+						<div class="aui-nav-item" :class="{'active' : currentNavIndex==1}" index="1" @click.stop="changeNav($event)">待付款</div>					
+						<div class="aui-nav-item" :class="{'active' : currentNavIndex==2}" index="2" @click.stop="changeNav($event)">待收货</div>					
+						<div class="aui-nav-item" :class="{'active' : currentNavIndex==3}" index="3" @click.stop="changeNav($event)">已完成</div>
+						<div class="aui-nav-item" :class="{'active' : currentNavIndex==4}" index="4" @click.stop="changeNav($event)">已评价</div>
+						<div class="aui-nav-item" :class="{'active' : currentNavIndex==5}" index="5" @click.stop="changeNav($event)">已退款</div>
+						<span class="aui-nav-border"></span>
+					</div>
+				</nav>
+				<div class="page page-lists">
+					<div class="page-list" :class="{'active' : currentNavIndex==0}">
+						<ul class="lists">
+							<p>全部内容</p>
+						</ul>
+					</div>
+					<div class="page-list" :class="{'active' : currentNavIndex==1}">
+						<ul class="lists">
+							<p>待付款内容</p>
+						</ul>
+					</div>
+					<div class="page-list" :class="{'active' : currentNavIndex==2}">
+						<ul class="lists">
+							<p>待收货内容</p>
+						</ul>
+					</div>
+					<div class="page-list" :class="{'active' : currentNavIndex==3}">
+						<ul class="lists">
+							<p>已完成内容</p>
+						</ul>
+					</div>
+					<div class="page-list" :class="{'active' : currentNavIndex==4}">
+						<ul class="lists">
+							<p>已评价内容</p>
+						</ul>
+					</div>
+					<div class="page-list" :class="{'active' : currentNavIndex==5}">
+						<ul class="lists">
+							<p>已退款内容</p>
+						</ul>
+					</div>
+				</div>
+	    	</div>			
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			var vm = new Vue({
+	   				el: "#app",
+	   				data: {							   					
+						currentNavIndex: 0,
+	   				},
+	   				created: function(){
+	   					var _this = this;
+	   				},
+	   				mounted: function() {
+	   					var _this = this;	
+						//初始化导航栏底部选中底线位置
+						aui.resetNavBorder(".aui-nav", '.aui-nav-item', '.aui-nav-border', 0); 
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {
+						changeNav(e){
+							var _this = this,
+								el = e.currentTarget,
+								index = Number($(el).attr("index"));
+							_this.currentNavIndex = index;
+							//设置导航栏底部选中底线位置
+							aui.resetNavBorder(".aui-nav", '.aui-nav-item', '.aui-nav-border', _this.currentNavIndex); 							
+						},					
+	   	            }
+	   			});
+	   		}
+	   	</script>
+	</body>
+</html>

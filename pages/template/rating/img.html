@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../lib/animate/animate.css"/>
+		<title>img星级评价</title>
+		<style>
+			body{background: #FFF;}
+			.star-warp{width: 100%; height: 40px; margin: 20px 0; padding: 0 25px; box-sizing: border-box; font-size: 0; display: flex; justify-content: space-around;}
+			.star-item{width: 30px; height: 100%; text-align: center; display: inline-block;}
+			.star-item img{width: 100%;}		
+			.textarea-warp{width: 100%;}
+			.textarea-warp.border:after{border-radius: 10px;}
+			.textarea-warp textarea{width: 100%; min-height: 100px; line-height: 20px; color: #333; background: transparent; border: none; padding: 10px; box-sizing: border-box; border-radius: 5px; font-size: 16px; position: relative; z-index: 2;}
+			.textarea-warp textarea::-webkit-input-placeholder{color: #aaa; font-size: 14px;}
+			.btn{width: 100%; background: var(--aui-blue); color: #FFF; border-radius: 5px; margin-top: 30px; margin-left: 0;}
+		</style>
+	</head>
+	<body>		
+	    <div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">img星级评价</div>
+			</header>
+	    	<div class="aui-content" v-cloak  style="padding: 15px 15px 0 15px;">				
+	    		<div class="star-warp">
+	    			<span class="star-item" data-index="0" @click.stop="starClick($event)"><img src="../../../static/img/star_active.png" alt="" /></span>
+	    			<span class="star-item" data-index="1" @click.stop="starClick($event)"><img src="../../../static/img/star_active.png" alt="" /></span>
+	    			<span class="star-item" data-index="2" @click.stop="starClick($event)"><img src="../../../static/img/star_active.png" alt="" /></span>
+	    			<span class="star-item" data-index="3" @click.stop="starClick($event)"><img src="../../../static/img/star_active.png" alt="" /></span>
+	    			<span class="star-item" data-index="4" @click.stop="starClick($event)"><img src="../../../static/img/star_active.png" alt="" /></span>
+	    		</div>				
+				<div class="textarea-warp border">
+					<textarea id="textarea" name="text" rows="" cols="" v-model="desc" placeholder="我们的服务您还满意么？留下评价让我们做的更好吧"></textarea>
+				</div>
+				<div class="btn aui-btn" @click.stop="submitFn()">发布</div>
+	    	</div>
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			var vm = new Vue({
+	   				el: "#app",
+	   				data: {						
+	   					score: 5, //星级
+						desc: '', //评价内容
+	   				},
+	   				created: function(){
+	   					var _this = this;
+						//监听输入时改变textarea框高度
+						aui.autoTextarea(document.querySelector("#textarea"), 400, 100);
+	   				},
+	   				mounted: function() {
+	   					var _this = this;	
+	   							
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {						
+	   					//星级评价
+	   					starClick(e){
+	   						var _this = this,
+	   					    	el = e.currentTarget,	   					        
+	   					        index = $(el).data("index") + 1;
+	   					    if(index == _this.score){
+	   					    	_this.score = index - 1;
+	   					    }
+	   					    else{
+	   					    	_this.score = index;
+	   					    }
+	   					    $(el).parent().children().change().find("img").attr({src: '../../../static/img/star.png'});							
+	   					    for(var i = 0; i < _this.score; i++)
+	   					    {
+	   					        $(el).parent().children().eq(i).find("img").attr({src: '../../../static/img/star_active.png'});
+								$(el).parent().find(".star-item").eq(i).addClass("bounceIn animated infinite");
+	   					    }
+							var _timer = setTimeout(function(){
+								$(el).parent().find(".star-item").change().removeClass("bounceIn animated infinite");
+								clearTimeout(_timer);
+							},500);
+	   					},						
+						//发布
+						submitFn(){
+							var _this = this;							
+							var obj = {};							
+							aui.showload({warp: '.aui-btn', type: 2, msg: '发布中...'}, function(){
+								aui.hideload();					
+							});
+						},
+	   	            }
+	   			});
+	   		}
+	   	</script>
+	</body>
+</html>

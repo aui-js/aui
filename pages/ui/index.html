@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>组件</title>
+		<link rel="stylesheet" type="text/css" href="../../static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../static/css/aui.popover.css"/>
+		<script type="text/javascript" src="../../static/js/aui.min.js"></script>		
+		<script type="text/javascript" src="../../static/js/aui.popover.js"></script>
+		<style type="text/css">
+			.aui-content{padding: 0 0 65px 0;}
+			.aui-list-left i{width: 30px; height: 100%; line-height: 53px; text-align: left; display: inline-block; vertical-align: top; position: relative;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">				
+				<div class="aui-header-title" style="left: 15px;">组件</div>
+			</header>
+			<div class="aui-content">
+				<div class="aui-lists">
+					
+				</div>
+			</div>
+			<footer class="aui-footer row-before">
+				<div class="aui-footer-list" onclick="aui.openWin('../../index.html')"><i class="iconfont iconapi"></i><p>接口</p></div>
+				<div class="aui-footer-list active" onclick="aui.openWin('index.html')"><i class="iconfont iconui"></i><p>组件</p></div>
+				<div class="aui-footer-list" onclick="aui.openWin('../template/index.html')"><i class="iconfont icontamplate"></i><p>模板</p></div>
+				<a class="aui-footer-list" target="_blank" href="https://www.kancloud.cn/chen-wanchun/aui-js/1800799"><i class="iconfont icondoc"></i><p>文档</p></a>
+			</footer>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){			
+			var lists = document.querySelectorAll(".aui-list");
+			for(var i = 0; i < lists.length; i++){
+				aui.touchDom(lists[i], "#EFEFEF");
+			}				
+		});
+	</script>
+</html>

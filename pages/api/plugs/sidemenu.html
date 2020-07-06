@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.sidemenu.css"/>
+		<title>侧滑菜单</title>
+		<style>
+			html,body{background: #F4F4F4;}
+			.aui-container{position: relative; z-index: 1; background: #F4F4F4;}
+			.aui-header{position: relative;}
+			.aui-header-left .iconfont{font-size: 30px;}
+			.aui-header-right{font-size: 14px; color: #FFFFFF;}
+			.aui-content{height: -webkit-calc(100vh - 50px); background: #F4F4F4; position: relative; overflow-y: scroll; padding: 0;}
+			.content-top{width: 100%; padding: 15px; box-sizing: border-box; background-color: #F4F4F4;}
+			.content-top p{line-height: 25px; font-size: 14px; color: #666; padding: 0 20px; box-sizing: border-box; margin-bottom: 20px;}
+			.aui-list{z-index: 1;}
+			.aui-list-right .aui-btn-right{font-size: 20px;}
+			.aui-list.active .aui-list-right .aui-btn-right{color: var(--aui-color);}
+			#aui-sidemenu-wapper{display: none; color: #FFF; text-align: center;}
+			.aui-sidemenu-logo{width: 100%; text-align: center; margin: 0 auto 30px auto;}
+			.aui-sidemenu-logo img{width: 80px; border-radius: 50%; border: 2px solid #FFF;}
+			.aui-sidemenu-title{text-align: center; color: #FFF; font-size: 18px; line-height: 50px;}
+			.aui-sidemenu-content{line-height: 25px; padding: 0 5px; box-sizing: border-box; font-size: 13px; color: #FFF;}
+			.aui-sidemenu-content .aui-btn{width: 100%; margin: 0;}
+		</style>
+	</head>
+	<body>		
+	    <div class="aui-container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" v-if="position.currentIndex == 0" @click.stop="openMenu()"><i class="iconfont iconother"></i></a>
+				<a class="aui-header-left" v-cloak v-if="position.currentIndex == 1" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">侧滑菜单</div>
+				<a class="aui-header-right" v-if="position.currentIndex == 0" @click.stop="aui.closeWin()">关闭</a>
+				<a class="aui-header-right" v-cloak v-if="position.currentIndex == 1" @click.stop="openMenu()"><i class="iconfont iconother"></i></a>
+			</header>
+	    	<div class="aui-content" v-cloak>
+				<div class="aui-lists" style="margin-bottom: 10px;">
+					<div class="aui-list" v-for="item in position.data" :class="{'active': position.currentIndex==item.id}" @click.stop="choosePosition(item.id)">
+						<div class="aui-list-left">{{item.text}}</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right" :class="{'iconradio': position.currentIndex==item.id, 'iconradio1': position.currentIndex!=item.id}"></i></div>
+					</div>
+				</div>
+				<div class="content-top">
+					<p>可拖动式{{position.currentIndex == 0 ? '右' : '左'}}滑导航示例， 支持拖动手势（跟手）， 当前页面为主界面，可以在主界面放置任何内容； 
+						打开侧滑菜单有多种方式： </br>
+						1、在当前页面向{{position.currentIndex == 0 ? '右' : '左'}}拖动； </br>
+						2、点击页面{{position.currentIndex == 1 ? '右' : '左'}}上角的 </br>
+						3、通过JS API触发（例如点击如下开启按钮体验）；
+					</p>
+					<button class="aui-btn aui-btn-blue" @click.stop="openMenu()">打开侧滑菜单</button>
+				</div>
+				<div class="aui-lists">
+					<div class="aui-list" v-for="item in list.data" :class="{'active': list.currentIndex==item.id}" @click.stop="chooseMoveType(item.id)">
+						<div class="aui-list-left">{{item.text}}</div>
+						<div class="aui-list-right"><i class="iconfont aui-btn-right" :class="{'iconradio': list.currentIndex==item.id, 'iconradio1': list.currentIndex!=item.id}"></i></div>
+					</div>
+				</div>
+				<!-- 侧滑菜单容器 -->
+				<div id="aui-sidemenu-wapper">
+					<div class="aui-sidemenu-logo"><img src="../../../static/img/image/logo.png" ></div>
+					<div class="aui-sidemenu-title">侧滑导航</div>
+					<div class="aui-sidemenu-content">
+						可拖动式侧滑菜单示例，可以在这里放置任何内容；关闭侧滑菜单有多种方式： </br>
+						1、在本侧滑菜单页之外任意位置向{{position.currentIndex == 1 ? '右' : '左'}}拖动(drag)；</br>
+						2、点击本侧滑菜单页之外的任意位置; </br>
+						3、点击如下关闭按钮</br>
+						<p style="margin: 20px 0px;">
+							<button class="aui-btn aui-btn-blue" onclick="vm.closeMenu()">关闭侧滑菜单</button>
+						</p>
+					
+					</div>
+				</div>
+	    	</div>
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../static/js/aui.sidemenu.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			vm = new Vue({
+	   				el: "#app",
+	   				data: {							   					
+						position: {
+							currentIndex: 0,
+							data: [
+								{id: 0, text: '菜单位于页面左侧', position: 'left'},
+								{id: 1, text: '菜单位于页面右侧', position: 'right'}
+							]
+						},
+						list: {
+							currentIndex: 0,
+							data: [
+								{id: 0, text: '主页面移动，菜单不动', moveType: 'main-move'},
+								{id: 1, text: '主页面不动，菜单移动', moveType: 'menu-move'},
+								{id: 2, text: '整体移动', moveType: 'all-move'},
+								{id: 3, text: '缩放式侧滑(类手机QQ)', moveType: 'scale-move'}
+							]
+						}
+	   				},
+	   				created: function(){
+	   					var _this = this;
+	   				},
+	   				mounted: function() {
+	   					var _this = this;	
+						var lists = document.querySelectorAll(".aui-list");
+						for(var i = 0; i < lists.length; i++){
+							aui.touchDom(lists[i], "#EFEFEF");					
+						}	 
+						_this.initSidemenu();
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {
+						initSidemenu(){ //初始化调用侧滑菜单
+							var _this = this;
+							aui.sidemenu.init({
+								warp: '.aui-container',
+								content: '#aui-sidemenu-wapper',
+								position: _this.position.data[_this.position.currentIndex].position,
+								moveType: _this.list.data[_this.list.currentIndex].moveType,
+								moves: ['.aui-container'],
+								mask: true,
+								maskTapClose: true,
+								drag: {
+									use: true,
+									//start: _this.dragcallback,
+									//move: _this.dragcallback,
+									end: function(ret){
+										console.log(ret)
+									}
+								},
+								style: {
+									w: '70vw',
+									h: '100vh',
+									bg: '#333'
+								},
+							}).then(function(ret){
+								console.log(ret)
+							});
+						},
+						choosePosition(id){ //选择菜单位于页面——左侧/右侧
+							var _this = this;
+							_this.position.currentIndex = id;
+							var _timer = setTimeout(function(){
+								clearTimeout(_timer);
+								//***
+								aui.sidemenu.setData({
+									position: _this.position.data[_this.position.currentIndex].position
+								}).then(function(ret){
+									//console.log(ret)
+									aui.toast({title: '提示', msg: _this.position.data[_this.position.currentIndex].position == 'left' ? '向右滑打开菜单' : '向左滑打开菜单'});
+								});
+								//***
+							},200)
+						},
+						chooseMoveType(id){ //选择显示方式
+							var _this = this;
+							_this.list.currentIndex = id;
+							aui.sidemenu.setData({
+								moveType: _this.list.data[_this.list.currentIndex].moveType
+							}).then(function(ret){
+								//console.log(ret)
+							});
+						},
+						openMenu(){ //打开
+							var _this = this;
+							aui.sidemenu.open({
+								moveType: _this.list.data[_this.list.currentIndex].moveType,
+								speed: 10,
+							}).then(function(ret){
+								console.log(ret)
+							});
+						},
+						closeMenu(){ //关闭
+							var _this = this;
+							aui.sidemenu.close({speed: 10}).then(function(ret){
+								console.log(ret)
+							});
+						},
+	   	            }
+	   			});
+	   		}
+	   	</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>amap高德地图</title>
+		<link rel="stylesheet" type="text/css" href="../../../../static/css/aui.min.css"/>
+		<script type="text/javascript" src="../../../../static/js/aui.min.js"></script>
+		<script type="text/javascript" src="../../../../static/js/aui.amap.js"></script>
+		<script src="https://webapi.amap.com/maps?v=1.4.15&key=02e6e70bec31ec123367a3d8101a9602"></script>
+		<style type="text/css">			
+			.aui-content .map{width: 100%; height: 100%;}		
+			.amap-logo {right: 0 !important;left: auto !important;display: none !important; }       
+	        .amap-copyright { right: 70px !important; left: auto !important; display: none !important;}  
+	        .amap-container .amap-icon img{width: 100% !important; height: 100% !important; pointer-events: auto;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">amap高德地图</div>
+			</header>
+			<div class="aui-content">
+				<div class="map" id="map"></div>				
+			</div>
+		<div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var lists = document.querySelectorAll(".aui-list");
+			for(var i = 0; i < lists.length; i++){
+				aui.touchDom(lists[i], "#EFEFEF");					
+			}			
+			aui.amap.init();
+		});
+	</script>
+</html>

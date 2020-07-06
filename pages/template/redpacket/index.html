@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>红包雨</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">红包雨</div>
+			</header>
+			<div class="aui-content">
+				
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	<script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	<script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	<script type="text/javascript" src="../../../static/js/aui.redpacket.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){				
+			apiready();
+		}
+		apiready = function() {
+			var vm = new Vue({
+				el: "#app",
+				data: {							   					
+					score: 5, //星级
+					desc: '', //评价内容
+				},
+				created: function(){
+					var _this = this;
+					
+				},
+				mounted: function() {
+					var _this = this;	
+							
+	            },
+	            updated: function () {
+	                var _this = this;
+	                _this.$nextTick(function () {
+		
+	                })
+	            },
+	            methods: {							   					
+					
+	            }
+			});
+		}
+	</script>
+</html>

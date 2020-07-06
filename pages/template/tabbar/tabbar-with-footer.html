@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<title>底部选项卡</title>
+		<style>
+			.content{width: 100%; padding: 15px; box-sizing: border-box;}
+			
+		</style>
+	</head>
+	<body>		
+	    <div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">底部选项卡</div>
+			</header>
+	    	<div class="content" v-cloak  style="padding: 15px 15px 0 15px;">				
+				
+	    	</div>
+			<footer class="aui-footer row-before">
+				<div class="aui-footer-list active" index="0" @click.stop="changeTabbar($event)"><i class="iconfont iconjs"></i><p>API</p></div>
+				<div class="aui-footer-list" index="1" @click.stop="changeTabbar($event)"><i class="iconfont iconshilidaima"></i><p>DEMO</p></div>
+			</footer>
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			var vm = new Vue({
+	   				el: "#app",
+	   				data: {							   					
+						
+	   				},
+	   				created: function(){
+	   					var _this = this;
+						
+	   				},
+	   				mounted: function() {
+	   					var _this = this;	
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {							   					
+						changeTabbar(e){
+							var _this = this,
+								el = e.currentTarget,
+								index = $(el).index();
+							$(".aui-footer .aui-footer-list").change().removeClass('active');
+							$(".aui-footer .aui-footer-list").eq(index).addClass('active');
+						},						
+	   	            }
+	   			});
+	   		}
+	   	</script>
+	</body>
+</html>

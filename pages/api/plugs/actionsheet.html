@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>actionSheet操作表弹窗</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">actionSheet操作表弹窗</div>
+			</header>
+			<div class="aui-content" style="padding: 15px 0 0 0;">
+				<button class="aui-btn aui-btn-blue actionsheet-0">底部弹出操作菜单（上传图片）</button>
+				<button class="aui-btn aui-btn-blue actionsheet-1">页面中心弹出操作菜单（上传图片）</button>
+				<button class="aui-btn aui-btn-blue actionsheet-2">底部弹出操作菜单(删除)</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			var btns = document.querySelectorAll(".aui-btn");
+			for(var i = 0; i < btns.length; i++){
+				aui.touchDom(btns[i], "#FFF", "var(--aui-blue)", "1px solid var(--aui-blue)");					
+			}
+			//底部弹出操作菜单（上传图片）
+			document.querySelector(".actionsheet-0").addEventListener("click", function(){
+				aui.actionSheet({
+					title: '上传图片',
+					mask: true,
+					touchClose: true,
+					items: [{
+						name: "从相册选择",
+					},{
+						name: "拍照"
+					}],
+					cancle: "取消",
+					theme: 1,
+					location: "bottom"
+				},function(ret){
+					console.log(ret.index);				
+				});
+			});
+			//页面中心弹出操作菜单（上传图片）
+			document.querySelector(".actionsheet-1").addEventListener("click", function(){
+				aui.actionSheet({
+					//title: '上传图片',
+					mask: true,
+					touchClose: true,
+					items: [{
+						name: "从相册选择",
+						textAlign: "left"
+					},{
+						name: "拍照",
+						textAlign: "left"
+					}],
+					//cancle: "取消",
+					theme: 1,
+					location: "middle"
+				},function(ret){
+					console.log(ret.index);				
+				});
+			});
+			//底部弹出操作菜单(删除)
+			document.querySelector(".actionsheet-2").addEventListener("click", function(){
+				aui.actionSheet({
+					title: "删除",
+					mask: true,
+					touchClose: true,
+					items: [{
+						name: "删除",	
+						color: "#f00"
+					}],
+					cancle: "取消",
+					theme: 2,
+					location: "bottom"
+				},function(ret){
+					console.log(ret.index);				
+				});
+			});
+		});
+	</script>
+</html>
