@@ -127,7 +127,7 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #EFEFF4;}
 	width: 100%;
 	display: inline-block;
 	font-size: 30px;	
-	background: #AAAAAA;
+	background: #CDCDCD;
 	-webkit-background-clip: text;
 	color: transparent;
 }
@@ -136,7 +136,7 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #EFEFF4;}
 	height: 20px;
 	line-height: 12px;
 	font-size: 12px;
-	background: #AAAAAA;
+	background: #CDCDCD;
 	-webkit-background-clip: text;
 	color: transparent;
 }
