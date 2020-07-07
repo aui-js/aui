@@ -27,7 +27,7 @@
 }
 
 *{margin: 0; padding: 0; -webkit-touch-callout: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;}
-body{min-width: var(--aui-w);min-height: 100vh;background: #F2F2F2;}
+body{min-width: var(--aui-w);min-height: 100vh;background: #EFEFF4;}
 /*::-webkit-scrollbar {width: 1px !important;}*/
 
 [v-cloak]{display: none !important;}
