@@ -4,13 +4,15 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>组件</title>
-		<link rel="stylesheet" type="text/css" href="../../static/css/aui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../static/css/aui.css"/>
 		<link rel="stylesheet" type="text/css" href="../../static/css/aui.popover.css"/>
 		<script type="text/javascript" src="../../static/js/aui.min.js"></script>		
 		<script type="text/javascript" src="../../static/js/aui.popover.js"></script>
 		<style type="text/css">
 			.aui-content{padding: 0 0 65px 0;}
-			.aui-list-left i{width: 30px; height: 100%; line-height: 53px; text-align: left; display: inline-block; vertical-align: top; position: relative;}
+			.content-top{width: 100%; padding: 20px; box-sizing: border-box;}
+			.content-top h2{width: 100%; line-height: 40px; font-size: 16px; color: #333;}
+			.content-top p{width: 100%; line-height: 20px; font-size: 13px; color: #888;}
 		</style>
 	</head>
 	<body>
@@ -19,8 +21,51 @@
 				<div class="aui-header-title" style="left: 15px;">组件</div>
 			</header>
 			<div class="aui-content">
-				<div class="aui-lists">
-					
+				<div class="content-top">
+					<h2>Basic</h2>
+					<p>基础组件、常用组件</p>
+				</div>
+				<div class="aui-grids">
+					<div class="aui-grid" col="3">
+						<div class="aui-grid-icon"><i class="iconfont iconcolor" style="color: #EE0000;"></i></div>
+						<div class="aui-grid-text">Color色彩</div>
+					</div>
+					<div class="aui-grid" col="3">
+						<div class="aui-grid-icon"><i class="iconfont iconanniu" style="color: #eb077a;"></i></div>
+						<div class="aui-grid-text">Button按钮</div>
+					</div>
+					<div class="aui-grid" col="3">
+						<div class="aui-grid-icon"><i class="iconfont icontag" style="font-size: 25px; color: #fe2f24;"></i></div>
+						<div class="aui-grid-text">Tag标签</div>
+					</div>
+					<div class="aui-grid" col="3">
+						<div class="aui-grid-icon"><i class="iconfont iconbadge" style="font-size: 28px; color: #fec002;"></i></div>
+						<div class="aui-grid-text">Badge数字角标</div>
+					</div>
+					<div class="aui-grid" col="3">
+						<div class="aui-grid-icon"><i class="iconfont iconlist" style="font-size: 28px; color: #add51d;"></i></div>
+						<div class="aui-grid-text">List列表</div>
+					</div>
+					<div class="aui-grid" col="3">
+						<div class="aui-grid-icon"><i class="iconfont icongrid" style="font-size: 25px; color: #fe6503;"></i></div>
+						<div class="aui-grid-text">Grid九宫格</div>
+					</div>
+					<div class="aui-grid" col="3">
+						<div class="aui-grid-icon"><i class="iconfont iconindexlist" style="color: #05c091;"></i></div>
+						<div class="aui-grid-text">Index索引列表</div>
+					</div>
+					<div class="aui-grid" col="3">
+						<div class="aui-grid-icon"><i class="iconfont iconnavbar" style="color: #fe2f24;"></i></div>
+						<div class="aui-grid-text">Navbar导航</div>
+					</div>
+					<div class="aui-grid" col="3">
+						<div class="aui-grid-icon"><i class="iconfont iconnumberbox" style="font-size: 25px; color: #fec002;"></i></div>
+						<div class="aui-grid-text">Number输入框</div>
+					</div>
+					<div class="aui-grid" col="3">
+						<div class="aui-grid-icon"><i class="iconfont iconnotice" style="font-size: 25px; color: #fe6503;"></i></div>
+						<div class="aui-grid-text">Notice通告栏</div>
+					</div>
 				</div>
 			</div>
 			<footer class="aui-footer row-before">
@@ -33,7 +78,7 @@
 	</body>
 	<script type="text/javascript">
 		window.addEventListener("load", function(){			
-			var lists = document.querySelectorAll(".aui-list");
+			var lists = document.querySelectorAll(".aui-grid");
 			for(var i = 0; i < lists.length; i++){
 				aui.touchDom(lists[i], "#EFEFEF");
 			}				
