@@ -298,7 +298,7 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #EFEFF4;}
 .aui-grid-text{
 	width: 100%;
 	line-height: 20px;
-	font-size: 12px;
+	font-size: 13px;
 	text-align: center;
 	color: #888;
 }
