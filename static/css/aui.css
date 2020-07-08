@@ -407,7 +407,39 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
 /* 圆角样式 */
 .aui-tag.aui-tag-round{border-radius: 40px;}
 /* 小标签 */
- .aui-tag.aui-tag-small{padding: 3px 7px; font-size: 12px;}
+.aui-tag.aui-tag-small{padding: 3px 7px; font-size: 12px;}
+
+/* Badge数字角标 */
+.aui-badge{
+	width: auto;
+	height: auto;
+	min-width: 22px;
+	height: 22px;
+	line-height: 23px;
+	text-align: center;
+	background: #197DE0;
+	color: #FFF;
+	font-size: 14px;
+	display: inline-block;
+	border-radius: 22px;
+	padding: 0 6px;
+	box-sizing: border-box;
+	margin: 5px;
+}
+.aui-badge[data-bg="gray"]{color: #333; background: #F3F4F2;}
+.aui-badge[data-bg="blue"]{color: #fff; background: #2979ff;}
+.aui-badge[data-bg="success"]{color: #fff; background: #19be6b;}
+.aui-badge[data-bg="waring"]{color: #fff; background: #ff9900;}
+.aui-badge[data-bg="error"]{color: #fff; background: #fa3534;}
+/* 空心数字角标 */
+.aui-badge.aui-badge-nobg{background: none; border: 1px solid #197DE0;}
+.aui-badge-nobg[data-bg="gray"]{color: #333; border: 1px solid #F3F4F2;}
+.aui-badge-nobg[data-bg="blue"]{color: #2979ff; border: 1px solid #2979ff;}
+.aui-badge-nobg[data-bg="success"]{color: #19be6b; border: 1px solid #19be6b;}
+.aui-badge-nobg[data-bg="waring"]{color: #ff9900; border: 1px solid #ff9900;}
+.aui-badge-nobg[data-bg="error"]{color: #fa3534; border: 1px solid #fa3534;}
+/* 小数字角标 */
+.aui-badge.aui-badge-small{min-width: 18px; height: 18px; line-height: 18px; font-size: 11px; padding: 0 5px;}
 
 /* 横向分割线 */
 .row-before{position: relative;}

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
 		<title>Badge数字角标</title>
 		<style>
 			.aui-content{padding: 0;}
@@ -21,15 +21,35 @@
 					Badge数字角标通常用来标记重要信息，如接收到新消息、有未读消息等。
 				</div>
 				<ul class="aui-card">
-					<div class="aui-card-title">实心标签</div>
+					<div class="aui-card-title"><span class="aui-card-title-line"></span>实心数字角标</div>
 					<li class="aui-card-main">
-						<span class="aui-tag" data-bg="gray">标签</span>
-						<span class="aui-tag" data-bg="blue">标签</span>
-						<span class="aui-tag" data-bg="success">标签</span>
-						<span class="aui-tag" data-bg="waring">标签</span>
-						<span class="aui-tag" data-bg="error">标签</span>
+						<span class="aui-badge" data-bg="gray">1</span>
+						<span class="aui-badge" data-bg="blue">2</span>
+						<span class="aui-badge" data-bg="success">33</span>
+						<span class="aui-badge" data-bg="waring">44</span>
+						<span class="aui-badge" data-bg="error">123</span>
 					</li>
-				</ul>				
+				</ul>
+				<ul class="aui-card">
+					<div class="aui-card-title"><span class="aui-card-title-line"></span>空心数字角标</div>
+					<li class="aui-card-main">
+						<span class="aui-badge aui-badge-nobg" data-bg="gray">1</span>
+						<span class="aui-badge aui-badge-nobg" data-bg="blue">2</span>
+						<span class="aui-badge aui-badge-nobg" data-bg="success">33</span>
+						<span class="aui-badge aui-badge-nobg" data-bg="waring">44</span>
+						<span class="aui-badge aui-badge-nobg" data-bg="error">123</span>
+					</li>
+				</ul>
+				<ul class="aui-card">
+					<div class="aui-card-title"><span class="aui-card-title-line"></span>迷你数字角标</div>
+					<li class="aui-card-main">
+						<span class="aui-badge aui-badge-small" data-bg="gray">1</span>
+						<span class="aui-badge aui-badge-nobg aui-badge-small" data-bg="blue">2</span>
+						<span class="aui-badge aui-badge-small" data-bg="success">33</span>
+						<span class="aui-badge aui-badge-nobg aui-badge-small" data-bg="waring">44</span>
+						<span class="aui-badge aui-badge-small" data-bg="error">123</span>
+					</li>
+				</ul>	
 	    	</div>
 	    </div>
 		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
