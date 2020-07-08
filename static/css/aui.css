@@ -384,7 +384,7 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
 .aui-tag{
 	width: auto;
 	height: auto;
-	background: #197DE0;
+	background: #fa3534;
 	color: #FFF;
 	font-size: 14px;
 	padding: 7px 15px;
@@ -417,7 +417,7 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
 	height: 22px;
 	line-height: 23px;
 	text-align: center;
-	background: #197DE0;
+	background: #fa3534;
 	color: #FFF;
 	font-size: 14px;
 	display: inline-block;
