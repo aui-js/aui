@@ -7,8 +7,8 @@
 		<title>color-颜色</title>
 		<style>
 			body{background: #FFF;}
-			.aui-content{padding: 10px 0; box-sizing: border-box;}
-			.lists{width: 100%; font-size: 0; padding: 0 10px; box-sizing: border-box;}
+			.aui-content{padding: 0; box-sizing: border-box;}	
+			.content-top{width: 100%; background: #f4f4f4; line-height: 25px; padding: 20px 15px; box-sizing: border-box; font-size: 14px; color: #aaa;}
 			.list{width: -webkit-calc((100% - 40px) / 4); width: calc((100% - 40px) / 4); text-align: center; padding: 10px; box-sizing: border-box; display: inline-block; vertical-align: top; margin: 0px 5px; border-radius: 5px;}
 			.list-title{width: 100%; height: 40px; line-height: 40px; font-size: 15px; padding-left: 12px; box-sizing: border-box; color: #333; position: relative;}
 			.list-title::before{content: ''; width: 3px; height: 14px; background: #03A9F4; border-radius: 5px; position: absolute; top: 13px; left: 0;}
@@ -22,12 +22,17 @@
 				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
 				<div class="aui-header-title">color-颜色</div>
 			</header>
-	    	<div class="aui-content" v-cloak>				
-				<ul class="lists" v-for="list in lists">
-					<div class="list-title">{{list.title}}</div>
-					<li class="list" v-for="(item, index) in list.items" :style="{background: item.bg}" @click.stop="copyColor(item.bg)">
-						<p :style="{color: item.color ? item.color : '#fff'}">{{item.name}}</p>
-						<p :style="{color: item.color ? item.color : '#fff'}">{{item.bg}}</p>
+	    	<div class="aui-content" v-cloak>
+				<div class="content-top">
+					Color-颜色提供多种常用色彩，可点击页面对应色块复制色值。
+				</div>
+				<ul class="aui-card" v-for="list in lists">
+					<div class="aui-card-title"><span class="aui-card-title-line"></span>{{list.title}}</div>
+					<li class="aui-card-main">
+						<div class="list" v-for="(item, index) in list.items" :style="{background: item.bg}" @click.stop="copyColor(item.bg)">
+							<p :style="{color: item.color ? item.color : '#fff'}">{{item.name}}</p>
+							<p :style="{color: item.color ? item.color : '#fff'}">{{item.bg}}</p>
+						</div>
 					</li>
 				</ul>
 	    	</div>
