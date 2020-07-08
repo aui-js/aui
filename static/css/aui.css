@@ -186,7 +186,7 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
 }
 .aui-list-title{
 	width: 100%;
-	height: 50px;
+	height: 40px;
 	line-height: 50px;
 	font-size: 13px;
 	padding: 0 15px;
@@ -355,7 +355,7 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
 .aui-mask{
 	width: 100%;
 	height: 100%;
-	background: rgba(0,0,0,.4);
+	background: rgba(0,0,0,.6);
 	-ms-animation: aui-fade-in .2s ease-out forwards;
 	-webkit-animation: aui-fade-in .2s ease-out forwards;
 	animation: aui-fade-in .2s ease-out forwards;
