@@ -10,7 +10,9 @@
 		<script type="text/javascript" src="static/js/aui.popover.js"></script>
 		<style type="text/css">
 			.aui-content{padding: 0 0 55px 0;}
-			.aui-list-left img{height: 18px; margin: -0 10px 0 0; display: inline-block; vertical-align: middle; position: relative; top: -1px;}
+			.content-top{width: 100%; padding: 15px 20px; box-sizing: border-box;}
+			.content-top h2{width: 100%; line-height: 40px; font-size: 18px; color: #333;}
+			.content-top p{width: 100%; line-height: 20px; font-size: 13px; color: #888;}			
 		</style>
 	</head>
 	<body>
@@ -21,6 +23,10 @@
 				<a class="aui-header-right" onclick=""><i class="iconfont iconother"></i></a>
 			</header>
 			<div class="aui-content">
+				<div class="content-top">
+					<h2>Api</h2>
+					<p>api接口，常用弹窗插件</p>
+				</div>
 				<div class="aui-lists">
 					<div class="aui-list" onclick="aui.openWin('pages/api/devices/devices-index.html')">
 						<div class="aui-list-left"><img src="static/img/index-0.png" alt="">设备</div>
