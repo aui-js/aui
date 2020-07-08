@@ -3,10 +3,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
 		<title>Tag标签</title>
 		<style>
-			.aui-content{padding: 15px 0; text-align: center;}
+			.aui-content{padding: 0;}
+			.content-top{width: 100%; padding: 20px 15px; box-sizing: border-box; font-size: 14px; color: #aaa;}
 		</style>
 	</head>
 	<body>		
@@ -15,8 +16,50 @@
 				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
 				<div class="aui-header-title">Tag标签</div>
 			</header>
-	    	<div class="aui-content" v-cloak>				
-				
+	    	<div class="aui-content" v-cloak>
+				<div class="content-top">
+					Tag标签组件多用于商品列表、重点内容显示等场景。
+				</div>
+				<ul class="aui-card">
+					<div class="aui-card-title">实心标签</div>
+					<li class="aui-card-main">
+						<span class="aui-tag" data-bg="gray">标签</span>
+						<span class="aui-tag" data-bg="blue">标签</span>
+						<span class="aui-tag" data-bg="success">标签</span>
+						<span class="aui-tag" data-bg="waring">标签</span>
+						<span class="aui-tag" data-bg="error">标签</span>
+					</li>
+				</ul>
+				<ul class="aui-card">
+					<div class="aui-card-title">空心标签</div>
+					<li class="aui-card-main">
+						<span class="aui-tag aui-tag-linear" data-bg="gray">标签</span>
+						<span class="aui-tag aui-tag-linear" data-bg="blue">标签</span>
+						<span class="aui-tag aui-tag-linear" data-bg="success">标签</span>
+						<span class="aui-tag aui-tag-linear" data-bg="waring">标签</span>
+						<span class="aui-tag aui-tag-linear" data-bg="error">标签</span>
+					</li>
+				</ul>
+				<ul class="aui-card">
+					<div class="aui-card-title">圆角标签</div>
+					<li class="aui-card-main">
+						<span class="aui-tag aui-tag-round" data-bg="gray">标签</span>
+						<span class="aui-tag aui-tag-round aui-tag-linear" data-bg="blue">标签</span>
+						<span class="aui-tag aui-tag-round" data-bg="success">标签</span>
+						<span class="aui-tag aui-tag-round aui-tag-linear" data-bg="waring">标签</span>
+						<span class="aui-tag aui-tag-round" data-bg="error">标签</span>
+					</li>
+				</ul>
+				<ul class="aui-card">
+					<div class="aui-card-title">小标签</div>
+					<li class="aui-card-main">
+						<span class="aui-tag aui-tag-round aui-tag-small" data-bg="gray">标签</span>
+						<span class="aui-tag aui-tag-round aui-tag-linear aui-tag-small" data-bg="blue">标签</span>
+						<span class="aui-tag aui-tag-round aui-tag-small" data-bg="success">标签</span>
+						<span class="aui-tag aui-tag-round aui-tag-linear aui-tag-small" data-bg="waring">标签</span>
+						<span class="aui-tag aui-tag-round aui-tag-small" data-bg="error">标签</span>
+					</li>
+				</ul>
 	    	</div>
 	    </div>
 		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
