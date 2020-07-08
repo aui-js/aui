@@ -354,7 +354,6 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
 .aui-card{
 	width: 100%;
 	background-color: #FFF;
-	margin: 0 0 10px 0;
 }
 .aui-card-title{
 	width: 100%;
@@ -364,6 +363,15 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
 	padding: 0 15px;
 	box-sizing: border-box;
 	background: #efeff4;	
+}
+.aui-card-title-line{
+	width: 3px;
+	height: 14px;
+	background: #197DE0;
+	margin: 18px 10px 18px 0;
+	border-radius: 3px;
+	display: inline-block;
+	vertical-align: top;
 }
 .aui-card-main{
 	width: 100%;
