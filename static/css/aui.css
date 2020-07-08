@@ -319,8 +319,9 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
 	line-height: 50px;
 	text-align: center;
 	border: none;
-	color: #333;
+	color: #FFF;
 	font-size: 15px;
+	background: #2979ff;
 	border-radius: 5px;
 	margin: 0 15px 15px 15px;
 	padding: 0 10px;
@@ -335,6 +336,20 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
 	background: var(--aui-blue);
 	color: #FFF;
 }
+.aui-btn-load{ background: #2b85e4; }
+.aui-btn-disabled{ background: #a0cfff; }
+.aui-btn-round{ border-radius: 50px; }
+.aui-btn-success{ background: #19be6b; }
+.aui-btn-success.aui-btn-disabled{ background: #71d5a1; }
+.aui-btn-error{ background: #fa3534; }
+.aui-btn-error.aui-btn-disabled{ background: #fab6b6; }
+.aui-btn-waring{ background: #ff9900; }
+.aui-btn-waring.aui-btn-disabled{ background: #fcbd71; }
+.aui-btn-linear{background: none; color: #0062CC; border: 1px solid #0062CC;}
+.aui-btn-linear.aui-btn-disabled{background: none; color: #aaa; border: 1px solid #aaa;}
+.aui-btn-medium{width: 50%;}
+.aui-btn-small{width: auto; height: auto; line-height: initial; padding: 3px 10px;}
+
 
 /* 横向分割线 */
 .row-before{position: relative;}
