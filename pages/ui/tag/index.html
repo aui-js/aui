@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.css"/>
-		<title>Button按钮</title>
+		<title>Tag标签</title>
 		<style>
 			.aui-content{padding: 15px 0; text-align: center;}
 		</style>
@@ -13,25 +13,10 @@
 	    <div class="container" id="app">
 			<header class="aui-header">
 				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
-				<div class="aui-header-title">Button按钮</div>
+				<div class="aui-header-title">Tag标签</div>
 			</header>
 	    	<div class="aui-content" v-cloak>				
-				<button class="aui-btn">页面主操作Normal</button>
-				<button class="aui-btn aui-btn-load">页面主操作Loading</button>
-				<button class="aui-btn aui-btn-disabled">页面主操作Disabled</button>
-				<button class="aui-btn aui-btn-round">页面主操作Normal</button>
-				<button class="aui-btn aui-btn-success">Success类操作Normal</button>
-				<button class="aui-btn aui-btn-success aui-btn-disabled">Success类操作Disabled</button>
-				<button class="aui-btn aui-btn-error">Error类操作Normal</button>
-				<button class="aui-btn aui-btn-error aui-btn-disabled">Error类操作Disabled</button>
-				<button class="aui-btn aui-btn-waring">警告类操作Normal</button>
-				<button class="aui-btn aui-btn-waring aui-btn-disabled">警告类操作Disabled</button>
-				<button class="aui-btn aui-btn-linear">线性按钮</button>
-				<button class="aui-btn aui-btn-linear aui-btn-disabled">不可点击按钮</button>
-				<button class="aui-btn aui-btn-linear aui-btn-medium">线性按钮</button>
-				<button class="aui-btn aui-btn-linear aui-btn-disabled aui-btn-medium">不可点击按钮</button>
-				</br><button class="aui-btn aui-btn-linear aui-btn-small">按钮</button>
-				<button class="aui-btn aui-btn-linear aui-btn-disabled aui-btn-small">按钮</button>
+				
 	    	</div>
 	    </div>
 		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
@@ -53,7 +38,6 @@
 	   				},
 	   				mounted: function() {
 	   					var _this = this;	
-						aui.showload({warp: ".aui-btn.aui-btn-load", type: 2, msg: "页面主操作Loading",});
 						
 	   	            },
 	   	            updated: function () {
