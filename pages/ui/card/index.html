@@ -1,9 +1,118 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.css"/>
+		<title>Card卡片</title>
+		<style>
+			.aui-content{padding: 0;}
+			.content-top{width: 100%; line-height: 25px; padding: 20px 15px; box-sizing: border-box; font-size: 14px; color: #aaa;}
+			.aui-card{margin-bottom: 10px;}
+			
+			.aui-card-main p{line-height: 25px; font-size: 13px; color: #333;}
+		</style>
 	</head>
-	<body>
+	<body>		
+	    <div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">Card卡片</div>
+			</header>
+	    	<div class="aui-content" v-cloak>
+				<div class="content-top">
+					Card卡片组件通常用来显示完整独立的一段信息，例如一篇文章的预览图、作者信息、时间等。卡片通常是更复杂信息的入口点。
+				</div>
+				<div class="aui-card">
+					<div class="aui-card-title"><span class="aui-card-title-line"></span>基础卡片</div>
+					<div class="aui-card-main">
+						
+						<!-- 卡片实例 -->
+						<!-- 1、 -->
+						<div class="aui-card" shandown>
+							<div class="aui-card-main">
+								<p>这是一个基础卡片示例，内容比较少，内容样式可自定义。</p>
+							</div>
+						</div>
+						<!-- 2、 -->
+						<div class="aui-card" shandown>
+							<div class="aui-card-title">标题文字<div class="aui-card-title-right aui-text-gray">额外信息</div></div>
+							<div class="aui-card-main">
+								<p>这个一个基础卡片示例，内容比较多，内容样式可自定义，卡片识图通常用来显示完整独立的一段信息，比如一篇文章的预览图、作者信息、时间等。</p>
+							</div>
+						</div>
+						<!-- 3、 -->
+						<div class="aui-card" shandown>
+							<div class="aui-card-title">标题文字<div class="aui-card-title-right aui-text-gray">额外信息</div></div>
+							<div class="aui-card-main">
+								<p>这个一个基础卡片示例，底部带提示信息，具体样式可自定义。</p>
+							</div>
+							<div class="aui-card-down row-before">
+								<p class="aui-card-down-tip">Tips</p>
+							</div>
+						</div>
+						<!-- 4、 -->
+						<div class="aui-card" shandown>
+							<div class="aui-card-title">
+								标题文字
+								<div class="aui-card-title-right aui-text-gray">额外信息<i class="iconfont aui-btn-right iconright1"></i></div>
+							</div>
+							<div class="aui-card-main">
+								<p>这个一个基础卡片示例，内容比较多，内容样式可自定义，卡片识图通常用来显示完整独立的一段信息，比如一篇文章的预览图、作者信息、时间等。</p>
+							</div>
+							<div class="aui-card-down row-before" style="padding: 0;">
+								<div class="aui-list" style="background: none;">
+									<div class="aui-list-left"><img src="../../../static/img/success-green.png" alt="">设备</div>
+									<div class="aui-list-right" @click.stop="aui.closeWin()"><span style="color: #aaa;">查看更多</span><i class="iconfont aui-btn-right iconright1"></i></div>
+								</div>
+							</div>
+						</div>
+						
+						
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-title"></div>
+				</div>
+				
+				
+	    	</div>
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			var vm = new Vue({
+	   				el: "#app",
+	   				data: {	
+						lists: [],	   					
+	   				},
+	   				created: function(){
+	   					var _this = this;
+	   				},
+	   				mounted: function() {
+	   					var _this = this;	
+						var lists = document.querySelectorAll(".aui-card[shandown]");
+						for(var i = 0; i < lists.length; i++){
+							aui.touchDom(lists[i], "#EFEFEF");
+						}
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {
+						
+	   	            }
+	   			});
+	   		}
+	   	</script>
 	</body>
 </html>
