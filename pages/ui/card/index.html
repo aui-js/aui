@@ -3,13 +3,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
 		<title>Card卡片</title>
 		<style>
 			.aui-content{padding: 0;}
 			.content-top{width: 100%; line-height: 25px; padding: 20px 15px; box-sizing: border-box; font-size: 14px; color: #aaa;}
 			.aui-card{margin-bottom: 10px;}
-			
 			.aui-card-main p{line-height: 25px; font-size: 13px; color: #333;}
 		</style>
 	</head>
@@ -29,20 +28,20 @@
 						
 						<!-- 卡片实例 -->
 						<!-- 1、 -->
-						<div class="aui-card" shandown>
+						<div class="aui-card" shandow radius>
 							<div class="aui-card-main">
 								<p>这是一个基础卡片示例，内容比较少，内容样式可自定义。</p>
 							</div>
 						</div>
 						<!-- 2、 -->
-						<div class="aui-card" shandown>
+						<div class="aui-card" shandow radius>
 							<div class="aui-card-title">标题文字<div class="aui-card-title-right aui-text-gray">额外信息</div></div>
 							<div class="aui-card-main">
 								<p>这个一个基础卡片示例，内容比较多，内容样式可自定义，卡片识图通常用来显示完整独立的一段信息，比如一篇文章的预览图、作者信息、时间等。</p>
 							</div>
 						</div>
 						<!-- 3、 -->
-						<div class="aui-card" shandown>
+						<div class="aui-card" shandow radius>
 							<div class="aui-card-title">标题文字<div class="aui-card-title-right aui-text-gray">额外信息</div></div>
 							<div class="aui-card-main">
 								<p>这个一个基础卡片示例，底部带提示信息，具体样式可自定义。</p>
@@ -52,7 +51,7 @@
 							</div>
 						</div>
 						<!-- 4、 -->
-						<div class="aui-card" shandown>
+						<div class="aui-card" shandow radius>
 							<div class="aui-card-title">
 								标题文字
 								<div class="aui-card-title-right aui-text-gray">额外信息<i class="iconfont aui-btn-right iconright1"></i></div>
@@ -74,6 +73,21 @@
 				<div class="aui-card">
 					<div class="aui-card-title"><span class="aui-card-title-line"></span>图文卡片</div>
 					<div class="aui-card-main">
+						
+						<div class="aui-card aui-card-image" shandow radius>
+							<div class="aui-card-main">
+								<div class="img">
+									<img src="../../../static/img/image/logo.png" alt="">
+									<div class="img-mask">aui框架</div>
+								</div>
+								<div class="desc">aui 是一套基于原生javascript开发的移动端UI组件库，包含常用js方法、字符校验、dialog提示弹窗、数字键盘、侧滑菜单、时间选择器、多级联动、聊天UI、项目常用模板…</div>
+							</div>
+							<div class="aui-card-down row-before">
+								<div class="aui-btn"><i class="iconfont iconsend"></i>转发</div>
+								<div class="aui-btn"><i class="iconfont iconmessage"></i>评论</div>
+								<div class="aui-btn"><i class="iconfont iconpraise"></i>赞</div>
+							</div>
+						</div>
 						
 					</div>
 				</div>
@@ -100,7 +114,7 @@
 	   				},
 	   				mounted: function() {
 	   					var _this = this;	
-						var lists = document.querySelectorAll(".aui-card[shandown]");
+						var lists = document.querySelectorAll(".aui-card[shandow]");
 						for(var i = 0; i < lists.length; i++){
 							aui.touchDom(lists[i], "#EFEFEF");
 						}
