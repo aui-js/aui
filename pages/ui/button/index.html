@@ -54,7 +54,10 @@
 	   				mounted: function() {
 	   					var _this = this;	
 						aui.showload({warp: ".aui-btn.aui-btn-load", type: 2, msg: "页面主操作Loading",});
-						
+						var btns = document.querySelectorAll(".aui-btn");
+						for(var i = 0; i < btns.length; i++){
+							aui.touchDom(btns[i], "#FFF", "#aaa", "1px solid #aaa");					
+						}
 	   	            },
 	   	            updated: function () {
 	   	                var _this = this;

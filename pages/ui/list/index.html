@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<title>List列表</title>
+		<style>
+			.aui-content{padding: 0;}
+			.content-top{width: 100%; line-height: 25px; padding: 20px 15px; box-sizing: border-box; font-size: 14px; color: #aaa;}
+		</style>
+	</head>
+	<body>		
+	    <div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">List列表</div>
+			</header>
+	    	<div class="aui-content" v-cloak>
+				<div class="content-top">
+					List组件可以在其中使用icon图标、img缩略图或放置你想放的元素，使用场景如：导航菜单、列表、设置中心排版等。
+				</div>
+				<div class="aui-card">
+					<div class="aui-card-title"><span class="aui-card-title-line"></span>基础用法</div>
+					<div class="aui-card-main" style="padding: 0;">
+						<div class="aui-lists">
+							<div class="aui-list">
+								<div class="aui-list-left">列表文字</div>
+							</div>
+							<div class="aui-list">
+								<div class="aui-list-left">列表文字</div>
+								<div class="aui-list-left-desc">描述文字</div>
+							</div>
+							<div class="aui-list" disabled="disabled">
+								<div class="aui-list-left">列表文字</div>
+							</div>
+						</div>
+					</div>
+				</ul>
+				<div class="aui-card">
+					<div class="aui-card-title"><span class="aui-card-title-line"></span>菜单列表</div>
+					<div class="aui-card-main" style="padding: 0;">
+						<div class="aui-lists">
+							<div class="aui-list">
+								<div class="aui-list-left">列表右侧带箭头</div>
+								<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+							</div>
+							<div class="aui-list">
+								<div class="aui-list-left">
+									<img src="../../../static/img/index-2.png" alt="">
+									列表左侧带缩略图
+								</div>
+								<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+							</div>
+							<div class="aui-list">
+								<div class="aui-list-left">
+									<i class="iconfont aui-btn-right iconbadge" style="color: #fec002; font-size: 20px;"></i>
+									列表左侧带icon图标
+								</div>
+								<div class="aui-list-right"><i class="iconfont aui-btn-right iconright1"></i></div>
+							</div>
+						</div>
+					</div>
+				</ul>
+	    	</div>
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			var vm = new Vue({
+	   				el: "#app",
+	   				data: {	
+						lists: [],	   					
+	   				},
+	   				created: function(){
+	   					var _this = this;
+	   				},
+	   				mounted: function() {
+	   					var _this = this;	
+						var lists = document.querySelectorAll(".aui-list");
+						for(var i = 0; i < lists.length; i++){
+							aui.touchDom(lists[i], "#EFEFEF");
+						}
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {
+						
+	   	            }
+	   			});
+	   		}
+	   	</script>
+	</body>
+</html>

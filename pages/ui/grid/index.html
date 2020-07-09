@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<title>Grid九宫格</title>
+		<style>
+			.aui-content{padding: 0;}
+			.content-top{width: 100%; line-height: 25px; padding: 20px 15px; box-sizing: border-box; font-size: 14px; color: #aaa;}
+		</style>
+	</head>
+	<body>		
+	    <div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">Grid九宫格</div>
+			</header>
+	    	<div class="aui-content" v-cloak>
+				<div class="content-top">
+					Grid九宫格组件主要使用场景如：商品分类列表、商品推荐列表、热门内容等。
+				</div>
+				<ul class="aui-card">
+					<div class="aui-card-title"><span class="aui-card-title-line"></span>3列</div>
+					<li class="aui-card-main" style="padding: 0;">
+						<!-- 九宫格组件 -->
+						<div class="aui-grids">
+							<div class="aui-grid" col="3">
+								<div class="aui-grid-icon"><i class="iconfont iconindexlist" style="color: #05c091;"></i></div>
+								<div class="aui-grid-text">Index索引列表</div>
+							</div>
+							<div class="aui-grid" col="3">
+								<div class="aui-grid-icon"><i class="iconfont iconnavbar" style="color: #fe2f24;"></i></div>
+								<div class="aui-grid-text">Navbar导航</div>
+							</div>
+							<div class="aui-grid" col="3">
+								<div class="aui-grid-icon"><i class="iconfont iconnumberbox" style="font-size: 25px; color: #db639b;"></i></div>
+								<div class="aui-grid-text">Number输入框</div>
+							</div>
+							<div class="aui-grid" col="3">
+								<div class="aui-grid-icon"><i class="iconfont iconnotice" style="font-size: 25px; color: #fe6503;"></i></div>
+								<div class="aui-grid-text">Notice通告栏</div>
+							</div>
+							<div class="aui-grid" col="3">
+								<div class="aui-grid-icon"><i class="iconfont iconsearch" style="font-size: 22px; color: #197DE0;"></i></div>
+								<div class="aui-grid-text">Searchbar搜索</div>
+							</div>
+							<div class="aui-grid" col="3">
+								<div class="aui-grid-icon"><i class="iconfont iconxing" style="font-size: 22px; color: #fec002;"></i></div>
+								<div class="aui-grid-text">Fav收藏按钮</div>
+							</div>
+							<div class="aui-grid" col="3">
+								<div class="aui-grid-icon"><i class="iconfont iconclock" style="color: #EE0000;"></i></div>
+								<div class="aui-grid-text">Countdown倒计时</div>
+							</div>
+							<div class="aui-grid" col="3">
+								<div class="aui-grid-icon"><i class="iconfont iconheadlines" style="color: #add51d;"></i></div>
+								<div class="aui-grid-text">Card卡片</div>
+							</div>
+							<div class="aui-grid" col="3">
+								<div class="aui-grid-icon"><i class="iconfont iconzhedie" style="color: #05c091;"></i></div>
+								<div class="aui-grid-text">Collapse折叠面板</div>
+							</div>					
+						</div>
+					</li>
+				</ul>
+				<ul class="aui-card">
+					<div class="aui-card-title"><span class="aui-card-title-line"></span>4列</div>
+					<li class="aui-card-main" style="padding: 0;">
+						<!-- 九宫格组件 -->
+						<div class="aui-grids">
+							<div class="aui-grid" col="4">
+								<div class="aui-grid-icon"><i class="iconfont iconindexlist" style="color: #05c091;"></i></div>
+								<div class="aui-grid-text">Index索引列表</div>
+							</div>
+							<div class="aui-grid" col="4">
+								<div class="aui-grid-icon"><i class="iconfont iconnavbar" style="color: #fe2f24;"></i></div>
+								<div class="aui-grid-text">Navbar导航</div>
+							</div>
+							<div class="aui-grid" col="4">
+								<div class="aui-grid-icon"><i class="iconfont iconnumberbox" style="font-size: 25px; color: #db639b;"></i></div>
+								<div class="aui-grid-text">Number输入框</div>
+							</div>
+							<div class="aui-grid" col="4">
+								<div class="aui-grid-icon"><i class="iconfont iconnotice" style="font-size: 25px; color: #fe6503;"></i></div>
+								<div class="aui-grid-text">Notice通告栏</div>
+							</div>
+							<div class="aui-grid" col="4">
+								<div class="aui-grid-icon"><i class="iconfont iconsearch" style="font-size: 22px; color: #197DE0;"></i></div>
+								<div class="aui-grid-text">Searchbar搜索</div>
+							</div>
+							<div class="aui-grid" col="4">
+								<div class="aui-grid-icon"><i class="iconfont iconxing" style="font-size: 22px; color: #fec002;"></i></div>
+								<div class="aui-grid-text">Fav收藏按钮</div>
+							</div>
+							<div class="aui-grid" col="4">
+								<div class="aui-grid-icon"><i class="iconfont iconclock" style="color: #EE0000;"></i></div>
+								<div class="aui-grid-text">Countdown倒计时</div>
+							</div>
+							<div class="aui-grid" col="4">
+								<div class="aui-grid-icon"><i class="iconfont iconheadlines" style="color: #add51d;"></i></div>
+								<div class="aui-grid-text">Card卡片</div>
+							</div>				
+						</div>
+					</li>
+				</ul>
+	    	</div>
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			var vm = new Vue({
+	   				el: "#app",
+	   				data: {	
+						lists: [],	   					
+	   				},
+	   				created: function(){
+	   					var _this = this;
+	   				},
+	   				mounted: function() {
+	   					var _this = this;	
+						var lists = document.querySelectorAll(".aui-grid");
+						for(var i = 0; i < lists.length; i++){
+							aui.touchDom(lists[i], "#EFEFEF");
+						}	
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {
+						
+	   	            }
+	   			});
+	   		}
+	   	</script>
+	</body>
+</html>
