@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
 		<title>Steps步骤条</title>
 		<style>
 			.aui-content{padding: 0;}
@@ -80,6 +80,28 @@
 						</div>
 					</li>
 				</ul>
+				<ul class="aui-card">
+					<div class="aui-card-title"><span class="aui-card-title-line"></span>物流信息</div>
+					<li class="aui-card-main">
+						<!-- dot -->
+						<div class="aui-steps aui-steps-col aui-steps-dot" style="width: 100%; margin-top: 20px;">
+							<div class="aui-steps-item" 
+								v-for="(item, index) in logistics" 
+								:class="[item.active ? 'aui-steps-item-active' : '']" 
+							>
+								<div class="aui-steps-item-left">
+									<span class="aui-steps-item-icon" v-if="item.icon"><i class="iconfont" :class="item.icon"></i></span>
+									<span class="aui-steps-item-dot" v-else></span>
+								</div>
+								<div class="aui-steps-item-right">
+									<p class="aui-steps-item-title" v-if="item.title">{{item.title}}</p>
+									<p class="aui-steps-item-desc" v-if="item.desc">{{item.desc}}</p>
+									<p class="aui-steps-item-desc" v-if="item.time">{{item.time}}</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
 	    	</div>
 	    </div>
 		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
@@ -100,17 +122,23 @@
 							{title: '运输', desc: '2020-07-15'},
 							{title: '签收', desc: '2020-07-15'}
 						],
-						active: 2
+						active: 2,
+						logistics: [
+							{title: '', icon: 'iconaddress2', desc: '收货地址：陕西省西安市高新四路世纪颐园', active: false},
+							{title: '已揽收', icon: 'iconaddressbook', desc: '[釜山市][佛山转运公司]已打包', time: '2020-07-15 05：22:19', active: true},
+							{title: '', desc: '[佛山市][广东省佛山市顺德区凤城公司]已收件。取件人：刘国英(13300000000)', time: '2020-07-14 18:28:01', active: false},
+							{title: '仓库处理中', icon: 'iconshouye', desc: '温馨提示：您的订单预计7月16日24:00前送达，请您做好收货安排', time: '2020-07-14 18:28:01', active: false},
+							{title: '', desc: '您的订单由第三方卖家拣货完成，待出库交付圆通快递', time: '2020-07-14 17:31:27', active: false},
+							{title: '', desc: '第三方卖家已经开始拣货', time: '2020-07-14 17:25:55', active: false},
+							{title: '', desc: '您的订单已进入第三方卖家仓库，准备出库', time: '2020-07-14 17:09:21', active: false},
+							{title: '已下单', icon: 'iconactivity', desc: '您提交了订单，请等待第三方卖家系统确认', time: '2020-07-14 17:08:57', active: false}
+						]
 	   				},
 	   				created: function(){
 	   					var _this = this;
 	   				},
 	   				mounted: function() {
 	   					var _this = this;	
-						var lists = document.querySelectorAll(".aui-grid");
-						for(var i = 0; i < lists.length; i++){
-							aui.touchDom(lists[i], "#EFEFEF");
-						}	
 	   	            },
 	   	            updated: function () {
 	   	                var _this = this;
