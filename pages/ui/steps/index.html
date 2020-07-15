@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.css"/>
+		<title>Steps步骤条</title>
+		<style>
+			.aui-content{padding: 0;}
+			.content-top{width: 100%; line-height: 25px; padding: 20px 15px; box-sizing: border-box; font-size: 14px; color: #aaa;}
+		</style>
+	</head>
+	<body>		
+	    <div class="container" id="app">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">Steps步骤条</div>
+			</header>
+	    	<div class="aui-content" v-cloak>
+				<div class="content-top">
+					Steps步骤条组件主要使用场景如：用户注册、物流信息页等。
+				</div>
+				<ul class="aui-card">
+					<div class="aui-card-title"><span class="aui-card-title-line"></span>横向排列</div>
+					<li class="aui-card-main">
+						<!-- dot -->
+						<div class="aui-steps aui-steps-row aui-steps-dot" style="margin-top: 10px;">
+							<div class="aui-steps-item" 
+								v-for="(item, index) in lists" 
+								:class="['aui-col-xs-'+lists.length, active >= index + 1 ? 'aui-steps-item-active' : '']" 
+							>
+								<span class="aui-steps-item-dot"></span>
+								<p class="aui-steps-item-title">{{item.title}}</p>
+							</div>
+						</div>
+						<!-- number -->
+						<div class="aui-steps aui-steps-row aui-steps-number" style="margin-top: 20px;">
+							<div class="aui-steps-item" 
+								v-for="(item, index) in lists" 
+								:class="['aui-col-xs-'+lists.length, active >= index + 1 ? 'aui-steps-item-active' : '']" 
+							>
+								<span class="aui-steps-item-number">{{index+1}}</span>
+								<p class="aui-steps-item-title">{{item.title}}</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="aui-card">
+					<div class="aui-card-title"><span class="aui-card-title-line"></span>纵向排列</div>
+					<li class="aui-card-main">
+						<!-- dot -->
+						<div class="aui-steps aui-steps-col aui-steps-dot" style="width: 49%; margin-top: 20px;">
+							<div class="aui-steps-item" 
+								v-for="(item, index) in lists" 
+								:class="[active >= index + 1 ? 'aui-steps-item-active' : '']" 
+							>
+								<div class="aui-steps-item-left">
+									<span class="aui-steps-item-dot"></span>
+								</div>
+								<div class="aui-steps-item-right">
+									<p class="aui-steps-item-title">{{item.title}}</p>
+									<p class="aui-steps-item-desc">{{item.desc}}</p>
+								</div>
+							</div>
+						</div>
+						<!-- number -->
+						<div class="aui-steps aui-steps-col aui-steps-number" style="width: 49%; margin-top: 20px;">
+							<div class="aui-steps-item" 
+								v-for="(item, index) in lists" 
+								:class="[active >= index + 1 ? 'aui-steps-item-active' : '']" 
+							>
+								<div class="aui-steps-item-left">
+									<span class="aui-steps-item-number">{{index+1}}</span>
+								</div>
+								<div class="aui-steps-item-right">
+									<p class="aui-steps-item-title">{{item.title}}</p>
+									<p class="aui-steps-item-desc">{{item.desc}}</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+	    	</div>
+	    </div>
+		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+	    <script type="text/javascript" src="../../../lib/vue.min.js"></script>
+	    <script type="text/javascript" src="../../../lib/jquery/jquery-2.1.3.min.js"></script>
+	    <script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+	   	<script type="text/javascript">
+	   		window.onload = function(){				
+	   			apiready();
+	   		}
+	   		apiready = function() {
+	   			var vm = new Vue({
+	   				el: "#app",
+	   				data: {	
+						lists: [
+							{title: '下单', desc: '2020-07-15'},
+							{title: '出库', desc: '2020-07-15'},
+							{title: '运输', desc: '2020-07-15'},
+							{title: '签收', desc: '2020-07-15'}
+						],
+						active: 2
+	   				},
+	   				created: function(){
+	   					var _this = this;
+	   				},
+	   				mounted: function() {
+	   					var _this = this;	
+						var lists = document.querySelectorAll(".aui-grid");
+						for(var i = 0; i < lists.length; i++){
+							aui.touchDom(lists[i], "#EFEFEF");
+						}	
+	   	            },
+	   	            updated: function () {
+	   	                var _this = this;
+	   	                _this.$nextTick(function () {
+	   		
+	   	                })
+	   	            },
+	   	            methods: {
+						
+	   	            }
+	   			});
+	   		}
+	   	</script>
+	</body>
+</html>
