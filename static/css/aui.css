@@ -388,10 +388,10 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
 .aui-card.aui-card-shandow{box-shadow: 0 0 1px rgba(100,100,100,.5);}
 .aui-card.aui-card-disabled{pointer-events: none; cursor: default;}
 .aui-card.aui-card-disabled *{opacity: .6;}
-.aui-card.aui-card-radius{border-radius: 10px;}
-.aui-card.aui-card-radius .aui-card-title{border-radius: 10px 10px 0 0;}
-.aui-card.aui-card-radius .aui-card-main,
-.aui-card.aui-card-radius .aui-card-down{border-radius: 0 0 10px 10px;}
+.aui-card.aui-card-round{border-radius: 10px;}
+.aui-card.aui-card-round .aui-card-title{border-radius: 10px 10px 0 0;}
+.aui-card.aui-card-round .aui-card-main,
+.aui-card.aui-card-round .aui-card-down{border-radius: 0 0 10px 10px;}
 .aui-card-image .aui-card-main{padding: 0;}
 .aui-card-title{
 	width: 100%;
@@ -486,6 +486,7 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
 	color: #FFF;
 	font-size: 14px;
 	padding: 7px 15px;
+	box-sizing: border-box;
 	display: inline-block;
 	border-radius: 3px;
 	margin: 5px;
@@ -505,7 +506,7 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
 /* 圆角样式 */
 .aui-tag.aui-tag-round{border-radius: 40px;}
 /* 小标签 */
-.aui-tag.aui-tag-small{padding: 3px 7px; font-size: 12px;}
+.aui-tag.aui-tag-small{height: auto; display: inline; padding: 3px 7px; font-size: 12px;}
 
 /* Badge数字角标 */
 .aui-badge{
