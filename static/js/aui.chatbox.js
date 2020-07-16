@@ -647,6 +647,17 @@
 							document.querySelectorAll('.aui-emotion-pagination')[0].classList.add('mui-active');						
 						}
 					}
+					//表情删除
+					_this.ui['emotion_delete'] = document.querySelectorAll('.aui-emotion-page-delete');
+					for(var i = 0; i < _this.ui.emotion_delete.length; i++)
+					{
+						_this.ui.emotion_delete[i].onclick = function(){
+							var length = this.dataset.text.length;
+							var _arr = _this.ui.center_textarea.value.split('[');
+							length = _arr[_arr.length - 1].length + 1;
+							_this.ui.center_textarea.value = _this.ui.center_textarea.value.substring(0, _this.ui.center_textarea.value.length - length);
+						}
+					}
 					_this.ui['emotion_item'] = document.querySelectorAll('.aui-emotion-item');
 					if(btns.length > 1)
 					{
@@ -682,6 +693,10 @@
 							emotion_item[index].onclick = function(){
 								//console.log(this.dataset.name);
 								center_textarea.value = center_textarea.value + this.dataset.text;
+								for(var i = 0; i < emotion_delete.length; i++)
+								{
+									emotion_delete[i].setAttribute('data-text', this.dataset.text);
+								}
 								if(center_textarea.scrollHeight > _this.data.textareaMinHeight)
 								{
 									if(center_textarea.scrollHeight > _this.data.textareaMaxHeight)

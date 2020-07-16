@@ -302,6 +302,11 @@
 	position: relative;
 	vertical-align: top;	
 }
+.aui-emotion-page-delete{
+	position: absolute;
+	bottom: 45px;
+	right: 10px;
+}
 .aui-emotion-item-img{
 	width: 100%;
 	height: 100%;
