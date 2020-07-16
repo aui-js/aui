@@ -867,6 +867,7 @@
 				right_submit_btn.addEventListener('release', function(event) {
 					_this.msgTextFocus(event);
 					event.preventDefault();
+					center_textarea.style.height = _this.data.textareaMinHeight + 'px';
 					var result = {
 						status: 0,
 						msg: '操作成功',
