@@ -111,6 +111,7 @@
 				_this.data.events.indexOf('showEmotion') < 0 && _this.data.emotion.use ? _this.showEmotion() : ''; //点击右侧表情按钮显示表情选择区域
 				_this.data.events.indexOf('hideEmotion') < 0 && _this.data.emotion.use ? _this.hideEmotion() : ''; //点击右侧表情按钮隐藏表情选择区域
 				_this.createEmotion();
+				_this.data.events.indexOf('chooseEmotionItem') < 0 && _this.data.extras.use ? _this.chooseEmotionItem() : ''; //点击选择附加功能
 				//———————— 附加功能 ————————
 				_this.data.events.indexOf('showExtras') < 0 && _this.data.extras.use ? _this.showExtras() : ''; //点击右侧附加功能按钮显示附加功能选择区域
 				_this.data.events.indexOf('hideExtras') < 0 && _this.data.extras.use && _this.ui.extras_container ? _this.hideExtras() : ''; //隐藏附加功能选择区域
@@ -631,7 +632,7 @@
 						_html = '';
 						for(var j = 0; j < btns[i].length; j++)
 						{
-							_html +=  '<div class="aui-emotion-item" pindex="'+ i +'" index="'+ (i * _this.data.emotion.pageHasNum + j) +'">'
+							_html +=  '<div class="aui-emotion-item" pindex="'+ i +'" index="'+ (i * _this.data.emotion.pageHasNum + j) +'" data-name="'+btns[i][j].name+'" data-text="'+btns[i][j].text+'">'
 								+'<div class="aui-emotion-item-img"><img src="'+ _this.data.emotion.path + btns[i][j].name +'.png"></div>'
 							+'</div>'
 						}
@@ -645,10 +646,6 @@
 						}
 					}
 					_this.ui['emotion_item'] = document.querySelectorAll('.aui-emotion-item');
-					for(var i = 0, len = ret.length; i < len; i ++)
-					{
-						aui.touchDom(_this.ui.emotion_item[i].querySelector('.aui-emotion-item-img'), "#CDCDCD");
-					}
 					if(btns.length > 1)
 					{
 						var slider = _this.ui.emotion_main;
@@ -669,13 +666,42 @@
 				resolve();
 			});
 		},
+		//点击选择表情
+		chooseEmotionItem(callback){
+			var _this = this;
+			_this.ui['emotion_item'] = document.querySelectorAll('.aui-emotion-item');
+			var _timer = setTimeout(function(){
+				clearTimeout(_timer);
+				with (_this.ui){
+					for(var i = 0; i < emotion_item.length; i++)
+					{
+						aui.touchDom(emotion_item[i].querySelector('.aui-emotion-item-img'), "#CDCDCD")				
+						!(function(index){
+							emotion_item[index].onclick = function(){
+								//console.log(this.dataset.name);
+								var result = {
+									status: 0, 
+									msg: '表情选择', 
+									data: {
+										index: index,
+										name: this.dataset.name,
+										text: this.dataset.text
+									}
+								};								
+								typeof callback == 'function' ? callback(result) : '';							
+							};						
+						})(i);						
+					}
+				}
+			},300);
+		},
 		//点击右侧附加功能按钮显示附加功能选择区域
 		showExtras(callback){
 			var _this = this;
 			with (_this.ui){
 				right_extras_btn.addEventListener('click', function(){
 					_this.resetChatBox(); //重置聊天输入框区域
-						console.log(_this.data.extras.show);
+					//console.log(_this.data.extras.show);
 					if(_this.data.extras.use && !_this.data.extras.show)
 					{						
 						_this.data.extras.show = true;
@@ -791,7 +817,7 @@
 								_this.hideExtras(); //隐藏附加功能选择区域
 								var result = {
 									status: 0, 
-									msg: '操作成功', 
+									msg: '附加功能选择', 
 									data: {
 										index: index,
 										title: _this.data.extras.btns[index].title,
@@ -857,6 +883,9 @@
 						break;
 					case 'hideEmotion': //点击右侧表情按钮隐藏表情选择区域
 						_this.hideEmotion(callback);
+						break;
+					case 'chooseEmotionItem': //点击选择表情
+						_this.chooseEmotionItem(callback);
 						break;
 					case 'showExtras': //点击右侧附加功能按钮显示附加功能选择区域
 						_this.showExtras(callback);
