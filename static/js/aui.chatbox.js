@@ -15,6 +15,8 @@
 				touchClose: true, //--可选参数，触摸遮罩是否关闭模态弹窗，默认true-关闭，false-不可关闭
 				autoFocus: false, //--可选参数,是否自动获取焦点, 默认false	
 				events: [], //--可选参数, 配置监听事件(录音，选择附加功能...等事件监听)
+				textareaMinHeight: 40, //输入框最小高度
+				textareaMaxHeight: 100, //输入框最大高度
 				record: { //录音功能配置
 					use: true, //是否开启录音功能
 					MIN_SOUND_TIME: 800, //录音最短时间限制
@@ -49,7 +51,7 @@
 							+'</div>'
 							+'<div class="aui-chatbox-center">'
 								+'<div class="aui-chatbox-center-box aui-chatbox-center-textarea-box active">'
-									+'<textarea class="aui-chatbox-textarea" onkeyup.13="scannerByUsb" placeholder="" value=""></textarea>'
+									+'<textarea class="aui-chatbox-textarea" placeholder="" value=""></textarea>'
 								+'</div>'
 								+'<div class="aui-chatbox-center-box aui-chatbox-record-start "><span>按住  说话</span></div>'								
 							+'</div>'
@@ -92,8 +94,8 @@
 			var _this = this;
 			_this['data'] = _this.opts(opt);			
 			_this.creat().then(function(){							
-				!$.isDefine(_this.data.mask) && _this.ui.mask ? _this.ui.mask.classList.remove("active") : _this.ui.mask.classList.add("active");			
-				$.autoTextarea(_this.ui.center_textarea, 300, 40); //跟随输入改变输入框高度
+				!$.isDefine(_this.data.mask) && _this.ui.mask ? _this.ui.mask.classList.remove("active") : _this.ui.mask.classList.add("active");
+				$.autoTextarea(_this.ui.center_textarea, _this.data.textareaMaxHeight, _this.data.textareaMinHeight); //跟随输入改变输入框高度
 				_this.data.autoFocus ? _this.msgTextFocus() : '';
 				typeof callback == 'function' ? callback() : '';
 				_this.data.events.indexOf('setStyle') < 0 ? _this.setStyle() : '';
@@ -679,6 +681,29 @@
 						!(function(index){
 							emotion_item[index].onclick = function(){
 								//console.log(this.dataset.name);
+								center_textarea.value = center_textarea.value + this.dataset.text;
+								if(center_textarea.scrollHeight > _this.data.textareaMinHeight)
+								{
+									if(center_textarea.scrollHeight > _this.data.textareaMaxHeight)
+									{
+										center_textarea.style.height = _this.data.textareaMaxHeight + 'px';
+									}
+									else{
+										center_textarea.style.height = center_textarea.scrollHeight + 'px';
+									}
+								}
+								center_textarea.scrollTop = center_textarea.scrollHeight;
+								// right_emotion_btn.classList.add('active');
+								if(_this.data.extras.use)
+								{ //使用——附加功能
+									if($.isDefine(center_textarea.value))
+									{
+										right_extras_btn.classList.remove('active');
+										right_submit_btn.classList.add('active');
+										right.style.cssText += 'width: 115px';
+										center.style.cssText += 'width: calc(100% - 115px - 50px);';							
+									}
+								}	
 								var result = {
 									status: 0, 
 									msg: '表情选择', 
@@ -809,25 +834,28 @@
 				with (_this.ui){
 					for(var i = 0; i <_this.data.extras.btns.length; i++)
 					{
-						$.isDefine(_this.data.extras.btns[i].img)
-						? aui.touchDom(extras_item[i].querySelector('.aui-extras-item-img'), "#CDCDCD")
-						: aui.touchDom(extras_item[i].querySelector('.aui-extras-item-icon'), "#CDCDCD");						
-						!(function(index){
-							extras_item[index].onclick = function(){
-								_this.hideExtras(); //隐藏附加功能选择区域
-								var result = {
-									status: 0, 
-									msg: '附加功能选择', 
-									data: {
-										index: index,
-										title: _this.data.extras.btns[index].title,
-										icon: _this.data.extras.btns[index].icon,
-										img: _this.data.extras.btns[index].img
-									}
-								};								
-								typeof callback == 'function' ? callback(result) : '';							
-							};						
-						})(i);						
+						if(_this.data.extras.use)
+						{
+							$.isDefine(_this.data.extras.btns[i].img)
+							? aui.touchDom(extras_item[i].querySelector('.aui-extras-item-img'), "#CDCDCD")
+							: aui.touchDom(extras_item[i].querySelector('.aui-extras-item-icon'), "#CDCDCD");						
+							!(function(index){
+								extras_item[index].onclick = function(){
+									_this.hideExtras(); //隐藏附加功能选择区域
+									var result = {
+										status: 0, 
+										msg: '附加功能选择', 
+										data: {
+											index: index,
+											title: _this.data.extras.btns[index].title,
+											icon: _this.data.extras.btns[index].icon,
+											img: _this.data.extras.btns[index].img
+										}
+									};								
+									typeof callback == 'function' ? callback(result) : '';							
+								};						
+							})(i);
+						}
 					}
 				}
 			},300);

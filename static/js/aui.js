@@ -249,6 +249,7 @@
 			        }
 			        style.height = height + 'px';
 		        }
+				this.scrollTop = this.scrollHeight;
 			}
 		},
 		//数组去重
