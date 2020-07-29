@@ -721,12 +721,12 @@ body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
 .aui-noticebar-main{
 	width: 100%;
 	line-height: 22px;
-	padding: 5px 15px;
+	padding: 10px 15px 8px 15px;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: start;
 	box-sizing: border-box;
-	font-size: 13px;
+	font-size: 14px;
 	background: #ecf5ff;
 	color: #007AFF;
 }
