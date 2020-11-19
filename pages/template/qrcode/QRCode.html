@@ -7,7 +7,7 @@
 		<title>生成二维码</title>
 		<style>
 			body{background: #FFF;}
-			.content{width: 100%; padding: 15px; box-sizing: border-box;}
+			.content{width: 100%; padding: 15px; box-sizing: border-box; text-align: center;}
 			.input-warp{width: 100%; font-size: 0; margin-top: 40px;}
 			#text{width: -webkit-calc(100% - 70px); width: calc(100% - 70px); height: 50px; background: #F4F4F4; border-radius: 10px 0 0 10px; display: inline-block; vertical-align: middle;}
 			#text:after{border-radius: 20px 0 0 20px;}
@@ -15,8 +15,8 @@
 			.aui-btn{width: 70px; height: 50px; margin: 0 0 0 0; text-align: center; background: var(--aui-blue); border-radius: 0px 10px 10px 0px; color: #FFF; display: inline-block; vertical-align: middle;}
 			.aui-btn span{display: inline-block; vertical-align: top;}
 			.aui-loading-main{border-radius: 0 10px 10px 0;}
-			.qrcode{width: 100%; height: -webkit-calc(100vw - 30px); height: calc(100vw - 30px); display: inline-block; position: relative;}
-			.qrcode img,.qrcode canvas{width: 70%; height: 70%; background: #F4F4F4; border-radius: 10px; position: absolute; top: 15%; left: 15%;}
+			.qrcode{width: 70vw; height: 70vw; margin-top: 50px; display: inline-block; background: #F4F4F4; border-radius: 10px; position: relative;}
+			.qrcode img,.qrcode canvas{width: 100%; height: 100%; border-radius: 10px;}
 		</style>
 	</head>
 	<body>		
@@ -33,7 +33,7 @@
 					<div class="aui-btn" @click.stop="submitFn()"><span>生成</span></div>
 				</div>	    		
 				<div class="qrcode">
-					<img class="qrcode-img" src="" alt="">
+					
 				</div>				
 	    	</div>
 	    </div>
@@ -73,6 +73,7 @@
 							var _this = this;																				
 							aui.showload({warp: '.aui-btn', type: 2, msg: ''}, function(){
 								aui.hideload();
+                                $(".qrcode").empty();
 								if(!aui.isDefine(_this.text)){aui.toast({msg: '请输入网址链接或其他文字内容'}); return;}
 								//生成二维码
 								_this.qrcode = new QRCode(document.querySelector(".qrcode"));
