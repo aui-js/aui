@@ -20,8 +20,10 @@
 				
 	    	</div>
 			<footer class="aui-footer row-before">
-				<div class="aui-footer-list active" index="0" @click.stop="changeTabbar($event)"><i class="iconfont iconjs"></i><p>API</p></div>
-				<div class="aui-footer-list" index="1" @click.stop="changeTabbar($event)"><i class="iconfont iconshilidaima"></i><p>DEMO</p></div>
+				<div class="aui-footer-list active" index="0" @click.stop="changeTabbar($event)"><i class="iconfont iconapi"></i><p>API</p></div>
+				<div class="aui-footer-list" index="1" @click.stop="changeTabbar($event)"><i class="iconfont iconui"></i><p>DEMO</p></div>
+            <div class="aui-footer-list" index="2" @click.stop="changeTabbar($event)"><i class="iconfont icontamplate"></i><p>DEMO</p></div>
+            <div class="aui-footer-list" index="3" @click.stop="changeTabbar($event)"><i class="iconfont icondoc"></i><p>DEMO</p></div>
 			</footer>
 	    </div>
 		<script type="text/javascript" charset="utf-8" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
@@ -52,13 +54,13 @@
 	   	                })
 	   	            },
 	   	            methods: {							   					
-						changeTabbar(e){
-							var _this = this,
-								el = e.currentTarget,
-								index = $(el).index();
-							$(".aui-footer .aui-footer-list").change().removeClass('active');
-							$(".aui-footer .aui-footer-list").eq(index).addClass('active');
-						},						
+                        changeTabbar(e){
+                           var _this = this,
+                              el = e.currentTarget,
+                              index = $(el).index();
+                           $(".aui-footer .aui-footer-list").change().removeClass('active');
+                           $(".aui-footer .aui-footer-list").eq(index).addClass('active');
+                        },						
 	   	            }
 	   			});
 	   		}
