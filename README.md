@@ -6,16 +6,23 @@
 
 ## 特点
 
-> 1、标准化，产品化</br>
-> 2、更多复用，更快效率</br>
-> 3、多人协作，更加统一</br>
-> 4、维护方便</br>
-> 5、易于使用</br>
-> 6、减少UI设计时间
+> <p style="color: #c7254e;">1、标准化，产品化</p>
+> <p style="color: #c7254e;">2、更多复用，更快效率</p>
+> <p style="color: #c7254e;">3、多人协作，更加统一</p>
+><p style="color: #c7254e;"> 4、维护方便</p>
+> <p style="color: #c7254e;">5、易于使用</p>
+> <p style="color: #c7254e;">6、减少UI设计时间</p>
 
-## 文档
-[查看文档](https://www.kancloud.cn/chen-wanchun/aui-js) </br>
+## 引用
 
+````html
+<link rel="stylesheet" type="text/css" href="https://aui-js.github.io/aui/static/css/aui.min.css"/>
+<script type="text/javascript" src="https://aui-js.github.io/aui/static/js/aui.min.js"></script>
+````
 
 ## 演示
-[查看演示](https://aui-js.github.io/aui/index.html) </br>
+[查看演示：https://aui-js.github.io/aui/index.html](https://aui-js.github.io/aui/index.html)
+
+## 代码
+Github仓库地址：[https://github.com/aui-js/aui](https://github.com/aui-js/aui) 
+Gitee码云仓库地址：[https://gitee.com/aui-js](https://gitee.com/aui-js)</br></br>
