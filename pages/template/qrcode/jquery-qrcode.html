@@ -33,7 +33,7 @@
 	    			<div class="aui-btn" @click.stop="submitFn()"><span>生成</span></div>
 	    		</div>	    		
 	    		<div class="qrcode">
-	    			<img class="qrcode-img" src="" alt="" style="display: none;">
+	    			
 	    		</div>
 	    	</div>
 	    </div>
@@ -74,6 +74,7 @@
 							var _this = this;																				
 							aui.showload({warp: '.aui-btn', type: 2, msg: ''}, function(){
 								aui.hideload();
+                        $('.qrcode').empty();
 								if(!aui.isDefine(_this.text)){aui.toast({msg: '请输入网址链接或其他文字内容'}); return;}
 								//生成二维码
 								var qrcode = $(".qrcode").qrcode({
@@ -86,9 +87,6 @@
 									src: '../../../static/img/image/logo.png' //二维码中间的图片
 								});								
 								var canvas = qrcode.find('canvas').get(0);
-								$('.qrcode-img').attr('src', canvas.toDataURL('image/png')).css({
-								    maxWidth:300
-								});
 							});
 						},
 	   	            }
