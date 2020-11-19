@@ -18,4 +18,4 @@
 
 
 ## 演示
-[查看演示](https://aui-js.gitee.io/aui/) </br>
+[查看演示](https://aui-js.github.io/aui/index.html) </br>
