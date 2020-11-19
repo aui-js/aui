@@ -24,5 +24,5 @@
 [查看演示：https://aui-js.github.io/aui/index.html](https://aui-js.github.io/aui/index.html)
 
 ## 代码
-Github仓库地址：[https://github.com/aui-js/aui](https://github.com/aui-js/aui) 
-Gitee码云仓库地址：[https://gitee.com/aui-js](https://gitee.com/aui-js)</br></br>
+[Github仓库地址：https://github.com/aui-js/aui](https://github.com/aui-js/aui)</br>
+[Gitee码云仓库地址：https://gitee.com/aui-js](https://gitee.com/aui-js)
