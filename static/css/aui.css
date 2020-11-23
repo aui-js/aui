@@ -28,7 +28,8 @@
 
 *{margin: 0; padding: 0; -webkit-touch-callout: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;}
 body{min-width: var(--aui-w);min-height: 100vh;background: #F4F4F4;}
-/*::-webkit-scrollbar {width: 1px !important;}*/
+body::-webkit-scrollbar, 
+.aui-content::-webkit-scrollbar{width: 1px !important;}
 
 
 [v-cloak]{display: none !important;}
