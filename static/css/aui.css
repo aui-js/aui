@@ -1959,7 +1959,7 @@ body::-webkit-scrollbar,
 @-ms-keyframes load-ring{
 	0%{transform: rotate(0deg);-webkit-transform: rotate(0deg);-ms-transform: rotate(0deg);}
 	25%{transform: rotate(90deg);-webkit-transform: rotate(90deg);-ms-transform: rotate(90deg);}
-	50%{transform: rotate(180deg);-webkit-transform: rotate(180deg)-ms-transform: rotate(180deg);}
+	50%{transform: rotate(180deg);-webkit-transform: rotate(180deg);-ms-transform: rotate(180deg);}
 	75%{transform: rotate(270deg);-webkit-transform: rotate(270deg);-ms-transform: rotate(270deg);}
 	100%{transform: rotate(360deg);-webkit-transform: rotate(360deg);-ms-transform: rotate(360deg);}
 }
@@ -2012,7 +2012,7 @@ body::-webkit-scrollbar,
 }
 
 @-ms-keyframes aui-loading-square-span2-translate{
-	0%{left: 100% -ms-transform: scale(1.1); -webkit-transform: scale(1.1); transform: scale(1.1);}
+	0%{left: 100%; -ms-transform: scale(1.1); -webkit-transform: scale(1.1); transform: scale(1.1);}
 	50%{left: -14px; -ms-transform: scale(1.1); -webkit-transform: scale(1.1); transform: scale(1.1);}
 	100%{left: 100%; -ms-transform: scale(1.1); -webkit-transform: scale(1.1); transform: scale(1.1);}
 }
@@ -2130,7 +2130,7 @@ body::-webkit-scrollbar,
 	0%{-ms-transform: translate(0, 0); -webkit-transform: translate(0, 0); transform: translate(0, 0);}
 	25%{-ms-transform: translate(0, -18px); -webkit-transform: translate(0, -18px); transform: translate(0, -18px);}
 	50%{-ms-transform: translate(-18px, -18px); -webkit-transform: translate(-18px, -18px); transform: translate(-18px, -18px);}
-	75%-ms-transform: translate(-18px, 0); -webkit-transform: translate(-18px, 0); transform: translate(-18px, 0);}
+	75%{-ms-transform: translate(-18px, 0); -webkit-transform: translate(-18px, 0); transform: translate(-18px, 0);}
 }
 @-webkit-keyframes aui-loading-square-span4-animate{
 	0%{-ms-transform: translate(0, 0); -webkit-transform: translate(0, 0); transform: translate(0, 0);}
