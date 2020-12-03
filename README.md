@@ -9,7 +9,7 @@
 > <p style="color: #c7254e;">1、标准化，产品化</p>
 > <p style="color: #c7254e;">2、更多复用，更快效率</p>
 > <p style="color: #c7254e;">3、多人协作，更加统一</p>
-><p style="color: #c7254e;"> 4、维护方便</p>
+> <p style="color: #c7254e;"> 4、维护方便</p>
 > <p style="color: #c7254e;">5、易于使用</p>
 > <p style="color: #c7254e;">6、减少UI设计时间</p>
 
