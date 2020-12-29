@@ -23,6 +23,9 @@
 ## 演示
 [查看演示：https://aui-js.github.io/aui/index.html](https://aui-js.github.io/aui/index.html)
 
+## 文档
+[在线文档地址：https://www.kancloud.cn/chen-wanchun/aui-js](https://www.kancloud.cn/chen-wanchun/aui-js)
+
 ## 代码
 [Github仓库地址：https://github.com/aui-js/aui](https://github.com/aui-js/aui)</br>
 [Gitee码云仓库地址：https://gitee.com/aui-js](https://gitee.com/aui-js)
