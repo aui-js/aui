@@ -1,0 +1,31 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/.idea/
+*.iml
+/.gradle/4.6/fileChanges/last-build.bin
+/.gradle/4.6/fileHashes/fileHashes.bin
+/.gradle/4.6/fileHashes/fileHashes.lock
+/.gradle/vcsWorkingDirs/gc.properties
+/.project
+/.settings/org.eclipse.buildship.core.prefs
+/html/debug.log
+/html/web.code-workspace
