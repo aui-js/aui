@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>雪花飘落</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/aui.min.css"/>
+		<script type="text/javascript" src="../../../static/js/aui.min.js"></script>
+		<style type="text/css">
+			.aui-content{
+				background: url('../../../static/img/image/bg.jpg') no-repeat;
+				background-size: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<header class="aui-header">
+				<a class="aui-header-left" onclick="aui.closeWin()"><i class="iconfont iconreturn"></i></a>
+				<div class="aui-header-title">雪花飘落</div>
+			</header>
+			<div class="aui-content">
+				
+			</div>
+		</div>
+	</body>
+	<script src="../../../static/js/aui.snow.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.addEventListener("load", function(){
+			aui.snows({
+				warp: '.aui-content',
+				el: '<i class="iconfont iconxuehua"></i>',
+				num: 100,
+				windowWidth: document.querySelector('.aui-content').offsetWidth,
+        		windowHeight: document.querySelector('.aui-content').offsetHeight
+			});
+		});
+	</script>
+</html>
